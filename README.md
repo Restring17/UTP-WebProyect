@@ -1,6 +1,6 @@
-# 🖥️ PeriStore — Tienda Web de Periféricos
+# 🖥️ Perify.co — Tienda Web de Periféricos
 
-Bienvenido a **PeriStore**, una tienda web moderna especializada en la venta de periféricos para PC. Este proyecto fue creado con el objetivo de ofrecer una experiencia de usuario fluida, un diseño oscuro elegante y una estructura profesional apta para escalar.
+Bienvenido a **Perify.co**, una tienda web moderna especializada en la venta de periféricos para PC. Este proyecto fue creado con el objetivo de ofrecer una experiencia de usuario fluida, un diseño oscuro elegante y una estructura profesional apta para escalar.
 
 ---
 
