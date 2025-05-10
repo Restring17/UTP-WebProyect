@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="../Vista/Homepage.css">
+</head>
+<body>
+    <header class="promo-header">
+        <div class="promo-text">
+            Regístrese y obtenga un 20% de descuento en su primer pedido. Regístrese ahora
+        </div>
+        <button class="close-button" aria-label="Cerrar promoción">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 5L5 15M5 5L15 15" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+    </header>
+
+    <script>
+        document.querySelector('.close-button').addEventListener('click', function() {
+            document.querySelector('.promo-header').classList.add('hidden');
+        });
+    </script>
+</body>
+</html>
