@@ -4,6 +4,16 @@ body {
     color: white; 
   }
   
+  @font-face {
+    font-family: 'Satoshi';
+    src: url('../fonts/Satoshi-Medium.otf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Integral';
+    src: url('../fonts/Fontspring-DEMO-integralcf-bold.otf') format('truetype');
+  }
+  
 .promo-header {
     width: 100%;
     height: 38px;
@@ -16,6 +26,7 @@ body {
 
 .promo-text {
     color: #FFFFFF;
+    font-family: 'Satoshi',sans-serif;
     font-size: 14px;
     text-align: center;
     padding: 0 20px;
@@ -41,8 +52,106 @@ body {
     opacity: 0.8;
 }
 
-/* Hide header when closed */
 .promo-header.hidden {
     display: none;
+}
+
+/*Menu Navegacion */
+.main-nav {
+    padding: 0 100px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    margin-top: 24px;
+}
+
+.nav-container {
+    width: 100%;
+    max-width: 1440px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 80px;
+    margin: 0 auto;
+}
+
+.logo {
+    color: white;
+    text-decoration: none;
+    font-size: 32px;
+    font-family: 'Integral', sans-serif;
+    min-width: 180px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    margin-right: auto;
+}
+
+.nav-item {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-family: 'Satoshi', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.nav-item:hover {
+    opacity: 0.8;
+}
+
+.search-bar {
+    width: 400px;
+    height: 48px;
+    background-color: #1A1A1A;
+    border-radius: 62px;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    gap: 12px;
+    margin: 0 40px;
+}
+
+.search-bar input {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-family: 'Satoshi', sans-serif;
+    width: 100%;
+    outline: none;
+}
+
+.search-bar input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    min-width: 100px;
+    justify-content: flex-end;
+}
+
+.icon-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-button:hover {
+    opacity: 0.8;
 }
   
