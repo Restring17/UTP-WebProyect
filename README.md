@@ -6,7 +6,7 @@ Bienvenido a **Perify.co**, una tienda web moderna especializada en la venta de 
 
 ## 🌐 Vista previa
 
-![screenshot](./assets/screenshot-home.png) <!-- Cambia esto por una captura de tu proyecto -->
+![screenshot](Homepage.png) <!-- Cambia esto por una captura de tu proyecto -->
 
 ---
 
