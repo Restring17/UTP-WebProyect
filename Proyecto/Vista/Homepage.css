@@ -65,7 +65,7 @@ body {
     margin-top: 24px;
 }
 
-.nav-container {
+.nav-contenedor {
     width: 100%;
     max-width: 1440px;
     height: 100%;
@@ -107,7 +107,7 @@ body {
     opacity: 0.8;
 }
 
-.search-bar {
+.barra-busqueda {
     width: 400px;
     height: 48px;
     background-color: #1A1A1A;
@@ -119,7 +119,7 @@ body {
     margin: 0 40px;
 }
 
-.search-bar input {
+.barra-busqueda input {
     background: none;
     border: none;
     color: white;
@@ -129,7 +129,7 @@ body {
     outline: none;
 }
 
-.search-bar input::placeholder {
+.barra-busqueda input::placeholder {
     color: rgba(255, 255, 255, 0.4);
 }
 
