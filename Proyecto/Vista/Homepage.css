@@ -185,6 +185,89 @@ body {
 .icon-button:hover {
     opacity: 0.8;
 }
+
+/* Body */
+.Eslogan{
+    font-family: 'Integral',sans-serif,Arial;
+    font-size: 65px;
+    padding: 0px 100px;
+    transform: translateY(40px);
+    
+}
+
+.Frase{
+    font-family: 'Satoshi',sans-serif,Arial;
+    padding: 0px 100px;
+    opacity: 60%;
+}
+
+.Presentacion{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button_compra{
+    background-color: #0D0D0D;
+    font-family: 'Satoshi',sans-serif,Arial;
+    color: #00FF88;
+    border-color: #00FF88;
+    border-radius: 30px;
+    padding: 10px 20px;
+    transform: translateX(100px);
+}
+
+.amount{
+    display: flex;
+    justify-content: flex-start;
+    align-items: normal;
+    font-family: 'Satoshi',sans-serif,Arial;
+    font-size: 19px;
+}
+
+.amount_numbers{
+    color: #16B806;
+    font-size: 55px;    
+}
+
+.amount_type{
+    padding-left: 100px;
+}
+.amount_text{
+    transform: translateY(-20px);
+    opacity: 60%;
+}
+
+.Img_gamer{
+    width: 760px;
+    height: 700px;
+    transform: translateX(-40px) translateY(145px);
+}
+
+.brands{
+    transform: translateY(90px);
+    background-color: black;
+    border-style: outset;
+    border-color: #00FF88;
+    border-width: 1px;
+    
+}
+
+.brandLogo{
+    width: 260px;
+    height: 70px;
+    padding: 30px 60px;
+}
+
+.brandLogo_RedDragon{
+    width: 120px;
+    height: 90px;
+    padding: 10px 50px;
+}
+/*  Fin Body */
+
+
+
 /* Footer  */
 
 .footer {
