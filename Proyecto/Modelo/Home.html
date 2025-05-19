@@ -16,6 +16,14 @@
         </button>
     </header>
 
+    <script>
+        document.querySelector('.close-button').addEventListener('click', function() {
+            document.querySelector('.promo-header').classList.add('hidden');
+        });
+    </script>
+
+    <!---Navegador-->
+
     <nav class="main-nav">
         <div class="nav-contenedor">
             <a href="Home.html" class="logo" style="font-family: 'Integral',sans-serif; font-size:32px;">Perify.co</a>
@@ -24,6 +32,11 @@
                 <div class="nav-item">
                     <span>Tienda</span>
                     <img src="../img/desplegable.png" alt="Desplegable" width="10" height="8">
+                    <div class="dropdown-menu">
+                        <a href="Catalogo.html" class="dropdown-item">Catálogo</a>
+                        <a href="#" class="dropdown-item">Ofertas</a>
+                        <a href="#" class="dropdown-item">Novedades</a>
+                    </div>
                 </div>
                 <a href="Marcas.html" class="nav-item">Marcas</a>
                 <a href="Contacto.html" class="nav-item">Contacto</a>
@@ -45,12 +58,8 @@
             </div>
         </div>
     </nav>
+<!---Fin Navegador-->
 
-    <script>
-        document.querySelector('.close-button').addEventListener('click', function() {
-            document.querySelector('.promo-header').classList.add('hidden');
-        });
-    </script>
     <!---Aqui -->
     <br>
     <br>
