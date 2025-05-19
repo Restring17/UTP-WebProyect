@@ -1,0 +1,181 @@
+@font-face {
+    font-family: 'Satoshi';
+    src: url('../fonts/Satoshi-Medium.otf') format('truetype');
+}
+@font-face {
+    font-family: 'Integral';
+    src: url('../fonts/Fontspring-DEMO-integralcf-bold.otf') format('truetype');
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: #A0A0A0;
+    font-family: 'Satoshi', sans-serif;
+}
+
+.login-bg {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-container {
+    background: #0D0D0D;
+    border-radius: 10px;
+    box-shadow: 0 0 30px #0008;
+    width: 450px;
+    padding: 40px 40px 30px 40px;
+    position: relative;
+    border: 4px solid #16B806;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.close-login {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.login-logo {
+    font-family: 'Integral', sans-serif;
+    font-size: 28px;
+    color: #fff;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.login-title {
+    font-family: 'Integral', sans-serif;
+    color: #fff;
+    font-size: 32px;
+    text-align: center;
+    margin: 10px 0 30px 0;
+    line-height: 1.1;
+}
+
+.login-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 30px;
+    padding: 8px 18px;
+    margin-bottom: 5px;
+}
+
+.input-icon {
+    width: 22px;
+    margin-right: 10px;
+    opacity: 0.7;
+}
+
+.input-group input {
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-family: 'Satoshi', sans-serif;
+    width: 100%;
+    background: none;
+    color: #222;
+    padding: 10px 0;
+}
+
+.forgot-link {
+    color: #bdbdbd;
+    font-size: 12px;
+    text-align: right;
+    margin-bottom: 10px;
+    text-decoration: underline;
+    display: block;
+}
+
+.login-btn {
+    background: #16B806;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    padding: 12px 0;
+    font-size: 18px;
+    font-family: 'Satoshi', sans-serif;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.2s;
+}
+
+.login-btn:hover {
+    background: #13a105;
+}
+
+.divider {
+    width: 100%;
+    text-align: center;
+    margin: 18px 0 10px 0;
+    color: #fff;
+    position: relative;
+}
+.divider span {
+    background: #0D0D0D;
+    padding: 0 12px;
+    position: relative;
+    z-index: 1;
+}
+.divider:before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: #16B806;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 0;
+}
+
+.google-btn {
+    background: #fff;
+    color: #222;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 0;
+    width: 100%;
+    font-size: 16px;
+    font-family: 'Satoshi', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.google-btn img {
+    width: 22px;
+}
+
+.create-account {
+    color: #fff;
+    font-size: 15px;
+    text-align: center;
+    margin-top: 8px;
+    text-decoration: underline;
+    font-style: italic;
+    display: block;
+}
