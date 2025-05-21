@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catalogo</title>
-    <link rel="stylesheet" href="../Vista/Homepage.css">
+    <link rel="stylesheet" href="../Vista/Catalogopage.css">
 </head>
 <body>
     <header class="promo-header">
@@ -61,22 +61,46 @@
 <!---Fin Navegador-->
 
     <!---Aqui -->
-  <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+    <main class="container">
+    <aside class="sidebar">
+      <h3>Filtros</h3>
+      <div class="filter">
+        <h4>Precio</h4>
+        <input type="range" min="100" max="2000" step="100">
+      </div>
+      <div class="filter">
+        <h4>Marcas</h4>
+        <label><input type="checkbox"> Razer</label><br>
+        <label><input type="checkbox"> Logitech</label>
+      </div>
+      <div class="filter">
+        <h4>Tipos</h4>
+        <label><input type="checkbox"> Inalámbrico</label><br>
+        <label><input type="checkbox"> Alámbrico</label>
+      </div>
+    </aside>
+
+    <section class="products">
+      <h2>Mouses</h2>
+      <div class="product-grid">
+        <div class="product-card">
+          <img src="https://i.imgur.com/n0iKzAZ.png" alt="Mouse 1">
+          <h3>Razer Viper Ultimate</h3>
+          <p class="price">S/1843</p>
+        </div>
+        <div class="product-card">
+          <img src="https://i.imgur.com/KAIyd3j.png" alt="Mouse 2">
+          <h3>Razer Naga Pro</h3>
+          <p class="price">S/700</p>
+        </div>
+        <div class="product-card">
+          <img src="https://i.imgur.com/pDKOfyi.png" alt="Mouse 3">
+          <h3>Razer Pro Click</h3>
+          <p class="price">S/609</p>
+        </div>
+        <!-- Agrega más productos aquí -->
+      </div>
+    </section>
     <br>
     <br>
     <br>
