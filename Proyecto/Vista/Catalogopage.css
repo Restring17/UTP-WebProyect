@@ -191,11 +191,62 @@ body {
 
 
 /*Body*/
+#main{
+    display: flex;
+    /*--justify-content: space-between;--*/
+    align-items: center;
+}
 
+#filter{
+    color: white;
+    font-family: 'Satoshi', sans-serif;
+    border-radius: 20px;
+    border-color: #16B806;
+    border-style: solid;
+    border-width: 3px;
+}
 
+.Tittle_filter{
+    font-weight: bolder;
+    font-size: 30px;
+}
 
+.button_type{
+    color:white;
+    padding: 10px 5px;
+    font-size: 20px;
+    font-family: 'Satoshi', sans-serif;
+    background-color: #0D0D0D;
+    border-style: none;
+}
 
+.button_marca{
+    color: #000000;
+    padding: 15px 10px;
+    border-radius: 30px;
+    background-color: white; 
+    font-family: 'Satoshi', sans-serif;  
+    font-size: 20px; 
+}
 
+.button_marca:hover{
+    background-color: #000000;
+    color: white;
+    transition: 0.7s;
+}
+
+.products{    
+    border-style: solid;
+    border-color: red;
+    border-width: thick;
+}
+
+.Tittle_products{
+    color: white;
+    font-family: 'Satoshi', sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+}
 
 
 
