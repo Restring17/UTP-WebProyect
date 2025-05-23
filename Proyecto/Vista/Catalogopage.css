@@ -277,9 +277,6 @@ body {
 .products_grid{
     display: grid;
     grid-template-columns: auto auto auto;
-    
-
-}
 
 .Tittle_products{
     color: white;
