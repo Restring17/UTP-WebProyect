@@ -191,42 +191,51 @@ body {
 
 
 /*Body*/
-#main{
-    display: flex;
-    /*--justify-content: space-between;--*/
-    align-items: center;
-}
-
 #filter{
+    padding: 20px 10px;
     color: white;
     font-family: 'Satoshi', sans-serif;
     border-radius: 20px;
     border-color: #16B806;
     border-style: solid;
     border-width: 3px;
+    float: left;
+    width: auto;
+    height: auto;
 }
 
 .Tittle_filter{
     font-weight: bolder;
-    font-size: 30px;
+    font-size: 20px;
 }
 
 .button_type{
     color:white;
     padding: 10px 5px;
-    font-size: 20px;
+    font-size: 15px;
     font-family: 'Satoshi', sans-serif;
     background-color: #0D0D0D;
     border-style: none;
+    border-radius: 15px;
+}
+
+.button_type:hover{
+    color: #16B806;
+    border-style: solid;
+    border-color: #16B806;
+    border-width: thin;
+    transition: 0.7s;
 }
 
 .button_marca{
     color: #000000;
-    padding: 15px 10px;
-    border-radius: 30px;
+    margin: 5px;
+    padding: 10px 5px;
+    border-radius: 15px;
+    border-style: none;
     background-color: white; 
     font-family: 'Satoshi', sans-serif;  
-    font-size: 20px; 
+    font-size: 15px; 
 }
 
 .button_marca:hover{
@@ -234,20 +243,63 @@ body {
     color: white;
     transition: 0.7s;
 }
+.button_valid{
+    float: center;
+}
 
-.products{    
+.button_filter{
+    background-color: #000000;
+    color: #ffffff;
+    border-radius: 20px;
+    border-style: none;
+    padding: 20px 10px;
+    font-size: 20px;
+    font-family: 'Satoshi', sans-serif;
+    justify-content: center;
+    width: max-content;
+}
+
+.button_filter:hover{
+    background-color: #16B806;
+    color:white;
     border-style: solid;
-    border-color: red;
-    border-width: thick;
+    border-color: #16B806;
+    border-width: thin;
+    transition: 0.7s;
+}
+
+/*Centrado en productos*/
+.products{
+    float: right;
+    padding: 100px 10px;
+}
+
+.products_grid{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    
+
 }
 
 .Tittle_products{
     color: white;
     font-family: 'Satoshi', sans-serif;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: bold;
 }
 
+a{
+    color: white;
+    font-family: 'Satoshi', sans-serif;
+    font-size: 20px;
+    text-decoration-line: none;
+}
+
+.product_image{
+    width: 295px;
+    height: 298px;
+    border-radius: 20px;
+}
 
 
 
