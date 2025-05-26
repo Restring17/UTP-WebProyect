@@ -1,3 +1,323 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="../Vista/Homepage.css">
+</head>
+<body>
+    <header class="promo-header">
+        <div class="promo-text">
+            Regístrese y obtenga un 20% de descuento en su primer pedido. Regístrese ahora
+        </div>
+        <button class="close-button" aria-label="Cerrar promoción">
+            <img src="../img/X.png" alt="Cerrar" width="10" height="10">
+        </button>
+    </header>
+
+    <script>
+        document.querySelector('.close-button').addEventListener('click', function() {
+            document.querySelector('.promo-header').classList.add('hidden');
+        });
+    </script>
+
+    <!---Navegador-->
+
+    <nav class="main-nav">
+        <div class="nav-contenedor">
+            <a href="Home.html" class="logo" style="font-family: 'Integral',sans-serif; font-size:32px;">Perify.co</a>
+            
+            <div class="nav-links">
+                <div class="nav-item">
+                    <span>Tienda</span>
+                    <img src="../img/desplegable.png" alt="Desplegable" width="10" height="8">
+                    <div class="dropdown-menu">
+                        <a href="Catalogo.html" class="dropdown-item">Catálogo</a>
+                        <a href="#" class="dropdown-item">Ofertas</a>
+                        <a href="#" class="dropdown-item">Novedades</a>
+                    </div>
+                </div>
+                <a href="Marcas.html" class="nav-item">Marcas</a>
+                <a href="Contacto.html" class="nav-item">Contacto</a>
+                <a href="Noticias.html" class="nav-item">Noticias</a>
+            </div>
+
+            <div class="barra-busqueda">
+                <img src="../img/busqueda.png" alt="Buscar" width="20" height="20">
+                <input type="text" placeholder="Buscar...">
+            </div>
+
+            <div class="nav-icons">
+                <button class="icon-button" aria-label="Carrito de compras">
+                    <img src="../img/carrito.png" alt="Carrito" width="20" height="20">
+                </button>
+                <button class="icon-button" aria-label="Usuario" id="openLoginModal">
+                    <img src="../img/usuario.png" alt="Usuario" width="20" height="20">
+                </button>
+            </div>
+        </div>
+    </nav>
+<!---Fin Navegador-->
+
+    <!---Aqui -->
+        <section class="Presentacion">
+        <div>
+            <h1 class="Eslogan">
+                TU ESPACIO, TU <br> RITMO, TU <br> TECNOLOGIA
+            </h1>
+            <p class="Frase">
+                Explora nuestra cuidada selección de periféricos de alto rendimiento, <br>diseñados para elevar tu espacio, potenciar tu experiencia y reflejar <br>tu estilo único. 
+            </p> 
+            <button class="button_compra">
+                Comprar ahora
+            </button> 
+            <section class="amount">
+                <div class="amount_type">
+                    <h2 class="amount_numbers">200+</h2>
+                    <p class="amount_text">Marcas de todo el mundo</p>
+                </div>
+                <div class="amount_type">
+                    <h2 class="amount_numbers">2,000+</h2>
+                    <p class="amount_text">Productos de alta calidad</p>
+                </div>
+                <div class="amount_type">
+                    <h2 class="amount_numbers">30,000+</h2>
+                    <p class="amount_text">Clientes Satisfechos</p>
+                </div>
+            </section>
+            
+        </div>            
+        <img src="../img/DaltoGamer.png" alt="Gamer" class="Img_gamer">  
+    </section>
+    
+    <section class="brands">
+        <img  class= "brandLogo" src="../img/Logitech_logo.png" alt="LogitechLogo">
+        <img  class= "brandLogo" src="../img/Corsair-Logo.png" alt="CorsairLogo">
+        <img  class= "brandLogo" src="../img/Razer_logo.png" alt="RazerLogo">
+        <img  class= "brandLogo" src="../img/HyperX-logo.jpg" alt="HyperXLogo">
+        <img  class= "brandLogo_RedDragon" src="../img/redragon-logo.png" alt="RedDragonLogo">
+    </section>
+        
+    <h1 class="Eslogan" style="display: block; text-align: center;margin-top: 10%;margin-bottom: 6%;">Novedades</h1>
+
+    <section class="novedades-grid">
+        <div class="product-card">
+            <div class="product-image">
+                <img src="../img/Razer-ViperUltimate.jpg" alt="Razer Viper Ultimate">
+            </div>
+            <div class="product-info">
+                <h3 class="product-title">Razer Viper Ultimate</h3>
+                <div class="product-rating">
+                    <div class="stars">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <span class="rating-text">4.5/5</span>
+                </div>
+                <p class="product-price">S/165</p>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <img src="../img/Razer-Naga Pro 20K DPI.jpg" alt="Razer Naga Pro">
+            </div>
+            <div class="product-info">
+                <h3 class="product-title">Razer Naga Pro</h3>
+                <div class="product-rating">
+                    <div class="stars">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <span class="rating-text">4.5/5</span>
+                </div>
+                <p class="product-price">S/165</p>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <img src="../img/RAZER-Pro Click RZ01-02990.jpg" alt="Razer Pro Click">
+            </div>
+            <div class="product-info">
+                <h3 class="product-title">Razer Pro Click</h3>
+                <div class="product-rating">
+                    <div class="stars">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <span class="rating-text">4.5/5</span>
+                </div>
+                <p class="product-price">S/165</p>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <img src="../img/RAZER-Basilisk V3 Negro.jpg" alt="Razer Basilisk V3">
+            </div>
+            <div class="product-info">
+                <h3 class="product-title">Razer Basilisk V3</h3>
+                <div class="product-rating">
+                    <div class="stars">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <span class="rating-text">4.5/5</span>
+                </div>
+                <p class="product-price">S/165</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="newsletter-section">
+            <div class="newsletter-content">
+                <h2>Mantengase actualizado sobre nuestras ultimas ofertas</h2>
+                <div class="newsletter-form">
+                    <div class="email-input">
+                        <div class="email-icon">
+                            <img src="../img/email.png" alt="Email" width="20" height="15">
+                        </div>
+                        <input type="email" placeholder="Ingresa tu correo electrónico">
+                    </div>
+                    <button class="subscribe-btn">Suscríbete para ver novedades</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 id="Logo-footer">Perify.CO</h3>
+                <p id="parrafo-footer">Tenemos periféricos que se adaptan a tu estilo y de los que te sentirás orgulloso. Desde setups minimalistas hasta equipos para gamers exigentes.</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><img src="../img/twitter.png" alt="Twitter"></a>
+                    <a href="#" class="social-icon"><img src="../img/facebook.png" alt="Facebook"></a>
+                    <a href="#" class="social-icon"><img src="../img/instagram.png" alt="Instagram"></a>
+                    <a href="#" class="social-icon"><img src="../img/github.png" alt="GitHub"></a>
+                </div>
+            </div>
+
+            <div class="info-footer">
+                <h3>COMPAÑIA</h3>
+                <ul>
+                    <li><a href="#">Acerca</a></li>
+                    <li><a href="#">Características</a></li>
+                    <li><a href="#">Trabajo</a></li>
+                    <li><a href="#">Carrera</a></li>
+                </ul>
+            </div>
+
+            <div class="info-footer">
+                <h3>AYUDA</h3>
+                <ul>
+                    <li><a href="#">Soporte al Cliente</a></li>
+                    <li><a href="#">Detalles de Entrega</a></li>
+                    <li><a href="#">Términos y condiciones</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                </ul>
+            </div>
+
+            <div class="info-footer">
+                <h3>FAQ</h3>
+                <ul>
+                    <li><a href="#">Cuenta</a></li>
+                    <li><a href="#">Administrar entregas</a></li>
+                    <li><a href="#">Órdenes</a></li>
+                    <li><a href="#">Pagos</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="copyright">Perify.co © 2000-2025, Todos los Derechos Reservados</p>
+            <div class="payment-methods">
+                <img src="../img/visa.png" alt="Visa">
+                <img src="../img/mastercard.png" alt="Mastercard">
+                <img src="../img/paypal.png" alt="PayPal">
+                <img src="../img/apple-pay.png" alt="Apple Pay">
+                <img src="../img/google-pay.png" alt="Google Pay">
+            </div>
+        </div>
+    </footer>
+
+    <div id="loginModal" class="modal">
+      <div class="login-container">
+        <button
+          class="close-login"
+          id="closeLoginModal"
+          aria-label="Cerrar login"
+        >
+          ×
+        </button>
+        <div class="login-logo">PERIFY.CO</div>
+        <h2 class="login-title">INGRESO DE<br />CUENTA</h1>
+        <form class="login-form">
+          <div class="input-group">
+            <img src="../img/email.png" alt="Correo" class="input-icon" />
+            <input
+              type="email"
+              placeholder="Ingresa tu correo electronico"
+              required
+            />
+          </div>
+          <div class="input-group">
+            <img
+              src="../img/password.png"
+              alt="Contraseña"
+              class="input-icon"
+            />
+            <input
+              type="password"
+              placeholder="Ingrese su contraseña"
+              required
+            />
+          </div>
+          <a href="#" class="forgot-link">¿Olvidaste tu contraseña?</a>
+          <button type="submit" class="login-btn">INGRESAR</button>
+        </form>
+        <div class="divider"><span>o</span></div>
+        <button class="google-btn">Sign in with Google</button>
+        <a href="#" class="create-account">Crear Cuenta</a>
+      </div>
+    </div>
+
+    <script>
+      // JavaScript para manejar la funcionalidad del modal
+      const openLoginModal = document.getElementById("openLoginModal");
+      const loginModal = document.getElementById("loginModal");
+      const closeLoginModal = document.getElementById("closeLoginModal");
+
+      openLoginModal.addEventListener("click", () => {
+        loginModal.style.display = "flex";
+      });
+
+      closeLoginModal.addEventListener("click", () => {
+        loginModal.style.display = "none";
+      });
+
+      window.addEventListener("click", (event) => {
+        if (event.target === loginModal) {
+          loginModal.style.display = "none";
+        }
+      });
+    </script>
+</body>
+=======
 <!DOCTYPE html>
 <html lang="es">
 <head>

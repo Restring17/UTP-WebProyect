@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro - Perify.co</title>
+    <link rel="stylesheet" href="../Vista/Reguistro.css">
+    <link rel="stylesheet" href="../Vista/Homepage.css" />
+    <link rel="stylesheet" href="">
+</head>
+<body>
+    <header class="promo-header">
+      <div class="promo-text">
+        Regístrese y obtenga un 20% de descuento en su primer pedido. Regístrese
+        ahora
+      </div>
+      <button class="close-button" aria-label="Cerrar promoción">
+        <img src="../img/X.png" alt="Cerrar" width="10" height="10" />
+      </button>
+    </header>
+
+    <script>
+      // Script para cerrar la promoción (copiado de Home.html)
+      if (document.querySelector(".close-button")) {
+        document.querySelector(".close-button").addEventListener("click", function () {
+          document.querySelector(".promo-header").classList.add("hidden");
+        });
+      }
+    </script>
+
+    <nav class="main-nav">
+      <div class="nav-contenedor">
+        <a
+          href="Home.html" class="logo"
+          style="font-family: 'Integral', sans-serif; font-size: 32px"
+          >Perify.co</a
+        >
+
+        <div class="nav-links">
+          <div class="nav-item">
+            <span>Tienda</span>
+            <img
+              src="../img/desplegable.png" alt="Desplegable"
+              width="10"
+              height="8"
+            />
+            <div class="dropdown-menu">
+              <a href="Catalogo.html" class="dropdown-item">Catálogo</a> <a href="#" class="dropdown-item">Ofertas</a>
+              <a href="#" class="dropdown-item">Novedades</a>
+            </div>
+          </div>
+          <a href="Marcas.html" class="nav-item">Marcas</a> <a href="Contacto.html" class="nav-item">Contacto</a> <a href="Noticias.html" class="nav-item">Noticias</a> </div>
+
+        <div class="barra-busqueda">
+          <img src="../img/busqueda.png" alt="Buscar" width="20" height="20" /> <input type="text" placeholder="Buscar..." />
+        </div>
+
+        <div class="nav-icons">
+          <button class="icon-button" aria-label="Carrito de compras">
+            <img
+              src="../img/carrito.png" alt="Carrito"
+              width="20"
+              height="20"
+            />
+          </button>
+          <button class="icon-button" aria-label="Usuario" id="openLoginModal">
+            <img
+              src="../img/usuario.png" alt="Usuario"
+              width="20"
+              height="20"
+            />
+          </button>
+        </div>
+      </div>
+    </nav>
+    <main class="registro-container">
+        <aside class="registro-sidebar">
+            <div class="registro-sidebar-step active" data-step="1">1. Datos Personales</div>
+            <div class="registro-sidebar-step" data-step="2">2. Direcciones</div>
+            <div class="registro-sidebar-step" data-step="3">3. Finalizar</div>
+        </aside>
+
+        <section class="registro-content">
+            <form id="multiStepForm">
+                <div class="form-step active" id="step1">
+                    <h2>Datos Personales</h2>
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" placeholder="tu@correo.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Juan Pérez" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cumpleanos">Fecha de Nacimiento</label>
+                        <input type="date" id="cumpleanos" name="cumpleanos" required>
+                    </div>
+                    <div class="form-buttons">
+                        <button type="button" class="btn-registro btn-registro-primary" onclick="nextStep(2)">Siguiente</button>
+                    </div>
+                </div>
+
+                <div class="form-step" id="step2">
+                    <h2>Direcciones</h2>
+                    <div id="addressList">
+                        <div class="address-block">
+                            <h4>Dirección 1</h4>
+                            <div class="form-group">
+                                <label for="departamento1">Departamento</label>
+                                <input type="text" id="departamento1" name="departamento1" placeholder="Ej: Lima" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="provincia1">Provincia</label>
+                                <input type="text" id="provincia1" name="provincia1" placeholder="Ej: Lima" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="distrito1">Distrito</label>
+                                <input type="text" id="distrito1" name="distrito1" placeholder="Ej: Miraflores" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="direccion1">Dirección</label>
+                                <input type="text" id="direccion1" name="direccion1" placeholder="Av. Siempre Viva 123" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="referencia1">Referencia (Opcional)</label>
+                                <input type="text" id="referencia1" name="referencia1" placeholder="Frente al parque, casa verde">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-add-address" onclick="addAddress()">+</button>
+                    <div class="form-buttons">
+                        <button type="button" class="btn-registro btn-registro-secondary" onclick="prevStep(1)">Anterior</button>
+                        <button type="button" class="btn-registro btn-registro-primary" onclick="nextStep(3)">Siguiente</button>
+                    </div>
+                </div>
+
+                <div class="form-step" id="step3">
+                    <h2>Finalizar Registro</h2>
+                    <div class="finalizar-mensaje">
+                        <h3>¡GRACIAS POR REGISTRARTE!</h3>
+                        <p>Tu cuenta en Perify.co ha sido creada exitosamente.</p>
+                        <div class="form-group-checkbox">
+                            <input type="checkbox" id="promociones" name="promociones" checked>
+                            <label for="promociones">Recibir promociones y novedades en mi correo.</label>
+                        </div>
+                    </div>
+                    <div class="form-buttons">
+                        <button type="button" class="btn-registro btn-registro-secondary" onclick="prevStep(2)">Anterior</button>
+                        <button type="submit" class="btn-registro btn-registro-primary">Finalizar Registro</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </main>
+    
+    <div id="loginModal" class="modal">
+      <div class="login-container">
+        <button
+          class="close-login"
+          id="closeLoginModal"
+          aria-label="Cerrar login"
+        > × </button>
+        <div class="login-logo">PERIFY.CO</div>
+        <h2 class="login-title">INGRESO DE<br />CUENTA</h2>
+        <form class="login-form">
+          <div class="input-group">
+            <img src="../img/email.png" alt="Correo" class="input-icon" /> <input type="email" placeholder="Ingresa tu correo electronico" required />
+          </div>
+          <div class="input-group">
+            <img src="../img/password.png" alt="Contraseña" class="input-icon" /> <input type="password" placeholder="Ingrese su contraseña" required />
+          </div>
+          <a href="#" class="forgot-link">¿Olvidaste tu contraseña?</a>
+          <button type="submit" class="login-btn">INGRESAR</button>
+        </form>
+        <div class="divider"><span>o</span></div>
+        <button class="google-btn">Sign in with Google</button>
+        <a href="#" class="create-account">Crear Cuenta</a> </div>
+    </div>
+    <script src="../Vista/Reguistro.js"></script>
+</body>
+</html>
+w
