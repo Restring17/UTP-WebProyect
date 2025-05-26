@@ -23,7 +23,7 @@ Bienvenido a **Perify.co**, una tienda web moderna especializada en la venta de 
 ## 🛠️ Tecnologías utilizadas
 
 - HTML5 + CSS3
-- JavaScript (Vanilla o Framework si usas uno)
+- JavaScript (Vanilla o Framework si usamos uno)
 - [Google Fonts o fuentes personalizadas](#tipograf%C3%ADas)
 - Figma para el diseño
 
