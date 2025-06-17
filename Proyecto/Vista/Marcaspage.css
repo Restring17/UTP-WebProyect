@@ -191,8 +191,18 @@ body {
 
 
 /*Body*/
+.phrase{
+    text-align: center;
+    font-style: italic;
+    align-items: center;
+    font-family: 'Integral', sans-serif;
+    padding: 30px 40px;
+}
 
-
+.block_brands{
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+}
 
 
 

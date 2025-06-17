@@ -245,11 +245,18 @@ body {
     row-gap: 60px;
 }
 
-.blog_publi{
+.blog_publi{  
+    color: #FFFFFF; 
     width: 300px;
     height: auto;
     border-radius: 20px;
-    background-color: #2A2A2A;
+    background-color: #2A2A2A;     
+    transition: transform 0.3s ease;   
+}
+
+.blog_publi:hover{
+    transform: translateY(-8px);
+    transition: .5s; 
 }
 
 .blog_img{
@@ -264,14 +271,19 @@ body {
     font-family: 'Satoshi', sans-serif;
 }
 
-.subtittle{
-    font-size: 25px ;
-    font-weight: bold;
+.href{  
+    color: #FFFFFF;   
+    text-decoration: none;
 }
 
-.subtittle:hover{
-    color: #16B806;
-    transition: .5s;
+.href:hover{
+    color:#16B806;
+}
+
+
+.subtittle{
+    font-size: 25px ;
+    font-weight: bold;    
 }
 
 .subcontent{
