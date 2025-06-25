@@ -191,9 +191,95 @@ body {
 
 
 /*Body*/
+.titulo{
+    font-family: 'Integral', sans-serif;
+    font-size: 35px;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    padding: 20px 20px;
+}
+
+.informacion{
+    display: flex;
+}
+
+.mensaje{
+    background-color: #16B806;
+    color: #FFFFFF;
+    font-family: 'satoshi', sans-serif;
+    padding: 10px;
+    border-radius: 15px;
+    width: 900px;
+    height: 580px;
+    align-items: center;
+    text-align: center;
+    margin: 0px 20px 90px 50px;
+}
+
+.mensajeTitulo{
+    font-size: 60px;
+    margin: 0px;
+}
+
+.info{
+    border-radius: 15px;
+    font-family: 'satoshi', sans-serif;
+    font-weight: lighter;
+    width: 800px;
+    height: 60px;
+    font-size: 20px;
+    margin: 10px;
+}
+
+.mens{
+    border-radius: 15px;
+    font-family: 'satoshi', sans-serif;
+    font-weight: lighter;
+    width: 800px;
+    height: 200px;
+    font-size: 20px;
+    margin: 10px;
+}
+
+.button{
+    background-color: #000000;
+    color: #ffffff;
+    font-family: 'satoshi', sans-serif;
+    font-size: 25px;
+    font-weight: bolder;
+    padding: 10px;
+    border-radius: 20px;
+    width: 350px;
+    height: auto;
+}
+
+.infoContacto{
+    font-family: 'satoshi', sans-serif;
+    font-size: 30px;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    margin: 0px 50px 90px 10px;
+    padding: 10px;
+}
+
+iframe{
+    border-radius: 20px;
+    align-items: center;
+}
 
 
+.infoEmpresa{
+    text-align: left;
+}
 
+.infoTitulo{
+    font-family: 'Integral', sans-serif;
+    font-size: 40px;
+    text-align: center;
+    margin: 0px;
+}
 
 
 
