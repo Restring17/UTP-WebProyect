@@ -1,0 +1,176 @@
+body {
+    background-color: #0D0D0D;
+    margin: 0;
+    color: white; 
+}
+
+@font-face {
+    font-family: 'Satoshi';
+    src: url('../fonts/Satoshi-Medium.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Integral';
+    src: url('../fonts/Fontspring-DEMO-integralcf-bold.otf') format('truetype');
+}
+
+/*Menu Navegacion */
+.main-nav {
+    padding: 0 100px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    margin-top: 24px;
+}
+
+.nav-contenedor {
+    width: 100%;
+    max-width: 1440px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 80px;
+    margin: 0 auto;
+}
+
+.logo {
+    color: white;
+    text-decoration: none;
+    font-size: 32px;
+    font-family: 'Integral', sans-serif;
+    min-width: 180px;
+}
+.nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    min-width: 100px;
+    justify-content: flex-end;
+}
+
+.icon-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-button:hover {
+    opacity: 0.8;
+}
+
+/*Body*/
+
+.cuerpo{
+    display: flex;
+    margin-top: 80px;
+}
+
+.datosPersonales{
+    background-color: #16B806;
+    display: grid;
+    width: 500px;
+    height: 550px;
+    text-align: center;
+}
+
+#imgUsuario{
+    border-radius: 100%;
+    border-color: #0D0D0D;
+    border-style: solid;
+    border-width: thick;
+    width: 256px;
+    height: 256px;
+    margin: 50px 0px 0px 0px;
+}
+
+.infoUser{
+    text-align: center;
+    width: auto;
+}
+
+#nombre{
+    font-family: 'Integral', sans-serif;
+    font-size: 34px;   
+    margin-bottom: 20px; 
+}
+
+#correo{
+    font-family: 'Satoshi',sans-serif;
+    font-size: 34px;   
+}
+
+.opciones{
+    background-color: #15b8068c;
+    padding: 20px;
+    align-items: center;
+    align-content: center;
+    height: 40em;
+}
+
+.opcuerpo{
+    display: grid;
+    row-gap: 20px;
+    
+}
+
+.opcButton{
+    background-color: #ffffffff;
+    font-family: 'Satoshi',sans-serif;
+    font-size: 34px;
+    color: #000000;
+    text-align: center;
+    border-radius: 50px;
+    border-style: none;
+    width: auto;
+    margin: 10px 10px 10px 10px;
+}
+
+.opcButton:hover{
+    background-color: #000000;
+    color: white;
+    transition: 0.5s;
+}
+
+.infoCont{
+    margin-left: 50px;
+}
+.titulo{
+    font-family: 'Integral',sans-serif;
+    font-size: 30px;
+    margin-top: -50px;
+}
+.subTitulo{
+    font-family: 'Satoshi',sans-serif;
+    font-size: 20px;
+    margin-top: -20px;
+}
+
+.cont{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 50px;
+    column-gap: 200px;
+    margin: 50px 50px 50px 50px; 
+}
+
+.contButton{
+    text-align: center;
+    align-content: center;
+    background-color: #16B806;
+    border-radius: 20px;
+    border-style: none;
+    height: 310px;
+    width: 310px;
+}
+
+.buttoName{
+    background-color: #15b8068c;
+    color: white;
+    font-family: 'Integral',sans-serif;
+    font-size: 20px;
+}
