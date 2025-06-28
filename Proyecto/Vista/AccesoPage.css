@@ -70,6 +70,7 @@ body {
     margin-top: 80px;
 }
 
+
 .datosPersonales{
     background-color: #16B806;
     display: grid;
@@ -92,6 +93,7 @@ body {
     text-align: center;
     width: auto;
 }
+
 
 #nombre{
     font-family: 'Integral', sans-serif;
@@ -167,6 +169,7 @@ body {
     height: 310px;
     width: 310px;
 }
+
 
 .buttoName{
     background-color: #15b8068c;
