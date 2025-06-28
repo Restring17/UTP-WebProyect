@@ -95,6 +95,7 @@ if (loginForm) {
     if (token) {
       alert('Login confirmado');
       Login.setCookie('supabase_token', token, 7);
+      console.log('Token guardado en la cookie:', token);
       loginModal.style.display = "none";
     } else {
       alert('Login no completado. Revisa tus credenciales.');
