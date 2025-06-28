@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -16,13 +15,6 @@
             <img src="../img/X.png" alt="Cerrar" width="10" height="10">
         </button>
     </header>
-
-    <script>
-        document.querySelector('.close-button').addEventListener('click', function() {
-            document.querySelector('.promo-header').classList.add('hidden');
-        });
-    </script>
-
     <!---Navegador-->
 <!---LOGO-->
     <nav class="main-nav">
@@ -265,27 +257,15 @@
           ×
         </button>
         <div class="login-logo">PERIFY.CO</div>
-        <h2 class="login-title">INGRESO DE<br />CUENTA</h1>
-        <form class="login-form">
+        <h2 class="login-title">INGRESO DE<br>CUENTA</h2>
+        <form class="login-form" id="loginForm">
           <div class="input-group">
-            <img src="../img/email.png" alt="Correo" class="input-icon" />
-            <input
-              type="email"
-              placeholder="Ingresa tu correo electronico"
-              required
-            />
+            <img src="../img/email.png" alt="Correo" class="input-icon">
+            <input type="email" id="loginEmail" placeholder="Ingresa tu correo electronico" required="">
           </div>
           <div class="input-group">
-            <img
-              src="../img/password.png"
-              alt="Contraseña"
-              class="input-icon"
-            />
-            <input
-              type="password"
-              placeholder="Ingrese su contraseña"
-              required
-            />
+            <img src="../img/password.png" alt="Contraseña" class="input-icon">
+            <input type="password" id="loginPassword" placeholder="Ingrese su contraseña" required="">
           </div>
           <a href="#" class="forgot-link">¿Olvidaste tu contraseña?</a>
           <button type="submit" class="login-btn">INGRESAR</button>
@@ -296,25 +276,8 @@
       </div>
     </div>
 
-    <script>
-      // JavaScript para manejar la funcionalidad del modal
-      const openLoginModal = document.getElementById("openLoginModal");
-      const loginModal = document.getElementById("loginModal");
-      const closeLoginModal = document.getElementById("closeLoginModal");
+    <script src="../Controlador/Login.js"></script>
 
-      openLoginModal.addEventListener("click", () => {
-        loginModal.style.display = "flex";
-      });
-
-      closeLoginModal.addEventListener("click", () => {
-        loginModal.style.display = "none";
-      });
-
-      window.addEventListener("click", (event) => {
-        if (event.target === loginModal) {
-          loginModal.style.display = "none";
-        }
-      });
-    </script>
+    
 </body>
 </html>
