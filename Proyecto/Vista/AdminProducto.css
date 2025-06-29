@@ -1,0 +1,229 @@
+body {
+    background-color: #0D0D0D;
+    margin: 0;
+    color: white; 
+}
+
+@font-face {
+    font-family: 'Satoshi';
+    src: url('../fonts/Satoshi-Medium.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Integral';
+    src: url('../fonts/Fontspring-DEMO-integralcf-bold.otf') format('truetype');
+}
+
+/*BODY*/
+.cuerpo{
+    display: flex;
+}
+
+.datosPersonales{
+    background-color: #16B806;
+    display: grid;
+    width: 500px;
+    height: 550px;
+    text-align: center;
+}
+
+#imgUsuario{
+    border-radius: 100%;
+    border-color: #0D0D0D;
+    border-style: solid;
+    border-width: thick;
+    width: 256px;
+    height: 256px;
+    margin: 50px 0px 0px 0px;
+}
+
+.infoUser{
+    text-align: center;
+    width: auto;
+}
+
+
+#nombre{
+    font-family: 'Integral', sans-serif;
+    font-size: 34px;   
+    margin-bottom: 20px; 
+}
+
+#correo{
+    font-family: 'Satoshi',sans-serif;
+    font-size: 34px;   
+}
+
+.opciones{
+    background-color: #15b8068c;
+    padding: 20px;
+    align-items: center;
+    align-content: center;
+    height: 40em;
+}
+
+.opcuerpo{
+    display: grid;
+    row-gap: 20px;
+    
+}
+
+.opcButton{
+    background-color: #ffffffff;
+    font-family: 'Satoshi',sans-serif;
+    font-size: 34px;
+    color: #000000;
+    text-align: center;
+    border-radius: 50px;
+    border-style: none;
+    width: auto;
+    margin: 10px 10px 10px 10px;
+}
+
+.opcButton:hover{
+    background-color: #000000;
+    color: white;
+    transition: 0.5s;
+}
+
+.infoCont{
+    margin-left: 50px;
+}
+.titulo{
+    font-family: 'Integral',sans-serif;
+    font-size: 30px;
+    margin-top: -50px;
+}
+.subTitulo{
+    font-family: 'Satoshi',sans-serif;
+    font-size: 20px;
+    margin-top: -20px;
+    display: flex;
+}
+.barra-busqueda {
+    width: 400px;
+    height: 48px;
+    background-color: #1A1A1A;
+    border-radius: 62px;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    gap: 12px;
+    margin: 0px 80px 0px 300px;
+}
+
+.barra-busqueda input {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-family: 'Satoshi', sans-serif;
+    width: 100%;
+    outline: none;
+}
+
+.barra-busqueda input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.añadir{
+    background-color: #16B806;
+    align-content: center;
+    align-items: center;
+    border-radius: 20px;
+    text-align: center;
+    width: 200px;
+    height: 48px;
+    font-family: 'Satoshi',sans-serif;
+}
+
+.añadirButton{
+    text-decoration: none;
+    color: #000000;
+}
+
+.cont{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 50px;
+    column-gap: 200px;
+    margin: 50px 50px 50px 50px; 
+}
+
+.productos{
+    display:flex;
+}
+
+.infoProduct{
+    margin: 20px;
+    display: flex;
+    width: 200px;
+}
+
+.infoProductMax{
+    margin: 0px 20px 0px 20px;
+    align-items: center;
+    font-family: 'Satoshi',sans-serif;
+}
+
+.img-product{
+    width: 171px;
+    height: 171px;
+    border-radius: 10px;
+}
+
+/*PARA ABIRIR LA OPCION DEL MENU DEL PRODUCTO*/
+.nav-item {
+    background-color: #16B806;
+    color: black;
+    text-decoration: none;
+    font-size: 30px;
+    font-family: 'Satoshi', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    white-space: nowrap;
+    position: relative;
+    width: 52px;
+    height: 24px;    
+    border-radius: 20px;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+}
+
+.nav-item:hover {
+    opacity: 0.8;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #1A1A1A;
+    min-width: 160px;
+    border-radius: 8px;
+    padding: 8px 0;
+    display: none;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-item:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-item {
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    display: block;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    width: auto;
+}
+
+.dropdown-item:hover {
+    background-color: #2A2A2A;
+}
