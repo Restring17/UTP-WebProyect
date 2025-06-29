@@ -49,37 +49,37 @@
         <h1>Registro de Nuevo Producto</h1>
         <p>Completa los siguientes campos para añadir un nuevo artículo al catálogo.</p>
         
-        <form id="productForm" class="product-form">
+        <form id="formRegistrarProducto" class="product-form">
             <div class="form-group">
                 <label for="productName">Nombre del Producto</label>
-                <input type="text" id="productName" name="productName" placeholder="Ej: Mouse Gamer Inalámbrico" required>
+                <input type="text" id="productName" name="nombre" placeholder="Ej: Mouse Gamer Inalámbrico" required>
             </div>
 
             <div class="form-group">
                 <label for="productBrand">Marca</label>
-                <input type="text" id="productBrand" name="productBrand" placeholder="Ej: Logitech" required>
+                <input type="text" id="productBrand" name="marca" placeholder="Ej: Logitech" required>
             </div>
 
             <div class="form-group">
                 <label for="productDescription">Descripción</label>
-                <textarea id="productDescription" name="productDescription" rows="5" placeholder="Describe las características principales del producto." required></textarea>
+                <textarea id="productDescription" name="descripcion" rows="5" placeholder="Describe las características principales del producto." required></textarea>
             </div>
 
             <div class="form-row">
                 <div class="form-group">
                     <label for="productPrice">Precio (S/)</label>
-                    <input type="number" id="productPrice" name="productPrice" step="0.01" placeholder="Ej: 199.90" required>
+                    <input type="number" id="productPrice" name="precio" step="0.01" placeholder="Ej: 199.90" required>
                 </div>
                 <div class="form-group">
                     <label for="productStock">Stock</label>
-                    <input type="number" id="productStock" name="productStock" placeholder="Ej: 50" required>
+                    <input type="number" id="productStock" name="stock" placeholder="Ej: 50" required>
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="productImages">Imágenes del Producto</label>
                 <p class="upload-description">Puedes seleccionar múltiples imágenes (formatos .jpg, .png, .webp).</p>
-                <input type="file" id="productImages" name="productImages" accept="image/png, image/jpeg, image/webp" multiple>
+                <input type="file" id="productImages" name="imagenes" accept="image/png, image/jpeg, image/webp" multiple>
                 <div id="imagePreview" class="image-preview"></div>
             </div>
 
@@ -153,5 +153,8 @@
             }
         });
     </script>
+    
+    <!-- Controlador para registrar productos -->
+    <script src="../Controlador/registrarProductoController.js"></script>
 </body>
 </html>

@@ -77,6 +77,22 @@ const Login = {
       expires = "; expires=" + date.toUTCString();
     }
     document.cookie = name + "=" + (value || "") + expires + "; path=/";
+  },
+
+  /**
+   * Obtiene el valor de una cookie por su nombre.
+   * @param {string} name - El nombre de la cookie.
+   * @returns {string|null} - El valor de la cookie o null si no existe.
+   */
+  getCookie: function(name) {
+    const nameEQ = name + "=";
+    const ca = document.cookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+      if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
   }
 };
 
