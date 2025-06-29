@@ -155,6 +155,131 @@
         </div>
     </div>
     
+=======
+    <!-- Navegador (copiado de Home.html para consistencia) -->
+    <nav class="main-nav">
+        <div class="nav-contenedor">
+            <a href="Home.html" class="logo" style="font-family: 'Integral',sans-serif; font-size:32px;">Perify.co</a>
+            
+            <div class="nav-links">
+                <div class="nav-item">
+                    <span>Tienda</span>
+                    <img src="../img/desplegable.png" alt="Desplegable" width="10" height="8">
+                    <div class="dropdown-menu">
+                        <a href="Catalogo.html" class="dropdown-item">Catálogo</a>
+                        <a href="#" class="dropdown-item">Ofertas</a>
+                        <a href="#" class="dropdown-item">Novedades</a>
+                    </div>
+                </div>
+                <a href="Marcas.html" class="nav-item">Marcas</a>
+                <a href="Contacto.html" class="nav-item">Contacto</a>
+                <a href="Noticias.html" class="nav-item">Noticias</a>
+            </div>
+
+            <div class="barra-busqueda">
+                <img src="../img/busqueda.png" alt="Buscar" width="20" height="20">
+                <input type="text" placeholder="Buscar...">
+            </div>
+
+            <div class="nav-icons">
+                <button class="icon-button" aria-label="Carrito de compras">
+                    <img src="../img/carrito.png" alt="Carrito" width="20" height="20">
+                </button>
+                <button class="icon-button" aria-label="Usuario" id="openLoginModal">
+                    <img src="../img/usuario.png" alt="Usuario" width="20" height="20">
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal del Formulario -->
+    <main class="form-container">
+        <h1>Registro de Nuevo Producto</h1>
+        <p>Completa los siguientes campos para añadir un nuevo artículo al catálogo.</p>
+        
+        <form id="formRegistrarProducto" class="product-form">
+            <div class="form-group">
+                <label for="productName">Nombre del Producto</label>
+                <input type="text" id="productName" name="nombre" placeholder="Ej: Mouse Gamer Inalámbrico" required>
+            </div>
+
+            <div class="form-group">
+                <label for="productBrand">Marca</label>
+                <input type="text" id="productBrand" name="marca" placeholder="Ej: Logitech" required>
+            </div>
+
+            <div class="form-group">
+                <label for="productDescription">Descripción</label>
+                <textarea id="productDescription" name="descripcion" rows="5" placeholder="Describe las características principales del producto." required></textarea>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="productPrice">Precio (S/)</label>
+                    <input type="number" id="productPrice" name="precio" step="0.01" placeholder="Ej: 199.90" required>
+                </div>
+                <div class="form-group">
+                    <label for="productStock">Stock</label>
+                    <input type="number" id="productStock" name="stock" placeholder="Ej: 50" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="productImages">Imágenes del Producto</label>
+                <p class="upload-description">Puedes seleccionar múltiples imágenes (formatos .jpg, .png, .webp).</p>
+                <input type="file" id="productImages" name="imagenes" accept="image/png, image/jpeg, image/webp" multiple>
+                <div id="imagePreview" class="image-preview"></div>
+            </div>
+
+            <button type="submit" class="submit-btn">Registrar Producto</button>
+        </form>
+    </main>
+
+    <!-- Footer (copiado de Home.html para consistencia) -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 id="Logo-footer">Perify.CO</h3>
+                <p id="parrafo-footer">Tenemos periféricos que se adaptan a tu estilo y de los que te sentirás orgulloso.</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><img src="../img/twitter.png" alt="Twitter"></a>
+                    <a href="#" class="social-icon"><img src="../img/facebook.png" alt="Facebook"></a>
+                    <a href="#" class="social-icon"><img src="../img/instagram.png" alt="Instagram"></a>
+                    <a href="#" class="social-icon"><img src="../img/github.png" alt="GitHub"></a>
+                </div>
+            </div>
+            <div class="info-footer">
+                <h3>COMPAÑIA</h3>
+                <ul>
+                    <li><a href="#">Acerca</a></li>
+                    <li><a href="#">Características</a></li>
+                    <li><a href="#">Trabajo</a></li>
+                    <li><a href="#">Carrera</a></li>
+                </ul>
+            </div>
+            <div class="info-footer">
+                <h3>AYUDA</h3>
+                <ul>
+                    <li><a href="#">Soporte al Cliente</a></li>
+                    <li><a href="#">Detalles de Entrega</a></li>
+                    <li><a href="#">Términos y condiciones</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                </ul>
+            </div>
+            <div class="info-footer">
+                <h3>FAQ</h3>
+                <ul>
+                    <li><a href="#">Cuenta</a></li>
+                    <li><a href="#">Administrar entregas</a></li>
+                    <li><a href="#">Órdenes</a></li>
+                    <li><a href="#">Pagos</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="copyright">Perify.co © 2000-2025, Todos los Derechos Reservados</p>
+        </div>
+    </footer>
 
     <!-- Script para previsualizar imágenes -->
     <script>
@@ -175,6 +300,8 @@
                 });
             }
         });
-    </script>
+    </script>    
+    <!-- Controlador para registrar productos -->
+    <script src="../Controlador/registrarProductoController.js"></script>
 </body>
 </html>
