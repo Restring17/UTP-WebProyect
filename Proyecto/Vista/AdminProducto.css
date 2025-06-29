@@ -359,3 +359,56 @@ body {
     color: rgba(0,0,0,0.192);
     opacity: 1;
 }
+
+.confirm-container {
+    background: #fff;
+    border-radius: 14px;
+    padding: 24px 32px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    max-width: 420px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    font-family: 'Satoshi', sans-serif;
+    animation: modalIn 0.2s;
+}
+.confirm-content {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+.confirm-icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.confirm-title {
+    font-family: 'Integral', sans-serif;
+    font-size: 1.2rem;
+    color: #ff4d4f;
+    margin: 0 0 4px 0;
+}
+.confirm-text {
+    color: #222;
+    font-size: 1rem;
+    margin-bottom: 14px;
+}
+.confirm-actions {
+    display: flex;
+    gap: 10px;
+}
+.eliminar-btn {
+    background: #ff4d4f;
+}
+.eliminar-btn:hover {
+    background: #d9363e;
+}
+.cancelar-btn {
+    background: #e0e0e0;
+    color: #222;
+}
+.cancelar-btn:hover {
+    background: #bdbdbd;
+}

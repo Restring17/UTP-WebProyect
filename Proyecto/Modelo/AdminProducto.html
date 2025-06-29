@@ -186,6 +186,27 @@
     </div>
 </div>
 
+<!-- Modal para confirmar eliminación -->
+<div id="modalEliminarProducto" class="modal-overlay" style="display:none;">
+    <div class="confirm-container">
+        <button class="close-modal-btn" id="cerrarModalEliminar" aria-label="Cerrar">×</button>
+        <div class="confirm-content">
+            <div class="confirm-icon">
+                <!-- Puedes usar un ícono SVG de advertencia aquí si deseas -->
+                <svg width="38" height="38" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="12" fill="#ff4d4f"/><path d="M12 7v5M12 16h.01" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+                <h2 class="confirm-title">¿Eliminar producto?</h2>
+                <p class="confirm-text">Esta acción no se puede deshacer. ¿Seguro que deseas eliminar este producto?</p>
+                <div class="confirm-actions">
+                    <button class="submit-btn eliminar-btn" id="confirmarEliminar">Eliminar</button>
+                    <button class="submit-btn cancelar-btn" id="cancelarEliminar">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
     </body>
 
     
@@ -214,5 +235,37 @@ document.getElementById('modalEditarProducto').addEventListener('click', functio
         this.style.display = 'none';
     }
 });
+// Abrir modal al hacer click en "Eliminar"
+document.querySelectorAll('.dropdown-item').forEach(function(item) {
+    if(item.textContent.trim() === "Eliminar") {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('modalEliminarProducto').style.display = 'flex';
+        });
+    }
+});
+
+// Cerrar modal al hacer click en el botón cerrar o cancelar
+document.getElementById('cerrarModalEliminar').addEventListener('click', function() {
+    document.getElementById('modalEliminarProducto').style.display = 'none';
+});
+document.getElementById('cancelarEliminar').addEventListener('click', function() {
+    document.getElementById('modalEliminarProducto').style.display = 'none';
+});
+
+// Cerrar modal al hacer click fuera del formulario
+document.getElementById('modalEliminarProducto').addEventListener('click', function(e) {
+    if(e.target === this) {
+        this.style.display = 'none';
+    }
+});
+
+// Acción de eliminar (puedes personalizarla)
+document.getElementById('confirmarEliminar').addEventListener('click', function() {
+    // Aquí va la lógica para eliminar el producto
+    alert('Producto eliminado (simulado)');
+    document.getElementById('modalEliminarProducto').style.display = 'none';
+});
+
     </script>
 </html>
