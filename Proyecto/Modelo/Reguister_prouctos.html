@@ -23,7 +23,7 @@
             </div>
             <div class="opciones">
                 <div class="opcuerpo">
-                    <button class="opcButton">Administracion    
+                    <button class="opcButton" onclick="abrirPagina('AccesoPage.html')" type="button">Administracion    
                     <svg width="24px" height="24px" viewBox="-4.5 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>arrow_right [#336]</title>
                         <desc>Created with Sketch.</desc>
@@ -35,7 +35,7 @@
                                     </path></g></g></g>
                     </svg>
                     </button>
-                    <button class="opcButton">Productos    
+                    <button class="opcButton" onclick="abrirPagina('AdminProducto.html')" type="button">Productos    
                         <svg width="24px" height="24px" viewBox="-4.5 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                             <title>arrow_right [#336]</title>
                             <desc>Created with Sketch.</desc>
@@ -180,5 +180,11 @@
     
     <!-- Controlador para registrar productos -->
     <script src="../Controlador/registrarProductoController.js"></script>
+    
+    <script>
+        function abrirPagina(url) {
+            window.location.href = url;
+        }
+    </script>
 </body>
 </html>

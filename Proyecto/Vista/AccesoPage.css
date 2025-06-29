@@ -67,7 +67,6 @@ body {
 
 .cuerpo{
     display: flex;
-    margin-top: 80px;
 }
 
 
@@ -94,6 +93,9 @@ body {
     width: auto;
 }
 
+.contenido{
+    margin-top: 50px;
+}
 
 #nombre{
     font-family: 'Integral', sans-serif;
