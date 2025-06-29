@@ -8,130 +8,153 @@
     <link rel="stylesheet" href="../Vista/Reguister_prouctos.css"> <!-- CSS específico para el formulario -->
 </head>
 <body>
-    <!-- Navegador (copiado de Home.html para consistencia) -->
-    <nav class="main-nav">
-        <div class="nav-contenedor">
-            <a href="Home.html" class="logo" style="font-family: 'Integral',sans-serif; font-size:32px;">Perify.co</a>
+<!-- Panel administrativo -->
+
+<div class="cuerpo">
+        <div class="user">
+            <div class="datosPersonales">
+                <div class="imagenUser">
+                    <img src="../img/person-svgrepo-com.svg" id="imgUsuario" alt="imgdelUsuario">
+                </div>
+                <div class="infoUser">
+                    <p id="nombre">Administrador</p>
+                    <p id="correo">Ejemplo@hotmail.com</p>
+                </div>
+            </div>
+            <div class="opciones">
+                <div class="opcuerpo">
+                    <button class="opcButton">Administracion    
+                    <svg width="24px" height="24px" viewBox="-4.5 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <title>arrow_right [#336]</title>
+                        <desc>Created with Sketch.</desc>
+                        <defs></defs>
+                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g id="Dribbble-Light-Preview" transform="translate(-305.000000, -6679.000000)" fill="#000000">
+                                <g id="icons" transform="translate(56.000000, 160.000000)">
+                                    <path d="M249.365851,6538.70769 L249.365851,6538.70769 C249.770764,6539.09744 250.426289,6539.09744 250.830166,6538.70769 L259.393407,6530.44413 C260.202198,6529.66364 260.202198,6528.39747 259.393407,6527.61699 L250.768031,6519.29246 C250.367261,6518.90671 249.720021,6518.90172 249.314072,6519.28247 L249.314072,6519.28247 C248.899839,6519.67121 248.894661,6520.31179 249.302681,6520.70653 L257.196934,6528.32352 C257.601847,6528.71426 257.601847,6529.34685 257.196934,6529.73759 L249.365851,6537.29462 C248.960938,6537.68437 248.960938,6538.31795 249.365851,6538.70769" id="arrow_right-[#336]">
+                                    </path></g></g></g>
+                    </svg>
+                    </button>
+                    <button class="opcButton">Productos    
+                        <svg width="24px" height="24px" viewBox="-4.5 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <title>arrow_right [#336]</title>
+                            <desc>Created with Sketch.</desc>
+                            <defs></defs>
+                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g id="Dribbble-Light-Preview" transform="translate(-305.000000, -6679.000000)" fill="#000000">
+                                    <g id="icons" transform="translate(56.000000, 160.000000)">
+                                        <path d="M249.365851,6538.70769 L249.365851,6538.70769 C249.770764,6539.09744 250.426289,6539.09744 250.830166,6538.70769 L259.393407,6530.44413 C260.202198,6529.66364 260.202198,6528.39747 259.393407,6527.61699 L250.768031,6519.29246 C250.367261,6518.90671 249.720021,6518.90172 249.314072,6519.28247 L249.314072,6519.28247 C248.899839,6519.67121 248.894661,6520.31179 249.302681,6520.70653 L257.196934,6528.32352 C257.601847,6528.71426 257.601847,6529.34685 257.196934,6529.73759 L249.365851,6537.29462 C248.960938,6537.68437 248.960938,6538.31795 249.365851,6538.70769" id="arrow_right-[#336]">
+                                        </path></g></g> </g>
+                        </svg>
+                    </button>
+                    <button class="opcButton">Compras    
+                        <svg width="24px" height="24px" viewBox="-4.5 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <title>arrow_right [#336]</title>
+                            <desc>Created with Sketch.</desc>
+                            <defs></defs>
+                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g id="Dribbble-Light-Preview" transform="translate(-305.000000, -6679.000000)" fill="#000000">
+                                    <g id="icons" transform="translate(56.000000, 160.000000)">
+                                        <path d="M249.365851,6538.70769 L249.365851,6538.70769 C249.770764,6539.09744 250.426289,6539.09744 250.830166,6538.70769 L259.393407,6530.44413 C260.202198,6529.66364 260.202198,6528.39747 259.393407,6527.61699 L250.768031,6519.29246 C250.367261,6518.90671 249.720021,6518.90172 249.314072,6519.28247 L249.314072,6519.28247 C248.899839,6519.67121 248.894661,6520.31179 249.302681,6520.70653 L257.196934,6528.32352 C257.601847,6528.71426 257.601847,6529.34685 257.196934,6529.73759 L249.365851,6537.29462 C248.960938,6537.68437 248.960938,6538.31795 249.365851,6538.70769" id="arrow_right-[#336]">
+                                        </path></g></g> </g>
+                        </svg>
+                    </button>
+                    <button class="opcButton">Ventas
+                        <svg width="24px" height="24px" viewBox="-4.5 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <title>arrow_right [#336]</title>
+                            <desc>Created with Sketch.</desc>
+                            <defs></defs>
+                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g id="Dribbble-Light-Preview" transform="translate(-305.000000, -6679.000000)" fill="#000000">
+                                    <g id="icons" transform="translate(56.000000, 160.000000)">
+                                        <path d="M249.365851,6538.70769 L249.365851,6538.70769 C249.770764,6539.09744 250.426289,6539.09744 250.830166,6538.70769 L259.393407,6530.44413 C260.202198,6529.66364 260.202198,6528.39747 259.393407,6527.61699 L250.768031,6519.29246 C250.367261,6518.90671 249.720021,6518.90172 249.314072,6519.28247 L249.314072,6519.28247 C248.899839,6519.67121 248.894661,6520.31179 249.302681,6520.70653 L257.196934,6528.32352 C257.601847,6528.71426 257.601847,6529.34685 257.196934,6529.73759 L249.365851,6537.29462 C248.960938,6537.68437 248.960938,6538.31795 249.365851,6538.70769" id="arrow_right-[#336]">
+                                        </path></g></g> </g>
+                        </svg>
+                    </button>
+                    <button class="opcButton">Proveedores  
+                        <svg width="24px" height="24px" viewBox="-4.5 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <title>arrow_right [#336]</title>
+                            <desc>Created with Sketch.</desc>
+                            <defs></defs>
+                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g id="Dribbble-Light-Preview" transform="translate(-305.000000, -6679.000000)" fill="#000000">
+                                    <g id="icons" transform="translate(56.000000, 160.000000)">
+                                        <path d="M249.365851,6538.70769 L249.365851,6538.70769 C249.770764,6539.09744 250.426289,6539.09744 250.830166,6538.70769 L259.393407,6530.44413 C260.202198,6529.66364 260.202198,6528.39747 259.393407,6527.61699 L250.768031,6519.29246 C250.367261,6518.90671 249.720021,6518.90172 249.314072,6519.28247 L249.314072,6519.28247 C248.899839,6519.67121 248.894661,6520.31179 249.302681,6520.70653 L257.196934,6528.32352 C257.601847,6528.71426 257.601847,6529.34685 257.196934,6529.73759 L249.365851,6537.29462 C248.960938,6537.68437 248.960938,6538.31795 249.365851,6538.70769" id="arrow_right-[#336]">
+                                        </path></g></g> </g>
+                        </svg>
+                    </button>
+                    <button class="opcButton">Reportes   
+                        <svg width="24px" height="24px" viewBox="-4.5 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <title>arrow_right [#336]</title>
+                            <desc>Created with Sketch.</desc>
+                            <defs></defs>
+                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g id="Dribbble-Light-Preview" transform="translate(-305.000000, -6679.000000)" fill="#000000">
+                                    <g id="icons" transform="translate(56.000000, 160.000000)">
+                                        <path d="M249.365851,6538.70769 L249.365851,6538.70769 C249.770764,6539.09744 250.426289,6539.09744 250.830166,6538.70769 L259.393407,6530.44413 C260.202198,6529.66364 260.202198,6528.39747 259.393407,6527.61699 L250.768031,6519.29246 C250.367261,6518.90671 249.720021,6518.90172 249.314072,6519.28247 L249.314072,6519.28247 C248.899839,6519.67121 248.894661,6520.31179 249.302681,6520.70653 L257.196934,6528.32352 C257.601847,6528.71426 257.601847,6529.34685 257.196934,6529.73759 L249.365851,6537.29462 C248.960938,6537.68437 248.960938,6538.31795 249.365851,6538.70769" id="arrow_right-[#336]">
+                                        </path></g></g> </g>
+                        </svg>
+                    <button class="opcButton">Devoluciones 
+                        <svg width="24px" height="24px" viewBox="-4.5 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <title>arrow_right [#336]</title>
+                            <desc>Created with Sketch.</desc>
+                            <defs></defs>
+                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g id="Dribbble-Light-Preview" transform="translate(-305.000000, -6679.000000)" fill="#000000">
+                                    <g id="icons" transform="translate(56.000000, 160.000000)">
+                                        <path d="M249.365851,6538.70769 L249.365851,6538.70769 C249.770764,6539.09744 250.426289,6539.09744 250.830166,6538.70769 L259.393407,6530.44413 C260.202198,6529.66364 260.202198,6528.39747 259.393407,6527.61699 L250.768031,6519.29246 C250.367261,6518.90671 249.720021,6518.90172 249.314072,6519.28247 L249.314072,6519.28247 C248.899839,6519.67121 248.894661,6520.31179 249.302681,6520.70653 L257.196934,6528.32352 C257.601847,6528.71426 257.601847,6529.34685 257.196934,6529.73759 L249.365851,6537.29462 C248.960938,6537.68437 248.960938,6538.31795 249.365851,6538.70769" id="arrow_right-[#336]">
+                                        </path></g></g> </g>
+                        </svg>
+                    </button>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Contenido Principal del Formulario -->
+        <div class="form-container">
+            <h1>Registro de Nuevo Producto</h1>
+            <p>Completa los siguientes campos para añadir un nuevo artículo al catálogo.</p>
             
-            <div class="nav-links">
-                <div class="nav-item">
-                    <span>Tienda</span>
-                    <img src="../img/desplegable.png" alt="Desplegable" width="10" height="8">
-                    <div class="dropdown-menu">
-                        <a href="Catalogo.html" class="dropdown-item">Catálogo</a>
-                        <a href="#" class="dropdown-item">Ofertas</a>
-                        <a href="#" class="dropdown-item">Novedades</a>
+            <form id="productForm" class="product-form">
+                <div class="form-group">
+                    <label for="productName">Nombre del Producto</label>
+                    <input type="text" id="productName" name="productName" placeholder="Ej: Mouse Gamer Inalámbrico" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="productBrand">Marca</label>
+                    <input type="text" id="productBrand" name="productBrand" placeholder="Ej: Logitech" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="productDescription">Descripción</label>
+                    <textarea id="productDescription" name="productDescription" rows="5" placeholder="Describe las características principales del producto." required></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="productPrice">Precio (S/)</label>
+                        <input type="number" id="productPrice" name="productPrice" step="0.01" placeholder="Ej: 199.90" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="productStock">Stock</label>
+                        <input type="number" id="productStock" name="productStock" placeholder="Ej: 50" required>
                     </div>
                 </div>
-                <a href="Marcas.html" class="nav-item">Marcas</a>
-                <a href="Contacto.html" class="nav-item">Contacto</a>
-                <a href="Noticias.html" class="nav-item">Noticias</a>
-            </div>
 
-            <div class="barra-busqueda">
-                <img src="../img/busqueda.png" alt="Buscar" width="20" height="20">
-                <input type="text" placeholder="Buscar...">
-            </div>
-
-            <div class="nav-icons">
-                <button class="icon-button" aria-label="Carrito de compras">
-                    <img src="../img/carrito.png" alt="Carrito" width="20" height="20">
-                </button>
-                <button class="icon-button" aria-label="Usuario" id="openLoginModal">
-                    <img src="../img/usuario.png" alt="Usuario" width="20" height="20">
-                </button>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Contenido Principal del Formulario -->
-    <main class="form-container">
-        <h1>Registro de Nuevo Producto</h1>
-        <p>Completa los siguientes campos para añadir un nuevo artículo al catálogo.</p>
-        
-        <form id="productForm" class="product-form">
-            <div class="form-group">
-                <label for="productName">Nombre del Producto</label>
-                <input type="text" id="productName" name="productName" placeholder="Ej: Mouse Gamer Inalámbrico" required>
-            </div>
-
-            <div class="form-group">
-                <label for="productBrand">Marca</label>
-                <input type="text" id="productBrand" name="productBrand" placeholder="Ej: Logitech" required>
-            </div>
-
-            <div class="form-group">
-                <label for="productDescription">Descripción</label>
-                <textarea id="productDescription" name="productDescription" rows="5" placeholder="Describe las características principales del producto." required></textarea>
-            </div>
-
-            <div class="form-row">
                 <div class="form-group">
-                    <label for="productPrice">Precio (S/)</label>
-                    <input type="number" id="productPrice" name="productPrice" step="0.01" placeholder="Ej: 199.90" required>
+                    <label for="productImages">Imágenes del Producto</label>
+                    <p class="upload-description">Puedes seleccionar múltiples imágenes (formatos .jpg, .png, .webp).</p>
+                    <input type="file" id="productImages" name="productImages" accept="image/png, image/jpeg, image/webp" multiple>
+                    <div id="imagePreview" class="image-preview"></div>
                 </div>
-                <div class="form-group">
-                    <label for="productStock">Stock</label>
-                    <input type="number" id="productStock" name="productStock" placeholder="Ej: 50" required>
-                </div>
-            </div>
 
-            <div class="form-group">
-                <label for="productImages">Imágenes del Producto</label>
-                <p class="upload-description">Puedes seleccionar múltiples imágenes (formatos .jpg, .png, .webp).</p>
-                <input type="file" id="productImages" name="productImages" accept="image/png, image/jpeg, image/webp" multiple>
-                <div id="imagePreview" class="image-preview"></div>
-            </div>
-
-            <button type="submit" class="submit-btn">Registrar Producto</button>
-        </form>
-    </main>
-
-    <!-- Footer (copiado de Home.html para consistencia) -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3 id="Logo-footer">Perify.CO</h3>
-                <p id="parrafo-footer">Tenemos periféricos que se adaptan a tu estilo y de los que te sentirás orgulloso.</p>
-                <div class="social-icons">
-                    <a href="#" class="social-icon"><img src="../img/twitter.png" alt="Twitter"></a>
-                    <a href="#" class="social-icon"><img src="../img/facebook.png" alt="Facebook"></a>
-                    <a href="#" class="social-icon"><img src="../img/instagram.png" alt="Instagram"></a>
-                    <a href="#" class="social-icon"><img src="../img/github.png" alt="GitHub"></a>
-                </div>
-            </div>
-            <div class="info-footer">
-                <h3>COMPAÑIA</h3>
-                <ul>
-                    <li><a href="#">Acerca</a></li>
-                    <li><a href="#">Características</a></li>
-                    <li><a href="#">Trabajo</a></li>
-                    <li><a href="#">Carrera</a></li>
-                </ul>
-            </div>
-            <div class="info-footer">
-                <h3>AYUDA</h3>
-                <ul>
-                    <li><a href="#">Soporte al Cliente</a></li>
-                    <li><a href="#">Detalles de Entrega</a></li>
-                    <li><a href="#">Términos y condiciones</a></li>
-                    <li><a href="#">Política de Privacidad</a></li>
-                </ul>
-            </div>
-            <div class="info-footer">
-                <h3>FAQ</h3>
-                <ul>
-                    <li><a href="#">Cuenta</a></li>
-                    <li><a href="#">Administrar entregas</a></li>
-                    <li><a href="#">Órdenes</a></li>
-                    <li><a href="#">Pagos</a></li>
-                </ul>
-            </div>
+                <button type="submit" class="submit-btn">Registrar Producto</button>
+            </form>
         </div>
-        <div class="footer-bottom">
-            <p class="copyright">Perify.co © 2000-2025, Todos los Derechos Reservados</p>
-        </div>
-    </footer>
+    </div>
+    
 
     <!-- Script para previsualizar imágenes -->
     <script>
