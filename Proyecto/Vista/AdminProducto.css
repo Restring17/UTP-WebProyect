@@ -42,6 +42,9 @@ body {
     width: auto;
 }
 
+.contenido{
+    margin-top: 50px;
+}
 
 #nombre{
     font-family: 'Integral', sans-serif;
