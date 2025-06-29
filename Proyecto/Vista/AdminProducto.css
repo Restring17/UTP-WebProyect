@@ -52,6 +52,12 @@ body {
     margin-bottom: 20px; 
 }
 
+#tresPuntos{
+    font-family: 'Satoshi', sans-serif;
+    font-size: 34px;   
+    margin-bottom: 20px; 
+}
+
 #correo{
     font-family: 'Satoshi',sans-serif;
     font-size: 34px;   
@@ -186,6 +192,7 @@ body {
     align-items: center;
     gap: 4px;
     cursor: pointer;
+    justify-content: center;
     white-space: nowrap;
     position: relative;
     width: 52px;
@@ -194,6 +201,7 @@ body {
     align-items: center;
     align-content: center;
     text-align: center;
+    
 }
 
 .nav-item:hover {
@@ -229,4 +237,125 @@ body {
 
 .dropdown-item:hover {
     background-color: #2A2A2A;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+.form-container {
+    background: #0D0D0D;
+    border-radius: 16px;
+    padding: 36px 32px 28px 32px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    max-width: 480px;
+    width: 100%;
+    position: relative;
+    font-family: 'Satoshi', sans-serif;
+    animation: modalIn 0.2s;
+}
+@keyframes modalIn {
+    from { transform: translateY(40px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+.form-container h1 {
+    font-family: 'Integral', sans-serif;
+    font-size: 1.7rem;
+    margin-bottom: 8px;
+    color: #16B806;
+    text-align: center;
+}
+.form-container p {
+    color: #ffffff;
+    font-size: 1rem;
+    margin-bottom: 22px;
+    text-align: center;
+}
+.close-modal-btn {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #222;
+    cursor: pointer;
+    z-index: 2;
+    transition: color 0.2s;
+}
+.close-modal-btn:hover {
+    color: #16B806;
+}
+.product-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+.product-form .form-group {
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+}
+.product-form label {
+    font-size: 1rem;
+    margin-bottom: 6px;
+    color: #ffffff;
+    font-weight: 500;
+}
+.product-form input,
+.product-form textarea {
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    font-size: 1rem;
+    padding: 12px 14px;
+    background: #f8f8f8;
+    color: #222;
+    font-family: 'Satoshi', sans-serif;
+    transition: border 0.2s, box-shadow 0.2s;
+    resize: none;
+}
+.product-form input:focus,
+.product-form textarea:focus {
+    outline: none;
+    border: 1.5px solid #16B806;
+    box-shadow: 0 0 0 2px #16B80633;
+}
+.product-form textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+.form-row {
+    display: flex;
+    gap: 16px;
+}
+.form-row .form-group {
+    flex: 1;
+    margin-bottom: 0;
+}
+.submit-btn {
+    background: #16B806;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 13px 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+    width: 100%;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.2s;
+    letter-spacing: 0.5px;
+}
+.submit-btn:hover {
+    background: #119a05;
+}
+.product-form input::placeholder,
+.product-form textarea::placeholder {
+    color: rgba(0,0,0,0.192);
+    opacity: 1;
 }

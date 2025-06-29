@@ -140,7 +140,7 @@
                                 </div>
                             </div>
                             <div class="nav-item">
-                                <span>...</span>
+                                <span #tresPuntos >...</span>
                                 <div class="dropdown-menu">
                                     <a href="#" class="dropdown-item">Modificar</a>
                                     <a href="#" class="dropdown-item">Eliminar</a>
@@ -151,6 +151,41 @@
                 </div>
             </div>
         </div>
+    <!-- Aqui el modal editar producto-->
+
+        <div id="modalEditarProducto" class="modal-overlay" style="display:none;">
+    <div class="form-container">
+        <button class="close-modal-btn" id="cerrarModalEditar" aria-label="Cerrar">×</button>
+        <h1>Actualiza el Producto</h1>
+        <p>Completa los siguientes campos actualizar el artículo del catálogo.</p>
+        <form id="formRegistrarProducto" class="product-form">
+            <div class="form-group">
+                <label for="productName">Nombre del Producto</label>
+                <input type="text" id="productName" name="nombre" placeholder="Ej: Mouse Gamer Inalámbrico" required>
+            </div>
+            <div class="form-group">
+                <label for="productBrand">Marca</label>
+                <input type="text" id="productBrand" name="marca" placeholder="Ej: Logitech" required>
+            </div>
+            <div class="form-group">
+                <label for="productDescription">Descripción</label>
+                <textarea id="productDescription" name="descripcion" rows="5" placeholder="Describe las características principales del producto." required></textarea>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="productPrice">Precio (S/)</label>
+                    <input type="number" id="productPrice" name="precio" step="0.01" placeholder="Ej: 199.90" required>
+                </div>
+                <div class="form-group">
+                    <label for="productStock">Stock</label>
+                    <input type="number" id="productStock" name="stock" placeholder="Ej: 50" required>
+                </div>
+            </div>
+            <button type="submit" class="submit-btn">Actualizar Producto</button>
+        </form>
+    </div>
+</div>
+
     </body>
 
     
@@ -158,5 +193,26 @@
         function abrirPagina(url) {
             window.location.href = url;
         }
+        // Abrir modal al hacer click en "Modificar"
+document.querySelectorAll('.dropdown-item').forEach(function(item) {
+    if(item.textContent.trim() === "Modificar") {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('modalEditarProducto').style.display = 'flex';
+        });
+    }
+});
+
+// Cerrar modal al hacer click en el botón cerrar
+document.getElementById('cerrarModalEditar').addEventListener('click', function() {
+    document.getElementById('modalEditarProducto').style.display = 'none';
+});
+
+// Cerrar modal al hacer click fuera del formulario
+document.getElementById('modalEditarProducto').addEventListener('click', function(e) {
+    if(e.target === this) {
+        this.style.display = 'none';
+    }
+});
     </script>
 </html>
