@@ -1,3 +1,77 @@
+
+/*Panel Administrativo*/
+.cuerpo{
+    display: flex;
+}
+
+.datosPersonales{
+    background-color: #16B806;
+    display: grid;
+    width: 500px;
+    height: 550px;
+    text-align: center;
+}
+
+#imgUsuario{
+    border-radius: 100%;
+    border-color: #0D0D0D;
+    border-style: solid;
+    border-width: thick;
+    width: 256px;
+    height: 256px;
+    margin: 50px 0px 0px 0px;
+}
+
+.infoUser{
+    text-align: center;
+    width: auto;
+}
+
+
+#nombre{
+    font-family: 'Integral', sans-serif;
+    font-size: 34px;   
+    margin-bottom: 20px; 
+}
+
+#correo{
+    font-family: 'Satoshi',sans-serif;
+    font-size: 34px;   
+}
+
+.opciones{
+    background-color: #15b8068c;
+    padding: 20px;
+    align-items: center;
+    align-content: center;
+    height: 40em;
+}
+
+.opcuerpo{
+    display: grid;
+    row-gap: 20px;
+    
+}
+
+.opcButton{
+    background-color: #ffffffff;
+    font-family: 'Satoshi',sans-serif;
+    font-size: 34px;
+    color: #000000;
+    text-align: center;
+    border-radius: 50px;
+    border-style: none;
+    width: auto;
+    margin: 10px 10px 10px 10px;
+}
+
+.opcButton:hover{
+    background-color: #000000;
+    color: white;
+    transition: 0.5s;
+}
+
+
 /* Estilos para el contenedor principal del formulario */
 .form-container {
     max-width: 800px;

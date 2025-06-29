@@ -4,20 +4,15 @@ html,body {
     margin: 0;
     padding: 0;
     color: white; 
-    max-width: 100vw;
-    overflow-x: hidden;
-  }
-  
-  @font-face {
     font-family: 'Satoshi';
     src: url('../fonts/Satoshi-Medium.otf') format('truetype');
-  }
+}
 
-  @font-face {
+@font-face {
     font-family: 'Integral';
     src: url('../fonts/Fontspring-DEMO-integralcf-bold.otf') format('truetype');
-  }
-  
+}
+
 .promo-header {
     width: 100vw;
     max-width: none;
