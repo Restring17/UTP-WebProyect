@@ -1,3 +1,9 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 body {
     background-color: #0D0D0D;
     margin: 0;
@@ -197,7 +203,9 @@ body {
     text-align: center;
     align-items: center;
     align-content: center;
+    font-weight: bold;
     padding: 20px 20px;
+    margin-bottom: 100px;
 }
 
 .informacion{
@@ -206,52 +214,75 @@ body {
 
 .mensaje{
     background-color: #16B806;
-    color: #FFFFFF;
-    font-family: 'satoshi', sans-serif;
-    padding: 10px;
-    border-radius: 15px;
-    width: 900px;
-    height: 580px;
+    color: #000;
+    font-family: 'Satoshi', sans-serif;
+    padding: 32px 24px;
+    border-radius: 20px;
+    max-width: fit-content;
+    width: 100%;
+    margin: 0 20px 90px 50px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    text-align: center;
-    margin: 0px 20px 90px 50px;
 }
 
 .mensajeTitulo{
-    font-size: 60px;
-    margin: 0px;
+    font-family: 'Integral', sans-serif;
+    font-size: 32px;
+    margin-bottom: 24px;
 }
 
-.info{
-    border-radius: 15px;
-    font-family: 'satoshi', sans-serif;
-    font-weight: lighter;
-    width: 800px;
-    height: 60px;
-    font-size: 20px;
-    margin: 10px;
+.mensaje form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
 }
 
-.mens{
-    border-radius: 15px;
-    font-family: 'satoshi', sans-serif;
-    font-weight: lighter;
-    width: 800px;
-    height: 200px;
-    font-size: 20px;
-    margin: 10px;
+.info, .mens {
+    border-radius: 12px;
+    border: none;
+    font-family: 'Satoshi', sans-serif;
+    font-size: 18px;
+    padding: 14px 18px;
+    background: #fff;
+    color: #222;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    margin: 0;
+    width: 100%;
+    transition: box-shadow 0.2s;
+    box-sizing: border-box;
+}
+
+.info:focus, .mens:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #000, 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.mens {
+    min-height: 120px;
+    resize: vertical;
 }
 
 .button{
     background-color: #000000;
     color: #ffffff;
-    font-family: 'satoshi', sans-serif;
-    font-size: 25px;
-    font-weight: bolder;
-    padding: 10px;
-    border-radius: 20px;
-    width: 350px;
-    height: auto;
+    font-family: 'Satoshi', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 14px 0;
+    border-radius: 12px;
+    width: 100%;
+    border: none;
+    margin-top: 8px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.button:hover {
+    background: #222;
+    color: #16B806;
 }
 
 .infoContacto{
@@ -511,4 +542,10 @@ iframe{
     font-size: 14px;
     margin: 0;
     min-width: 300px;
+}
+
+.info::placeholder,
+.mens::placeholder {
+    color: rgba(0, 0, 0, 0.26);
+    opacity: 1; /* Para asegurar compatibilidad */
 }
