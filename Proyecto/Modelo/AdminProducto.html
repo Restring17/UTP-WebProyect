@@ -1,271 +1,594 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Administrador</title>
-        <link rel="stylesheet" href="../Vista/AdminProducto.css">
-    </head>
-    <body>
-        
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Administrador</title>
+    <link rel="stylesheet" href="../Vista/AdminProducto.css" />
+  </head>
+  <body>
     <!--Cuerpo de la pagina-->
-        <div class="cuerpo">
-            <div class="user">
-                <div class="datosPersonales">
-                    <div class="imagenUser">
-                        <img src="../img/person-svgrepo-com.svg" id="imgUsuario" alt="imgdelUsuario">
-                    </div>
-                    <div class="infoUser">
-                        <p id="nombre">Administrador</p>
-                        <p id="correo">Ejemplo@hotmail.com</p>
-                    </div>
-                </div>
-                <div class="opciones">
-                    <div class="opcuerpo">
-                        <button class="opcButton" onclick="abrirPagina('AccesoPage.html')" type="button">Administracion    
-                        <svg width="24px" height="24px" viewBox="-4.5 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                            <title>arrow_right [#336]</title>
-                            <desc>Created with Sketch.</desc>
-                            <defs></defs>
-                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                <g id="Dribbble-Light-Preview" transform="translate(-305.000000, -6679.000000)" fill="#000000">
-                                    <g id="icons" transform="translate(56.000000, 160.000000)">
-                                        <path d="M249.365851,6538.70769 L249.365851,6538.70769 C249.770764,6539.09744 250.426289,6539.09744 250.830166,6538.70769 L259.393407,6530.44413 C260.202198,6529.66364 260.202198,6528.39747 259.393407,6527.61699 L250.768031,6519.29246 C250.367261,6518.90671 249.720021,6518.90172 249.314072,6519.28247 L249.314072,6519.28247 C248.899839,6519.67121 248.894661,6520.31179 249.302681,6520.70653 L257.196934,6528.32352 C257.601847,6528.71426 257.601847,6529.34685 257.196934,6529.73759 L249.365851,6537.29462 C248.960938,6537.68437 248.960938,6538.31795 249.365851,6538.70769" id="arrow_right-[#336]">
-                                        </path></g></g></g>
-                        </svg>
-                        </button>
-                        <button class="opcButton" onclick="abrirPagina('AdminProducto.html')" type="button">Productos    
-                            <svg width="24px" height="24px" viewBox="-4.5 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                <title>arrow_right [#336]</title>
-                                <desc>Created with Sketch.</desc>
-                                <defs></defs>
-                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <g id="Dribbble-Light-Preview" transform="translate(-305.000000, -6679.000000)" fill="#000000">
-                                        <g id="icons" transform="translate(56.000000, 160.000000)">
-                                            <path d="M249.365851,6538.70769 L249.365851,6538.70769 C249.770764,6539.09744 250.426289,6539.09744 250.830166,6538.70769 L259.393407,6530.44413 C260.202198,6529.66364 260.202198,6528.39747 259.393407,6527.61699 L250.768031,6519.29246 C250.367261,6518.90671 249.720021,6518.90172 249.314072,6519.28247 L249.314072,6519.28247 C248.899839,6519.67121 248.894661,6520.31179 249.302681,6520.70653 L257.196934,6528.32352 C257.601847,6528.71426 257.601847,6529.34685 257.196934,6529.73759 L249.365851,6537.29462 C248.960938,6537.68437 248.960938,6538.31795 249.365851,6538.70769" id="arrow_right-[#336]">
-                                            </path></g></g> </g>
-                            </svg>
-                        </button>
-                        <button class="opcButton">Compras    
-                            <svg width="24px" height="24px" viewBox="-4.5 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                <title>arrow_right [#336]</title>
-                                <desc>Created with Sketch.</desc>
-                                <defs></defs>
-                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <g id="Dribbble-Light-Preview" transform="translate(-305.000000, -6679.000000)" fill="#000000">
-                                        <g id="icons" transform="translate(56.000000, 160.000000)">
-                                            <path d="M249.365851,6538.70769 L249.365851,6538.70769 C249.770764,6539.09744 250.426289,6539.09744 250.830166,6538.70769 L259.393407,6530.44413 C260.202198,6529.66364 260.202198,6528.39747 259.393407,6527.61699 L250.768031,6519.29246 C250.367261,6518.90671 249.720021,6518.90172 249.314072,6519.28247 L249.314072,6519.28247 C248.899839,6519.67121 248.894661,6520.31179 249.302681,6520.70653 L257.196934,6528.32352 C257.601847,6528.71426 257.601847,6529.34685 257.196934,6529.73759 L249.365851,6537.29462 C248.960938,6537.68437 248.960938,6538.31795 249.365851,6538.70769" id="arrow_right-[#336]">
-                                            </path></g></g> </g>
-                            </svg>
-                        </button>
-                        <button class="opcButton">Ventas
-                            <svg width="24px" height="24px" viewBox="-4.5 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                <title>arrow_right [#336]</title>
-                                <desc>Created with Sketch.</desc>
-                                <defs></defs>
-                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <g id="Dribbble-Light-Preview" transform="translate(-305.000000, -6679.000000)" fill="#000000">
-                                        <g id="icons" transform="translate(56.000000, 160.000000)">
-                                            <path d="M249.365851,6538.70769 L249.365851,6538.70769 C249.770764,6539.09744 250.426289,6539.09744 250.830166,6538.70769 L259.393407,6530.44413 C260.202198,6529.66364 260.202198,6528.39747 259.393407,6527.61699 L250.768031,6519.29246 C250.367261,6518.90671 249.720021,6518.90172 249.314072,6519.28247 L249.314072,6519.28247 C248.899839,6519.67121 248.894661,6520.31179 249.302681,6520.70653 L257.196934,6528.32352 C257.601847,6528.71426 257.601847,6529.34685 257.196934,6529.73759 L249.365851,6537.29462 C248.960938,6537.68437 248.960938,6538.31795 249.365851,6538.70769" id="arrow_right-[#336]">
-                                            </path></g></g> </g>
-                            </svg>
-                        </button>
-                        <button class="opcButton">Proveedores  
-                            <svg width="24px" height="24px" viewBox="-4.5 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                <title>arrow_right [#336]</title>
-                                <desc>Created with Sketch.</desc>
-                                <defs></defs>
-                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <g id="Dribbble-Light-Preview" transform="translate(-305.000000, -6679.000000)" fill="#000000">
-                                        <g id="icons" transform="translate(56.000000, 160.000000)">
-                                            <path d="M249.365851,6538.70769 L249.365851,6538.70769 C249.770764,6539.09744 250.426289,6539.09744 250.830166,6538.70769 L259.393407,6530.44413 C260.202198,6529.66364 260.202198,6528.39747 259.393407,6527.61699 L250.768031,6519.29246 C250.367261,6518.90671 249.720021,6518.90172 249.314072,6519.28247 L249.314072,6519.28247 C248.899839,6519.67121 248.894661,6520.31179 249.302681,6520.70653 L257.196934,6528.32352 C257.601847,6528.71426 257.601847,6529.34685 257.196934,6529.73759 L249.365851,6537.29462 C248.960938,6537.68437 248.960938,6538.31795 249.365851,6538.70769" id="arrow_right-[#336]">
-                                            </path></g></g> </g>
-                            </svg>
-                        </button>
-                        <button class="opcButton">Reportes   
-                            <svg width="24px" height="24px" viewBox="-4.5 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                <title>arrow_right [#336]</title>
-                                <desc>Created with Sketch.</desc>
-                                <defs></defs>
-                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <g id="Dribbble-Light-Preview" transform="translate(-305.000000, -6679.000000)" fill="#000000">
-                                        <g id="icons" transform="translate(56.000000, 160.000000)">
-                                            <path d="M249.365851,6538.70769 L249.365851,6538.70769 C249.770764,6539.09744 250.426289,6539.09744 250.830166,6538.70769 L259.393407,6530.44413 C260.202198,6529.66364 260.202198,6528.39747 259.393407,6527.61699 L250.768031,6519.29246 C250.367261,6518.90671 249.720021,6518.90172 249.314072,6519.28247 L249.314072,6519.28247 C248.899839,6519.67121 248.894661,6520.31179 249.302681,6520.70653 L257.196934,6528.32352 C257.601847,6528.71426 257.601847,6529.34685 257.196934,6529.73759 L249.365851,6537.29462 C248.960938,6537.68437 248.960938,6538.31795 249.365851,6538.70769" id="arrow_right-[#336]">
-                                            </path></g></g> </g>
-                            </svg>
-                        <button class="opcButton">Devoluciones 
-                            <svg width="24px" height="24px" viewBox="-4.5 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                <title>arrow_right [#336]</title>
-                                <desc>Created with Sketch.</desc>
-                                <defs></defs>
-                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <g id="Dribbble-Light-Preview" transform="translate(-305.000000, -6679.000000)" fill="#000000">
-                                        <g id="icons" transform="translate(56.000000, 160.000000)">
-                                            <path d="M249.365851,6538.70769 L249.365851,6538.70769 C249.770764,6539.09744 250.426289,6539.09744 250.830166,6538.70769 L259.393407,6530.44413 C260.202198,6529.66364 260.202198,6528.39747 259.393407,6527.61699 L250.768031,6519.29246 C250.367261,6518.90671 249.720021,6518.90172 249.314072,6519.28247 L249.314072,6519.28247 C248.899839,6519.67121 248.894661,6520.31179 249.302681,6520.70653 L257.196934,6528.32352 C257.601847,6528.71426 257.601847,6529.34685 257.196934,6529.73759 L249.365851,6537.29462 C248.960938,6537.68437 248.960938,6538.31795 249.365851,6538.70769" id="arrow_right-[#336]">
-                                            </path></g></g> </g>
-                            </svg>
-                        </button>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="contenido">
-                <div class="infoCont">
-                    <div class="titulo">
-                        <h2>PRODUCTO:</h2>
-                    </div>
-                    <div class="subTitulo">
-                        <p>Todos los productos: </p>
-                        <div class="barra-busqueda">
-                            <img src="../img/busqueda.png" alt="Buscar" width="20" height="20">
-                            <input type="text" placeholder="Buscar...">
-                        </div>                    
-                        <a href="Reguister_prouctos.html" class="añadirButton">
-                            <div class="añadir">Añadir +</div>
-                        </a>
-                    </div>
-                </div>
-                <div class="cont">
-                    <div class="productos">
-                        <div class="content-img">
-                            <img class="img-product" src="../img/RAZER-Pro Click RZ01-02990.jpg" alt="Razer Pro-Click">
-                        </div>
-                        <div class="infoProduct">
-                            <div class="infoProductMax">
-                                <div class="nombre">
-                                    <p>RAZER-PRO Click</p>
-                                </div>
-                                <div class="precio">
-                                    <p>S/509</p>
-                                </div>
-                            </div>
-                            <div class="nav-item">
-                                <span #tresPuntos >...</span>
-                                <div class="dropdown-menu">
-                                    <a href="#" class="dropdown-item">Modificar</a>
-                                    <a href="#" class="dropdown-item">Eliminar</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="cuerpo">
+      <div class="user">
+        <div class="datosPersonales">
+          <div class="imagenUser">
+            <img
+              src="../img/person-svgrepo-com.svg"
+              id="imgUsuario"
+              alt="imgdelUsuario"
+            />
+          </div>
+          <div class="infoUser">
+            <p id="nombre">Administrador</p>
+            <p id="correo">Ejemplo@hotmail.com</p>
+          </div>
         </div>
+        <div class="opciones">
+          <div class="opcuerpo">
+            <button
+              class="opcButton"
+              onclick="abrirPagina('AccesoPage.html')"
+              type="button"
+            >
+              Administracion
+              <svg
+                width="24px"
+                height="24px"
+                viewBox="-4.5 0 20 20"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+              >
+                <title>arrow_right [#336]</title>
+                <desc>Created with Sketch.</desc>
+                <defs></defs>
+                <g
+                  id="Page-1"
+                  stroke="none"
+                  stroke-width="1"
+                  fill="none"
+                  fill-rule="evenodd"
+                >
+                  <g
+                    id="Dribbble-Light-Preview"
+                    transform="translate(-305.000000, -6679.000000)"
+                    fill="#000000"
+                  >
+                    <g id="icons" transform="translate(56.000000, 160.000000)">
+                      <path
+                        d="M249.365851,6538.70769 L249.365851,6538.70769 C249.770764,6539.09744 250.426289,6539.09744 250.830166,6538.70769 L259.393407,6530.44413 C260.202198,6529.66364 260.202198,6528.39747 259.393407,6527.61699 L250.768031,6519.29246 C250.367261,6518.90671 249.720021,6518.90172 249.314072,6519.28247 L249.314072,6519.28247 C248.899839,6519.67121 248.894661,6520.31179 249.302681,6520.70653 L257.196934,6528.32352 C257.601847,6528.71426 257.601847,6529.34685 257.196934,6529.73759 L249.365851,6537.29462 C248.960938,6537.68437 248.960938,6538.31795 249.365851,6538.70769"
+                        id="arrow_right-[#336]"
+                      ></path>
+                    </g>
+                  </g>
+                </g>
+              </svg>
+            </button>
+            <button
+              class="opcButton"
+              onclick="abrirPagina('AdminProducto.html')"
+              type="button"
+            >
+              Productos
+              <svg
+                width="24px"
+                height="24px"
+                viewBox="-4.5 0 20 20"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+              >
+                <title>arrow_right [#336]</title>
+                <desc>Created with Sketch.</desc>
+                <defs></defs>
+                <g
+                  id="Page-1"
+                  stroke="none"
+                  stroke-width="1"
+                  fill="none"
+                  fill-rule="evenodd"
+                >
+                  <g
+                    id="Dribbble-Light-Preview"
+                    transform="translate(-305.000000, -6679.000000)"
+                    fill="#000000"
+                  >
+                    <g id="icons" transform="translate(56.000000, 160.000000)">
+                      <path
+                        d="M249.365851,6538.70769 L249.365851,6538.70769 C249.770764,6539.09744 250.426289,6539.09744 250.830166,6538.70769 L259.393407,6530.44413 C260.202198,6529.66364 260.202198,6528.39747 259.393407,6527.61699 L250.768031,6519.29246 C250.367261,6518.90671 249.720021,6518.90172 249.314072,6519.28247 L249.314072,6519.28247 C248.899839,6519.67121 248.894661,6520.31179 249.302681,6520.70653 L257.196934,6528.32352 C257.601847,6528.71426 257.601847,6529.34685 257.196934,6529.73759 L249.365851,6537.29462 C248.960938,6537.68437 248.960938,6538.31795 249.365851,6538.70769"
+                        id="arrow_right-[#336]"
+                      ></path>
+                    </g>
+                  </g>
+                </g>
+              </svg>
+            </button>
+            <button class="opcButton">
+              Compras
+              <svg
+                width="24px"
+                height="24px"
+                viewBox="-4.5 0 20 20"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+              >
+                <title>arrow_right [#336]</title>
+                <desc>Created with Sketch.</desc>
+                <defs></defs>
+                <g
+                  id="Page-1"
+                  stroke="none"
+                  stroke-width="1"
+                  fill="none"
+                  fill-rule="evenodd"
+                >
+                  <g
+                    id="Dribbble-Light-Preview"
+                    transform="translate(-305.000000, -6679.000000)"
+                    fill="#000000"
+                  >
+                    <g id="icons" transform="translate(56.000000, 160.000000)">
+                      <path
+                        d="M249.365851,6538.70769 L249.365851,6538.70769 C249.770764,6539.09744 250.426289,6539.09744 250.830166,6538.70769 L259.393407,6530.44413 C260.202198,6529.66364 260.202198,6528.39747 259.393407,6527.61699 L250.768031,6519.29246 C250.367261,6518.90671 249.720021,6518.90172 249.314072,6519.28247 L249.314072,6519.28247 C248.899839,6519.67121 248.894661,6520.31179 249.302681,6520.70653 L257.196934,6528.32352 C257.601847,6528.71426 257.601847,6529.34685 257.196934,6529.73759 L249.365851,6537.29462 C248.960938,6537.68437 248.960938,6538.31795 249.365851,6538.70769"
+                        id="arrow_right-[#336]"
+                      ></path>
+                    </g>
+                  </g>
+                </g>
+              </svg>
+            </button>
+            <button class="opcButton">
+              Ventas
+              <svg
+                width="24px"
+                height="24px"
+                viewBox="-4.5 0 20 20"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+              >
+                <title>arrow_right [#336]</title>
+                <desc>Created with Sketch.</desc>
+                <defs></defs>
+                <g
+                  id="Page-1"
+                  stroke="none"
+                  stroke-width="1"
+                  fill="none"
+                  fill-rule="evenodd"
+                >
+                  <g
+                    id="Dribbble-Light-Preview"
+                    transform="translate(-305.000000, -6679.000000)"
+                    fill="#000000"
+                  >
+                    <g id="icons" transform="translate(56.000000, 160.000000)">
+                      <path
+                        d="M249.365851,6538.70769 L249.365851,6538.70769 C249.770764,6539.09744 250.426289,6539.09744 250.830166,6538.70769 L259.393407,6530.44413 C260.202198,6529.66364 260.202198,6528.39747 259.393407,6527.61699 L250.768031,6519.29246 C250.367261,6518.90671 249.720021,6518.90172 249.314072,6519.28247 L249.314072,6519.28247 C248.899839,6519.67121 248.894661,6520.31179 249.302681,6520.70653 L257.196934,6528.32352 C257.601847,6528.71426 257.601847,6529.34685 257.196934,6529.73759 L249.365851,6537.29462 C248.960938,6537.68437 248.960938,6538.31795 249.365851,6538.70769"
+                        id="arrow_right-[#336]"
+                      ></path>
+                    </g>
+                  </g>
+                </g>
+              </svg>
+            </button>
+            <button class="opcButton">
+              Proveedores
+              <svg
+                width="24px"
+                height="24px"
+                viewBox="-4.5 0 20 20"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+              >
+                <title>arrow_right [#336]</title>
+                <desc>Created with Sketch.</desc>
+                <defs></defs>
+                <g
+                  id="Page-1"
+                  stroke="none"
+                  stroke-width="1"
+                  fill="none"
+                  fill-rule="evenodd"
+                >
+                  <g
+                    id="Dribbble-Light-Preview"
+                    transform="translate(-305.000000, -6679.000000)"
+                    fill="#000000"
+                  >
+                    <g id="icons" transform="translate(56.000000, 160.000000)">
+                      <path
+                        d="M249.365851,6538.70769 L249.365851,6538.70769 C249.770764,6539.09744 250.426289,6539.09744 250.830166,6538.70769 L259.393407,6530.44413 C260.202198,6529.66364 260.202198,6528.39747 259.393407,6527.61699 L250.768031,6519.29246 C250.367261,6518.90671 249.720021,6518.90172 249.314072,6519.28247 L249.314072,6519.28247 C248.899839,6519.67121 248.894661,6520.31179 249.302681,6520.70653 L257.196934,6528.32352 C257.601847,6528.71426 257.601847,6529.34685 257.196934,6529.73759 L249.365851,6537.29462 C248.960938,6537.68437 248.960938,6538.31795 249.365851,6538.70769"
+                        id="arrow_right-[#336]"
+                      ></path>
+                    </g>
+                  </g>
+                </g>
+              </svg>
+            </button>
+            <button class="opcButton">
+              Reportes
+              <svg
+                width="24px"
+                height="24px"
+                viewBox="-4.5 0 20 20"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+              >
+                <title>arrow_right [#336]</title>
+                <desc>Created with Sketch.</desc>
+                <defs></defs>
+                <g
+                  id="Page-1"
+                  stroke="none"
+                  stroke-width="1"
+                  fill="none"
+                  fill-rule="evenodd"
+                >
+                  <g
+                    id="Dribbble-Light-Preview"
+                    transform="translate(-305.000000, -6679.000000)"
+                    fill="#000000"
+                  >
+                    <g id="icons" transform="translate(56.000000, 160.000000)">
+                      <path
+                        d="M249.365851,6538.70769 L249.365851,6538.70769 C249.770764,6539.09744 250.426289,6539.09744 250.830166,6538.70769 L259.393407,6530.44413 C260.202198,6529.66364 260.202198,6528.39747 259.393407,6527.61699 L250.768031,6519.29246 C250.367261,6518.90671 249.720021,6518.90172 249.314072,6519.28247 L249.314072,6519.28247 C248.899839,6519.67121 248.894661,6520.31179 249.302681,6520.70653 L257.196934,6528.32352 C257.601847,6528.71426 257.601847,6529.34685 257.196934,6529.73759 L249.365851,6537.29462 C248.960938,6537.68437 248.960938,6538.31795 249.365851,6538.70769"
+                        id="arrow_right-[#336]"
+                      ></path>
+                    </g>
+                  </g>
+                </g>
+              </svg>
+              <button class="opcButton">
+                Devoluciones
+                <svg
+                  width="24px"
+                  height="24px"
+                  viewBox="-4.5 0 20 20"
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                >
+                  <title>arrow_right [#336]</title>
+                  <desc>Created with Sketch.</desc>
+                  <defs></defs>
+                  <g
+                    id="Page-1"
+                    stroke="none"
+                    stroke-width="1"
+                    fill="none"
+                    fill-rule="evenodd"
+                  >
+                    <g
+                      id="Dribbble-Light-Preview"
+                      transform="translate(-305.000000, -6679.000000)"
+                      fill="#000000"
+                    >
+                      <g
+                        id="icons"
+                        transform="translate(56.000000, 160.000000)"
+                      >
+                        <path
+                          d="M249.365851,6538.70769 L249.365851,6538.70769 C249.770764,6539.09744 250.426289,6539.09744 250.830166,6538.70769 L259.393407,6530.44413 C260.202198,6529.66364 260.202198,6528.39747 259.393407,6527.61699 L250.768031,6519.29246 C250.367261,6518.90671 249.720021,6518.90172 249.314072,6519.28247 L249.314072,6519.28247 C248.899839,6519.67121 248.894661,6520.31179 249.302681,6520.70653 L257.196934,6528.32352 C257.601847,6528.71426 257.601847,6529.34685 257.196934,6529.73759 L249.365851,6537.29462 C248.960938,6537.68437 248.960938,6538.31795 249.365851,6538.70769"
+                          id="arrow_right-[#336]"
+                        ></path>
+                      </g>
+                    </g>
+                  </g>
+                </svg>
+              </button>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="contenido">
+        <div class="infoCont">
+          <div class="titulo">
+            <h2>PRODUCTO:</h2>
+          </div>
+          <div class="subTitulo">
+            <p>Todos los productos:</p>
+            <div class="barra-busqueda">
+              <img
+                src="../img/busqueda.png"
+                alt="Buscar"
+                width="20"
+                height="20"
+              />
+              <input type="text" placeholder="Buscar..." />
+            </div>
+            <a href="Reguister_prouctos.html" class="añadirButton">
+              <div class="añadir">Añadir +</div>
+            </a>
+          </div>
+        </div>
+        <div class="cont">
+          <!-- Contenedor dinámico para los productos -->
+          <div id="productos-container">
+            <!-- Los productos se cargarán aquí dinámicamente -->
+            <p>Cargando productos...</p>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- Aqui el modal editar producto-->
 
-        <div id="modalEditarProducto" class="modal-overlay" style="display:none;">
-    <div class="form-container">
-        <button class="close-modal-btn" id="cerrarModalEditar" aria-label="Cerrar">×</button>
+    <div id="modalEditarProducto" class="modal-overlay" style="display: none">
+      <div class="form-container">
+        <button
+          class="close-modal-btn"
+          id="cerrarModalEditar"
+          aria-label="Cerrar"
+        >
+          ×
+        </button>
         <h1>Actualiza el Producto</h1>
-        <p>Completa los siguientes campos actualizar el artículo del catálogo.</p>
+        <p>
+          Completa los siguientes campos actualizar el artículo del catálogo.
+        </p>
         <form id="formRegistrarProducto" class="product-form">
+          <div class="form-group">
+            <label for="productName">Nombre del Producto</label>
+            <input
+              type="text"
+              id="productName"
+              name="nombre"
+              placeholder="Ej: Mouse Gamer Inalámbrico"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="productBrand">Marca</label>
+            <input
+              type="text"
+              id="productBrand"
+              name="marca"
+              placeholder="Ej: Logitech"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="productDescription">Descripción</label>
+            <textarea
+              id="productDescription"
+              name="descripcion"
+              rows="5"
+              placeholder="Describe las características principales del producto."
+              required
+            ></textarea>
+          </div>
+          <div class="form-row">
             <div class="form-group">
-                <label for="productName">Nombre del Producto</label>
-                <input type="text" id="productName" name="nombre" placeholder="Ej: Mouse Gamer Inalámbrico" required>
+              <label for="productPrice">Precio (S/)</label>
+              <input
+                type="number"
+                id="productPrice"
+                name="precio"
+                step="0.01"
+                placeholder="Ej: 199.90"
+                required
+              />
             </div>
             <div class="form-group">
-                <label for="productBrand">Marca</label>
-                <input type="text" id="productBrand" name="marca" placeholder="Ej: Logitech" required>
+              <label for="productStock">Stock</label>
+              <input
+                type="number"
+                id="productStock"
+                name="stock"
+                placeholder="Ej: 50"
+                required
+              />
             </div>
-            <div class="form-group">
-                <label for="productDescription">Descripción</label>
-                <textarea id="productDescription" name="descripcion" rows="5" placeholder="Describe las características principales del producto." required></textarea>
-            </div>
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="productPrice">Precio (S/)</label>
-                    <input type="number" id="productPrice" name="precio" step="0.01" placeholder="Ej: 199.90" required>
-                </div>
-                <div class="form-group">
-                    <label for="productStock">Stock</label>
-                    <input type="number" id="productStock" name="stock" placeholder="Ej: 50" required>
-                </div>
-            </div>
-            <button type="submit" class="submit-btn">Actualizar Producto</button>
+          </div>
+          <button type="submit" class="submit-btn">Actualizar Producto</button>
         </form>
+      </div>
     </div>
-</div>
 
-<!-- Modal para confirmar eliminación -->
-<div id="modalEliminarProducto" class="modal-overlay" style="display:none;">
-    <div class="confirm-container">
-        <button class="close-modal-btn" id="cerrarModalEliminar" aria-label="Cerrar">×</button>
+    <!-- Modal para confirmar eliminación -->
+    <div id="modalEliminarProducto" class="modal-overlay" style="display: none">
+      <div class="confirm-container">
+        <button
+          class="close-modal-btn"
+          id="cerrarModalEliminar"
+          aria-label="Cerrar"
+        >
+          ×
+        </button>
         <div class="confirm-content">
-            <div class="confirm-icon">
-                <!-- Puedes usar un ícono SVG de advertencia aquí si deseas -->
-                <svg width="38" height="38" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="12" fill="#ff4d4f"/><path d="M12 7v5M12 16h.01" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+          <div class="confirm-icon">
+            <!-- Puedes usar un ícono SVG de advertencia aquí si deseas -->
+            <svg width="38" height="38" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="12" fill="#ff4d4f" />
+              <path
+                d="M12 7v5M12 16h.01"
+                stroke="#fff"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+          </div>
+          <div>
+            <h2 class="confirm-title">¿Eliminar producto?</h2>
+            <p class="confirm-text">
+              Esta acción no se puede deshacer. ¿Seguro que deseas eliminar este
+              producto?
+            </p>
+            <div class="confirm-actions">
+              <button class="submit-btn eliminar-btn" id="confirmarEliminar">
+                Eliminar
+              </button>
+              <button class="submit-btn cancelar-btn" id="cancelarEliminar">
+                Cancelar
+              </button>
             </div>
-            <div>
-                <h2 class="confirm-title">¿Eliminar producto?</h2>
-                <p class="confirm-text">Esta acción no se puede deshacer. ¿Seguro que deseas eliminar este producto?</p>
-                <div class="confirm-actions">
-                    <button class="submit-btn eliminar-btn" id="confirmarEliminar">Eliminar</button>
-                    <button class="submit-btn cancelar-btn" id="cancelarEliminar">Cancelar</button>
-                </div>
-            </div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
+  </body>
 
-    </body>
+  <!-- Scripts para cargar productos dinámicamente -->
+  <script src="../Controlador/getProductoControlles.js"></script>
+  <script>
+    function abrirPagina(url) {
+      window.location.href = url;
+    }
 
-    
-    <script>
-        function abrirPagina(url) {
-            window.location.href = url;
+    // Función personalizada para renderizar productos en el estilo del admin
+    async function renderizarProductosAdmin() {
+      const container = document.getElementById('productos-container');
+      if (!container) {
+        console.error('Contenedor productos-container no encontrado');
+        return;
+      }
+
+      try {
+        // Mostrar loading
+        container.innerHTML = '<p>Cargando productos...</p>';
+        
+        // Obtener productos con imágenes
+        const productosConImagenes = await obtenerProductosConImagenes();
+        
+        // Limpiar container
+        container.innerHTML = '';
+        
+        // Renderizar cada producto en el estilo del admin
+        productosConImagenes.forEach(({ producto, imagenes }) => {
+          // Obtener la imagen principal o la primera imagen
+          const imagenPrincipal = imagenes.find(img => img.es_principal) || imagenes[0];
+          const srcImagen = imagenPrincipal ? imagenPrincipal.url_completa : '../img/placeholder.jpg';
+          
+          const productoDiv = document.createElement('div');
+          productoDiv.className = 'productos';
+          productoDiv.innerHTML = `
+            <div class="content-img">
+              <img class="img-product" src="${srcImagen}" alt="${producto.nombre}">
+            </div>
+            <div class="infoProduct">
+              <div class="infoProductMax">
+                <div class="nombre">
+                  <p>${producto.nombre}</p>
+                </div>
+                <div class="precio">
+                  <p>S/${producto.precio}</p>
+                </div>
+              </div>
+              <div class="nav-item">
+                <span class="tresPuntos" data-producto-id="${producto.id}">...</span>
+                <div class="dropdown-menu">
+                  <a href="#" class="dropdown-item" onclick="editarProducto(${producto.id})">Modificar</a>
+                  <a href="#" class="dropdown-item" onclick="eliminarProducto(${producto.id})">Eliminar</a>
+                </div>
+              </div>
+            </div>
+          `;
+          
+          container.appendChild(productoDiv);
+        });
+        
+        if (productosConImagenes.length === 0) {
+          container.innerHTML = '<p>No se encontraron productos</p>';
         }
-        // Abrir modal al hacer click en "Modificar"
-document.querySelectorAll('.dropdown-item').forEach(function(item) {
-    if(item.textContent.trim() === "Modificar") {
-        item.addEventListener('click', function(e) {
-            e.preventDefault();
-            document.getElementById('modalEditarProducto').style.display = 'flex';
+        
+        // Reactivar los event listeners para los dropdowns
+        activarDropdowns();
+        
+      } catch (error) {
+        console.error('Error al renderizar productos:', error);
+        container.innerHTML = '<p>Error al cargar productos</p>';
+      }
+    }
+
+    // Función para activar los dropdowns
+    function activarDropdowns() {
+      document.querySelectorAll('.tresPuntos').forEach(function(span) {
+        span.addEventListener('click', function(e) {
+          e.stopPropagation();
+          const dropdown = this.nextElementSibling;
+          // Cerrar otros dropdowns
+          document.querySelectorAll('.dropdown-menu').forEach(function(menu) {
+            if (menu !== dropdown) {
+              menu.style.display = 'none';
+            }
+          });
+          // Toggle del dropdown actual
+          dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
         });
-    }
-});
+      });
 
-// Cerrar modal al hacer click en el botón cerrar
-document.getElementById('cerrarModalEditar').addEventListener('click', function() {
-    document.getElementById('modalEditarProducto').style.display = 'none';
-});
-
-// Cerrar modal al hacer click fuera del formulario
-document.getElementById('modalEditarProducto').addEventListener('click', function(e) {
-    if(e.target === this) {
-        this.style.display = 'none';
-    }
-});
-// Abrir modal al hacer click en "Eliminar"
-document.querySelectorAll('.dropdown-item').forEach(function(item) {
-    if(item.textContent.trim() === "Eliminar") {
-        item.addEventListener('click', function(e) {
-            e.preventDefault();
-            document.getElementById('modalEliminarProducto').style.display = 'flex';
+      // Cerrar dropdowns al hacer click fuera
+      document.addEventListener('click', function() {
+        document.querySelectorAll('.dropdown-menu').forEach(function(menu) {
+          menu.style.display = 'none';
         });
+      });
     }
-});
 
-// Cerrar modal al hacer click en el botón cerrar o cancelar
-document.getElementById('cerrarModalEliminar').addEventListener('click', function() {
-    document.getElementById('modalEliminarProducto').style.display = 'none';
-});
-document.getElementById('cancelarEliminar').addEventListener('click', function() {
-    document.getElementById('modalEliminarProducto').style.display = 'none';
-});
+    // Variable global para almacenar el ID del producto a eliminar
+    let productoIdAEliminar = null;
 
-// Cerrar modal al hacer click fuera del formulario
-document.getElementById('modalEliminarProducto').addEventListener('click', function(e) {
-    if(e.target === this) {
+    // Funciones para editar y eliminar productos
+    function editarProducto(id) {
+      console.log('Editar producto ID:', id);
+      document.getElementById('modalEditarProducto').style.display = 'flex';
+      // TODO: Aquí puedes cargar los datos del producto en el modal
+    }
+
+    function eliminarProducto(id) {
+      console.log('Solicitar eliminar producto ID:', id);
+      productoIdAEliminar = id;
+      document.getElementById('modalEliminarProducto').style.display = 'flex';
+    }
+
+    // Cargar productos al cargar la página
+    document.addEventListener('DOMContentLoaded', function() {
+      renderizarProductosAdmin();
+    });
+
+    // Modal editar producto - Cerrar
+    document.getElementById('cerrarModalEditar').addEventListener('click', function() {
+      document.getElementById('modalEditarProducto').style.display = 'none';
+    });
+
+    document.getElementById('modalEditarProducto').addEventListener('click', function(e) {
+      if(e.target === this) {
         this.style.display = 'none';
-    }
-});
+      }
+    });
 
-// Acción de eliminar (puedes personalizarla)
-document.getElementById('confirmarEliminar').addEventListener('click', function() {
-    // Aquí va la lógica para eliminar el producto
-    alert('Producto eliminado (simulado)');
-    document.getElementById('modalEliminarProducto').style.display = 'none';
-});
+    // Modal eliminar producto - Cerrar
+    document.getElementById('cerrarModalEliminar').addEventListener('click', function() {
+      document.getElementById('modalEliminarProducto').style.display = 'none';
+      productoIdAEliminar = null;
+    });
 
-    </script>
+    document.getElementById('cancelarEliminar').addEventListener('click', function() {
+      document.getElementById('modalEliminarProducto').style.display = 'none';
+      productoIdAEliminar = null;
+    });
+
+    document.getElementById('modalEliminarProducto').addEventListener('click', function(e) {
+      if(e.target === this) {
+        this.style.display = 'none';
+        productoIdAEliminar = null;
+      }
+    });
+
+    // Confirmar eliminación
+    document.getElementById('confirmarEliminar').addEventListener('click', function() {
+      if (productoIdAEliminar) {
+        console.log('Eliminando producto ID:', productoIdAEliminar);
+        // TODO: Aquí implementar la lógica para eliminar de la BD
+        alert(`Producto ${productoIdAEliminar} eliminado (simulado)`);
+        document.getElementById('modalEliminarProducto').style.display = 'none';
+        productoIdAEliminar = null;
+        // Recargar productos
+        renderizarProductosAdmin();
+      }
+    });
+  </script>
 </html>

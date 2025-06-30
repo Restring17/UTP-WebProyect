@@ -1,10 +1,14 @@
 const SUPABASE_URL = "https://iwbpiptomqaugtbxrlln.supabase.co";
 const SUPABASE_API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml3YnBpcHRvbXFhdWd0YnhybGxuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA5ODAwNDQsImV4cCI6MjA2NjU1NjA0NH0.MkfOyv_39_GkSScVS28I0p8-2GGoAyTRH5LKSlKsQJA";
 
-
 const SUPABASE_BEARER_TOKEN = document.cookie.split('; ').find(row => row.startsWith('supabase_token='))?.split('=')[1];
 
-console.log('Bearer Token:', SUPABASE_BEARER_TOKEN);
+console.log('Bearer Token encontrado:', SUPABASE_BEARER_TOKEN ? 'Sí' : 'No');
+if (SUPABASE_BEARER_TOKEN) {
+  console.log('Token (primeros 50 caracteres):', SUPABASE_BEARER_TOKEN.substring(0, 50) + '...');
+} else {
+  console.warn('⚠️ No se encontró token de autenticación en las cookies');
+}
 /**
  * FUNCIÓN 1: Lista todos los productos de la base de datos
  * @returns {Promise<Array>} - Array con todos los productos
@@ -23,17 +27,44 @@ async function listarProductos() {
   };
 
   try {
+    console.log('🔄 Intentando obtener productos...');
     const response = await fetch(`${SUPABASE_URL}/rest/v1/productos?select=*`, requestOptions);
     
     if (!response.ok) {
-      throw new Error(`Error al obtener productos: ${response.status}`);
+      const errorText = await response.text();
+      console.error('❌ Error en la respuesta:', {
+        status: response.status,
+        statusText: response.statusText,
+        body: errorText
+      });
+
+      // Detectar errores específicos de JWT
+      if (response.status === 401) {
+        console.error('🔐 JWT INVÁLIDO O EXPIRADO - El token de autenticación no es válido');
+        console.error('💡 Solución: Hacer login nuevamente para obtener un token válido');
+        throw new Error('Token de autenticación inválido o expirado. Por favor, inicia sesión nuevamente.');
+      }
+      
+      if (response.status === 403) {
+        console.error('🚫 ACCESO PROHIBIDO - No tienes permisos para acceder a este recurso');
+        throw new Error('No tienes permisos para acceder a los productos.');
+      }
+
+      throw new Error(`Error al obtener productos: ${response.status} - ${response.statusText}`);
     }
     
     const productos = await response.json();
-    console.log('Productos obtenidos:', productos);
+    console.log('✅ Productos obtenidos exitosamente:', productos.length, 'productos');
+    console.log('📋 Lista de productos:', productos);
     return productos;
   } catch (error) {
-    console.error("Error al listar productos:", error);
+    console.error("💥 Error al listar productos:", error.message);
+    
+    // Log adicional para errores de red
+    if (error.name === 'TypeError' && error.message.includes('fetch')) {
+      console.error('🌐 Error de conexión - Verifica tu conexión a internet');
+    }
+    
     return [];
   }
 }
@@ -57,17 +88,31 @@ async function obtenerImagenesProducto(productoId) {
   };
 
   try {
+    console.log(`🖼️ Obteniendo imágenes para producto ID: ${productoId}`);
     const response = await fetch(`${SUPABASE_URL}/rest/v1/imagenes_productos?select=*&producto_id=eq.${productoId}`, requestOptions);
     
     if (!response.ok) {
-      throw new Error(`Error al obtener imágenes: ${response.status}`);
+      const errorText = await response.text();
+      console.error(`❌ Error al obtener imágenes del producto ${productoId}:`, {
+        status: response.status,
+        statusText: response.statusText,
+        body: errorText
+      });
+
+      // Detectar errores específicos de JWT
+      if (response.status === 401) {
+        console.error('🔐 JWT INVÁLIDO O EXPIRADO al obtener imágenes');
+        throw new Error('Token de autenticación inválido para obtener imágenes.');
+      }
+
+      throw new Error(`Error al obtener imágenes: ${response.status} - ${response.statusText}`);
     }
     
     const imagenes = await response.json();
-    console.log(`Imágenes del producto ${productoId}:`, imagenes);
+    console.log(`✅ Imágenes del producto ${productoId} obtenidas:`, imagenes.length, 'imágenes');
     return imagenes;
   } catch (error) {
-    console.error(`Error al obtener imágenes del producto ${productoId}:`, error);
+    console.error(`💥 Error al obtener imágenes del producto ${productoId}:`, error.message);
     return [];
   }
 }
@@ -80,7 +125,8 @@ async function obtenerImagenesProducto(productoId) {
 function generarUrlImagen(imagenKey) {
   // Remover barra inicial si existe
   const cleanKey = imagenKey.startsWith('/') ? imagenKey.substring(1) : imagenKey;
-  return `${SUPABASE_URL}/storage/v1/object/public/imagenes-productos/${cleanKey}`;
+  return `${SUPABASE_URL}/storage/v1/object/${cleanKey}`;
+
 }
 
 /**
@@ -89,12 +135,23 @@ function generarUrlImagen(imagenKey) {
  */
 async function obtenerProductosConImagenes() {
   try {
+    console.log('🚀 Iniciando obtención de productos con imágenes...');
+    
     // Obtener todos los productos
     const productos = await listarProductos();
     
+    if (productos.length === 0) {
+      console.warn('⚠️ No se encontraron productos en la base de datos');
+      return [];
+    }
+
+    console.log(`📦 Procesando ${productos.length} productos...`);
+    
     // Para cada producto, obtener sus imágenes
     const productosConImagenes = await Promise.all(
-      productos.map(async (producto) => {
+      productos.map(async (producto, index) => {
+        console.log(`📋 Procesando producto ${index + 1}/${productos.length}: ${producto.nombre}`);
+        
         const imagenes = await obtenerImagenesProducto(producto.id);
         
         // Generar URLs completas para las imágenes
@@ -103,17 +160,27 @@ async function obtenerProductosConImagenes() {
           url_completa: generarUrlImagen(imagen.url_imagen)
         }));
         
-        return {
+        const resultado = {
           producto: producto,
           imagenes: imagenesConUrls
         };
+        
+        console.log(`✅ Producto ${producto.nombre} procesado con ${imagenesConUrls.length} imágenes`);
+        return resultado;
       })
     );
     
-    console.log('Productos con imágenes:', productosConImagenes);
+    console.log('🎉 ¡Todos los productos con imágenes obtenidos exitosamente!');
+    console.log('📊 Resumen final:', {
+      totalProductos: productosConImagenes.length,
+      productosConImagenes: productosConImagenes.filter(p => p.imagenes.length > 0).length,
+      productosSinImagenes: productosConImagenes.filter(p => p.imagenes.length === 0).length
+    });
+    
     return productosConImagenes;
   } catch (error) {
-    console.error("Error al obtener productos con imágenes:", error);
+    console.error("💥 Error crítico al obtener productos con imágenes:", error.message);
+    console.error("🔍 Stack trace:", error.stack);
     return [];
   }
 }
