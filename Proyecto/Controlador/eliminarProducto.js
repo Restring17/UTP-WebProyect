@@ -1,23 +1,4 @@
-/**
- * CONTROLADOR PARA ELIMINACIÓN DE PRODUCTOS
- * Este archivo maneja toda la lógica para eliminar productos de Supabase
- * con autenticación JWT y feedback visual para el usuario.
- */
 
-// =======================================================
-// CONFIGURACIÓN DE SUPABASE
-// =======================================================
-
-const SUPABASE_URL = "https://iwbpiptomqaugtbxrlln.supabase.co";
-const SUPABASE_API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml3YnBpcHRvbXFhdWd0YnhybGxuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA5ODAwNDQsImV4cCI6MjA2NjU1NjA0NH0.MkfOyv_39_GkSScVS28I0p8-2GGoAyTRH5LKSlKsQJA";
-
-// =======================================================
-// FUNCIONES AUXILIARES
-// =======================================================
-
-/**
- * Obtiene el token JWT desde las cookies
- */
 function obtenerTokenDeAuth() {
   try {
     const token = document.cookie
