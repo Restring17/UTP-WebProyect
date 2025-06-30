@@ -433,6 +433,7 @@
 
   <!-- Scripts para cargar productos dinámicamente -->
   <script src="../Controlador/getProductoControlles.js"></script>
+  <script src="../Controlador/modificarProducto.js"></script>
   <script>
     function abrirPagina(url) {
       window.location.href = url;
@@ -464,6 +465,16 @@
           
           const productoDiv = document.createElement('div');
           productoDiv.className = 'productos';
+          // Agregar todos los datos del producto como atributos data-*
+          productoDiv.setAttribute('data-producto-id', producto.id);
+          productoDiv.setAttribute('data-producto-nombre', producto.nombre || '');
+          productoDiv.setAttribute('data-producto-marca', producto.marca || '');
+          productoDiv.setAttribute('data-producto-descripcion', producto.descripcion || '');
+          productoDiv.setAttribute('data-producto-precio', producto.precio || '');
+          productoDiv.setAttribute('data-producto-stock', producto.stock || '');
+          productoDiv.setAttribute('data-producto-disponible', producto.disponible || false);
+          productoDiv.setAttribute('data-producto-imagen', srcImagen);
+          
           productoDiv.innerHTML = `
             <div class="content-img">
               <img class="img-product" src="${srcImagen}" alt="${producto.nombre}">
@@ -475,6 +486,13 @@
                 </div>
                 <div class="precio">
                   <p>S/${producto.precio}</p>
+                </div>
+                <!-- Información adicional oculta para acceso desde DOM -->
+                <div class="datos-ocultos" style="display: none;">
+                  <span class="marca">${producto.marca || ''}</span>
+                  <span class="descripcion">${producto.descripcion || ''}</span>
+                  <span class="stock">${producto.stock || ''}</span>
+                  <span class="disponible">${producto.disponible || false}</span>
                 </div>
               </div>
               <div class="nav-item">
@@ -533,9 +551,261 @@
 
     // Funciones para editar y eliminar productos
     function editarProducto(id) {
-      console.log('Editar producto ID:', id);
-      document.getElementById('modalEditarProducto').style.display = 'flex';
-      // TODO: Aquí puedes cargar los datos del producto en el modal
+      console.log('🔧 Iniciando edición de producto ID:', id);
+      
+      // 1. Intentar extraer datos del DOM primero
+      const datosDOM = extraerDatosProductoDelDOM(id);
+      
+      // 2. Abrir modal
+      const modal = document.getElementById('modalEditarProducto');
+      if (!modal) {
+        console.error('❌ Modal no encontrado');
+        return;
+      }
+      
+      modal.style.display = 'flex';
+      
+      // 3. Si hay datos del DOM, llenar el formulario inmediatamente
+      if (datosDOM) {
+        console.log('✅ Llenando formulario con datos del DOM:', datosDOM);
+        llenarFormularioConDatos(datosDOM, id);
+      }
+      
+      // 4. Si está disponible la función de modificarProducto.js, usarla para obtener datos adicionales
+      if (typeof window.editarProductoModal === 'function') {
+        console.log('✅ También ejecutando función de modificarProducto.js para datos completos');
+        // No llamamos window.editarProductoModal(id) porque ya abrimos el modal
+        // En su lugar, solo obtenemos los datos de Supabase si es necesario
+        if (typeof window.cargarDatosProductoDesdeSupabase === 'function') {
+          window.cargarDatosProductoDesdeSupabase(id);
+        }
+      } else {
+        console.warn('⚠️ Función editarProductoModal no disponible, usando solo datos del DOM');
+        // Configurar el formulario para edición
+        const form = document.getElementById('formRegistrarProducto');
+        if (form) {
+          form.setAttribute('data-producto-id', id);
+        }
+      }
+    }
+
+    // Función para extraer datos del producto desde el DOM
+    function extraerDatosProductoDelDOM(id) {
+      try {
+        // Método 1: Buscar por atributo data-producto-id en el contenedor principal
+        let contenedorProducto = document.querySelector(`[data-producto-id="${id}"].productos`);
+        
+        // Método 2: Si no se encuentra, buscar el span con data-producto-id y navegar al contenedor
+        if (!contenedorProducto) {
+          const elementoProducto = document.querySelector(`span[data-producto-id="${id}"]`);
+          if (elementoProducto) {
+            contenedorProducto = elementoProducto.closest('.productos');
+          }
+        }
+
+        if (!contenedorProducto) {
+          console.warn('⚠️ No se encontró contenedor del producto para el ID:', id);
+          return null;
+        }
+
+        // Extraer datos desde atributos data-* (método preferido)
+        const datosAtributos = {
+          id: id,
+          nombre: contenedorProducto.getAttribute('data-producto-nombre') || '',
+          marca: contenedorProducto.getAttribute('data-producto-marca') || '',
+          descripcion: contenedorProducto.getAttribute('data-producto-descripcion') || '',
+          precio: contenedorProducto.getAttribute('data-producto-precio') || '',
+          stock: contenedorProducto.getAttribute('data-producto-stock') || '',
+          disponible: contenedorProducto.getAttribute('data-producto-disponible') === 'true',
+          imagen: contenedorProducto.getAttribute('data-producto-imagen') || ''
+        };
+
+        // Si los atributos tienen datos, usarlos
+        if (datosAtributos.nombre) {
+          console.log('✅ Datos extraídos del DOM (atributos data-*):', datosAtributos);
+          return datosAtributos;
+        }
+
+        // Método fallback: extraer desde elementos DOM visibles
+        const nombre = contenedorProducto.querySelector('.nombre p')?.textContent?.trim();
+        const precioTexto = contenedorProducto.querySelector('.precio p')?.textContent?.trim();
+        const precio = precioTexto ? precioTexto.replace('S/', '').trim() : '';
+        const imagenSrc = contenedorProducto.querySelector('.img-product')?.src;
+
+        // Intentar extraer datos ocultos
+        const datosOcultos = contenedorProducto.querySelector('.datos-ocultos');
+        let marca = '', descripcion = '', stock = '', disponible = false;
+        
+        if (datosOcultos) {
+          marca = datosOcultos.querySelector('.marca')?.textContent?.trim() || '';
+          descripcion = datosOcultos.querySelector('.descripcion')?.textContent?.trim() || '';
+          stock = datosOcultos.querySelector('.stock')?.textContent?.trim() || '';
+          disponible = datosOcultos.querySelector('.disponible')?.textContent?.trim() === 'true';
+        }
+
+        const datosFallback = {
+          id: id,
+          nombre: nombre || '',
+          marca: marca,
+          descripcion: descripcion,
+          precio: precio || '',
+          stock: stock,
+          disponible: disponible,
+          imagen: imagenSrc || ''
+        };
+
+        console.log('✅ Datos extraídos del DOM (fallback):', datosFallback);
+        return datosFallback;
+
+      } catch (error) {
+        console.error('❌ Error al extraer datos del DOM:', error);
+        return null;
+      }
+    }
+
+    // Función para llenar el formulario con los datos extraídos
+    function llenarFormularioConDatos(datos, id) {
+      try {
+        const form = document.getElementById('formRegistrarProducto');
+        if (!form) {
+          console.error('❌ Formulario no encontrado');
+          return;
+        }
+
+        // Configurar el formulario para edición
+        form.setAttribute('data-producto-id', id);
+
+        // Mapeo de campos del formulario
+        const campos = {
+          'nombreProducto': datos.nombre,
+          'marcaProducto': datos.marca,
+          'descripcionProducto': datos.descripcion,
+          'precioProducto': datos.precio,
+          'stockProducto': datos.stock,
+          'disponibleProducto': datos.disponible
+        };
+
+        // Llenar campos de texto y select
+        Object.keys(campos).forEach(fieldId => {
+          const field = document.getElementById(fieldId);
+          if (field && campos[fieldId] !== undefined && campos[fieldId] !== '') {
+            if (field.type === 'checkbox') {
+              field.checked = Boolean(campos[fieldId]);
+            } else {
+              field.value = campos[fieldId];
+            }
+            
+            // Agregar efecto visual de carga exitosa
+            field.style.borderColor = '#28a745';
+            field.style.backgroundColor = '#f8fff9';
+            setTimeout(() => {
+              field.style.borderColor = '';
+              field.style.backgroundColor = '';
+            }, 2000);
+            
+            console.log(`✅ Campo ${fieldId} llenado con: ${campos[fieldId]}`);
+          }
+        });
+
+        // Si hay imagen disponible, mostrarla como preview
+        if (datos.imagen) {
+          mostrarPreviewImagen(datos.imagen);
+        }
+
+        // Mostrar indicador de éxito
+        mostrarNotificacionEnFormulario('Datos básicos cargados desde la página', 'success');
+
+        console.log('✅ Formulario llenado con datos del DOM');
+
+      } catch (error) {
+        console.error('❌ Error al llenar formulario:', error);
+      }
+    }
+
+    // Función auxiliar para mostrar notificación en el formulario
+    function mostrarNotificacionEnFormulario(mensaje, tipo = 'info') {
+      try {
+        // Remover notificación anterior si existe
+        const notificacionAnterior = document.getElementById('notificacion-formulario');
+        if (notificacionAnterior) {
+          notificacionAnterior.remove();
+        }
+
+        // Crear nueva notificación
+        const notificacion = document.createElement('div');
+        notificacion.id = 'notificacion-formulario';
+        notificacion.textContent = mensaje;
+        
+        const colores = {
+          'success': { bg: '#d4edda', color: '#155724', border: '#c3e6cb' },
+          'warning': { bg: '#fff3cd', color: '#856404', border: '#ffeaa7' },
+          'error': { bg: '#f8d7da', color: '#721c24', border: '#f5c6cb' },
+          'info': { bg: '#d1ecf1', color: '#0c5460', border: '#bee5eb' }
+        };
+
+        const estilo = colores[tipo] || colores.info;
+        
+        notificacion.style.cssText = `
+          background-color: ${estilo.bg};
+          color: ${estilo.color};
+          border: 1px solid ${estilo.border};
+          padding: 10px;
+          border-radius: 5px;
+          margin: 10px 0;
+          font-size: 14px;
+          animation: fadeIn 0.3s ease-in;
+        `;
+
+        // Insertar al inicio del formulario
+        const form = document.getElementById('formRegistrarProducto');
+        if (form) {
+          form.insertBefore(notificacion, form.firstChild);
+          
+          // Auto-remover después de 5 segundos
+          setTimeout(() => {
+            if (notificacion && notificacion.parentNode) {
+              notificacion.style.animation = 'fadeOut 0.3s ease-out';
+              setTimeout(() => notificacion.remove(), 300);
+            }
+          }, 5000);
+        }
+
+      } catch (error) {
+        console.error('❌ Error al mostrar notificación:', error);
+      }
+    }
+
+    // Función auxiliar para mostrar preview de imagen
+    function mostrarPreviewImagen(imagenSrc) {
+      try {
+        // Buscar o crear elemento de preview
+        let preview = document.getElementById('imagen-preview');
+        if (!preview) {
+          preview = document.createElement('img');
+          preview.id = 'imagen-preview';
+          preview.style.cssText = `
+            max-width: 200px;
+            max-height: 200px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            margin: 10px 0;
+            display: block;
+          `;
+          
+          // Insertar después del campo de imagen
+          const campoImagen = document.getElementById('imagenProducto');
+          if (campoImagen && campoImagen.parentNode) {
+            campoImagen.parentNode.insertBefore(preview, campoImagen.nextSibling);
+          }
+        }
+        
+        preview.src = imagenSrc;
+        preview.alt = 'Vista previa del producto';
+        console.log('✅ Preview de imagen mostrado');
+        
+      } catch (error) {
+        console.error('❌ Error al mostrar preview de imagen:', error);
+      }
     }
 
     function eliminarProducto(id) {
@@ -590,5 +860,84 @@
         renderizarProductosAdmin();
       }
     });
+
+    // =======================================================
+    // FUNCIONES DE DEBUG Y TESTING
+    // =======================================================
+
+    // Función para probar la extracción de datos del DOM
+    window.debugExtraerDatos = function(id) {
+      console.log('🧪 DEBUG: Probando extracción de datos para ID:', id);
+      const datos = extraerDatosProductoDelDOM(id);
+      console.log('🧪 DEBUG: Datos extraídos:', datos);
+      return datos;
+    };
+
+    // Función para probar el llenado del formulario
+    window.debugLlenarFormulario = function(id) {
+      console.log('🧪 DEBUG: Probando llenado de formulario para ID:', id);
+      const datos = extraerDatosProductoDelDOM(id);
+      if (datos) {
+        llenarFormularioConDatos(datos, id);
+        console.log('🧪 DEBUG: Formulario llenado exitosamente');
+      } else {
+        console.error('🧪 DEBUG: No se pudieron extraer datos');
+      }
+    };
+
+    // Función para listar todos los productos disponibles en el DOM
+    window.debugListarProductos = function() {
+      console.log('🧪 DEBUG: Listando productos en el DOM...');
+      const productos = document.querySelectorAll('.productos[data-producto-id]');
+      productos.forEach((producto, index) => {
+        const id = producto.getAttribute('data-producto-id');
+        const nombre = producto.getAttribute('data-producto-nombre');
+        console.log(`🧪 DEBUG: Producto ${index + 1}: ID=${id}, Nombre=${nombre}`);
+      });
+      console.log(`🧪 DEBUG: Total de productos encontrados: ${productos.length}`);
+      return productos;
+    };
+
+    // Log de inicialización
+    console.log('✅ Sistema de edición de productos inicializado');
+    console.log('🔧 Funciones de debug disponibles:');
+    console.log('   - window.debugExtraerDatos(id)');
+    console.log('   - window.debugLlenarFormulario(id)');
+    console.log('   - window.debugListarProductos()');
   </script>
+
+  <style>
+    /* Animaciones para notificaciones */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeOut {
+      from { opacity: 1; transform: translateY(0); }
+      to { opacity: 0; transform: translateY(-10px); }
+    }
+
+    /* Estilos para preview de imagen */
+    #imagen-preview {
+      transition: all 0.3s ease;
+    }
+
+    #imagen-preview:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    /* Estilos para campos con datos cargados */
+    .campo-cargado {
+      animation: resaltarCampo 2s ease-in-out;
+    }
+
+    @keyframes resaltarCampo {
+      0% { background-color: #f8fff9; border-color: #28a745; }
+      100% { background-color: transparent; border-color: initial; }
+    }
+
+    /* ...existing CSS... */
+  </style>
 </html>
