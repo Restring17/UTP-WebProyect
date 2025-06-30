@@ -161,6 +161,12 @@ display: grid;
     justify-items: stretch; /* Las tarjetas ocupan todo el ancho de la columna */
 }
 
+#productos-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    column-gap: 100px;
+}
+
 .productos{
     display: grid;
     background: #181818;
