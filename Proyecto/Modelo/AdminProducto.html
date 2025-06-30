@@ -432,8 +432,9 @@
   </body>
 
   <!-- Scripts para cargar productos dinámicamente -->
-  <script src="../Controlador/getProductoControlles.js"></script>
-  <script src="../Controlador/modificarProducto.js"></script>
+  <script src="../Controlador/getProductoControlles.js" onerror="console.error('❌ Error cargando getProductoControlles.js')" onload="console.log('✅ getProductoControlles.js cargado')"></script>
+  <script src="../Controlador/modificarProducto.js" onerror="console.error('❌ Error cargando modificarProducto.js')" onload="console.log('✅ modificarProducto.js cargado')"></script>
+  <script src="../Controlador/eliminarProducto.js" onerror="console.error('❌ Error cargando eliminarProducto.js')" onload="console.log('✅ eliminarProducto.js cargado')"></script>
   <script>
     function abrirPagina(url) {
       window.location.href = url;
@@ -809,13 +810,78 @@
     }
 
     function eliminarProducto(id) {
-      console.log('Solicitar eliminar producto ID:', id);
-      productoIdAEliminar = id;
+      console.log('🗑️ Solicitando eliminar producto ID:', id);
+      
+      // Usar la función del script de eliminarProducto.js si está disponible
+      if (typeof window.prepararEliminacion === 'function') {
+        console.log('✅ Usando función de eliminarProducto.js');
+        window.prepararEliminacion(id);
+      } else {
+        console.warn('⚠️ Función prepararEliminacion no disponible, usando fallback');
+        // Fallback básico
+        productoIdAEliminar = id;
+      }
+      
+      // Abrir modal de confirmación
       document.getElementById('modalEliminarProducto').style.display = 'flex';
+    }
+
+    // Función para verificar que todos los scripts se hayan cargado correctamente
+    function verificarScriptsCargados() {
+      console.log('🔍 Verificando scripts cargados:');
+      console.log('- getProductoControlles.js funciones disponibles:', typeof obtenerProductosConImagenes);
+      console.log('- modificarProducto.js funciones disponibles:', typeof window.editarProductoModal);
+      console.log('- eliminarProducto.js funciones disponibles:');
+      console.log('  - confirmarEliminacionProducto:', typeof window.confirmarEliminacionProducto);
+      console.log('  - prepararEliminacion:', typeof window.prepararEliminacion);
+      console.log('  - eliminarProductoDeSupabase:', typeof window.eliminarProductoDeSupabase);
+      
+      // Si las funciones de eliminación no están disponibles, mostrar alerta
+      if (typeof window.confirmarEliminacionProducto !== 'function' && 
+          typeof window.eliminarProductoDeSupabase !== 'function') {
+        console.warn('⚠️ ADVERTENCIA: Las funciones de eliminación no están disponibles');
+        console.warn('⚠️ Esto significa que el script eliminarProducto.js no se cargó correctamente');
+        
+        // Intentar cargar el script manualmente
+        console.log('🔄 Intentando cargar eliminarProducto.js manualmente...');
+        cargarScriptManualmente();
+      } else {
+        console.log('✅ Todos los scripts de eliminación están disponibles');
+      }
+    }
+    
+    // Función para cargar el script manualmente si falla
+    function cargarScriptManualmente() {
+      try {
+        const script = document.createElement('script');
+        script.src = '../Controlador/eliminarProducto.js';
+        script.onload = function() {
+          console.log('✅ eliminarProducto.js cargado manualmente');
+          // Verificar nuevamente
+          setTimeout(verificarScriptsCargados, 100);
+        };
+        script.onerror = function(error) {
+          console.error('❌ Error al cargar eliminarProducto.js manualmente:', error);
+          console.error('💡 Posibles soluciones:');
+          console.error('   1. Verificar que el archivo existe en ../Controlador/eliminarProducto.js');
+          console.error('   2. Verificar permisos del archivo');
+          console.error('   3. Verificar errores de sintaxis en el archivo');
+          console.error('   4. Abrir la pestaña Network en DevTools para ver errores de carga');
+        };
+        document.head.appendChild(script);
+      } catch (error) {
+        console.error('❌ Error crítico al cargar script manualmente:', error);
+      }
     }
 
     // Cargar productos al cargar la página
     document.addEventListener('DOMContentLoaded', function() {
+      console.log('📄 DOM Content Loaded - Inicializando página');
+      
+      // Verificar scripts
+      setTimeout(verificarScriptsCargados, 500);
+      
+      // Cargar productos
       renderizarProductosAdmin();
     });
 
@@ -849,15 +915,58 @@
     });
 
     // Confirmar eliminación
-    document.getElementById('confirmarEliminar').addEventListener('click', function() {
-      if (productoIdAEliminar) {
-        console.log('Eliminando producto ID:', productoIdAEliminar);
-        // TODO: Aquí implementar la lógica para eliminar de la BD
-        alert(`Producto ${productoIdAEliminar} eliminado (simulado)`);
-        document.getElementById('modalEliminarProducto').style.display = 'none';
-        productoIdAEliminar = null;
-        // Recargar productos
-        renderizarProductosAdmin();
+    document.getElementById('confirmarEliminar').addEventListener('click', async function() {
+      console.log('🔄 Botón confirmar eliminar presionado');
+      
+      // Verificar si hay un producto seleccionado
+      const productoId = productoIdAEliminar || window.productoIdAEliminar;
+      
+      if (productoId) {
+        console.log('✅ Intentando eliminar producto ID:', productoId);
+        
+        // Verificar si las funciones de eliminación están disponibles
+        console.log('🔍 Verificando funciones disponibles:');
+        console.log('- window.confirmarEliminacionProducto:', typeof window.confirmarEliminacionProducto);
+        console.log('- window.eliminarProductoDeSupabase:', typeof window.eliminarProductoDeSupabase);
+        
+        // Intentar usar la función principal de eliminación
+        if (typeof window.confirmarEliminacionProducto === 'function') {
+          console.log('✅ Usando función confirmarEliminacionProducto');
+          await window.confirmarEliminacionProducto(productoId);
+        } 
+        // Fallback: usar función directa de eliminación
+        else if (typeof window.eliminarProductoDeSupabase === 'function') {
+          console.log('✅ Usando función eliminarProductoDeSupabase como fallback');
+          try {
+            const eliminado = await window.eliminarProductoDeSupabase(productoId);
+            if (eliminado) {
+              // Eliminar del DOM manualmente
+              const contenedorProducto = document.querySelector(`[data-producto-id="${productoId}"].productos`);
+              if (contenedorProducto) {
+                contenedorProducto.style.animation = 'fadeOut 0.5s ease-out';
+                setTimeout(() => {
+                  contenedorProducto.remove();
+                  console.log('✅ Producto eliminado del DOM');
+                }, 500);
+              }
+              
+              // Cerrar modal
+              document.getElementById('modalEliminarProducto').style.display = 'none';
+              productoIdAEliminar = null;
+              window.productoIdAEliminar = null;
+            }
+          } catch (error) {
+            console.error('❌ Error en eliminación directa:', error);
+          }
+        }
+        // Último fallback: función integrada
+        else {
+          console.warn('⚠️ Scripts de eliminación no disponibles, usando fallback integrado');
+          await eliminarProductoFallback(productoId);
+        }
+      } else {
+        console.error('❌ No hay producto seleccionado para eliminar');
+        alert('Error: No se ha seleccionado ningún producto para eliminar');
       }
     });
 
@@ -898,46 +1007,226 @@
       return productos;
     };
 
-    // Log de inicialización
-    console.log('✅ Sistema de edición de productos inicializado');
+    // Función de debug para probar eliminación
+    window.debugEliminar = function(id) {
+      console.log('🧪 DEBUG: Probando eliminación completa para ID:', id);
+      eliminarProducto(id);
+    };
+
+    // Función de debug para probar eliminación directa
+    window.testEliminar = async function(id) {
+      console.log('🧪 TEST: Eliminación directa para ID:', id);
+      
+      // Verificar funciones disponibles
+      console.log('🔍 Funciones disponibles:');
+      console.log('- window.eliminarProductoDeSupabase:', typeof window.eliminarProductoDeSupabase);
+      console.log('- window.confirmarEliminacionProducto:', typeof window.confirmarEliminacionProducto);
+      
+      if (typeof window.eliminarProductoDeSupabase === 'function') {
+        console.log('✅ Ejecutando eliminación directa...');
+        const resultado = await window.eliminarProductoDeSupabase(id);
+        console.log('🧪 TEST: Resultado:', resultado);
+        return resultado;
+      } else if (typeof eliminarProductoFallback === 'function') {
+        console.log('✅ Ejecutando eliminación fallback...');
+        const resultado = await eliminarProductoFallback(id);
+        console.log('🧪 TEST: Resultado fallback:', resultado);
+        return resultado;
+      } else {
+        console.error('❌ Ninguna función de eliminación disponible');
+        return false;
+      }
+    };
+
+    // Log de funciones disponibles
     console.log('🔧 Funciones de debug disponibles:');
     console.log('   - window.debugExtraerDatos(id)');
     console.log('   - window.debugLlenarFormulario(id)');
     console.log('   - window.debugListarProductos()');
-  </script>
+    console.log('   - window.debugEliminar(id)');
+    console.log('   - window.testEliminar(id)');
+    console.log('   - window.testEliminar(id)');
 
-  <style>
-    /* Animaciones para notificaciones */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
+    // =======================================================
+    // FUNCIÓN DE ELIMINACIÓN FALLBACK (EN CASO DE QUE EL SCRIPT EXTERNO FALLE)
+    // =======================================================
+    
+    // Función de eliminación completa como fallback
+    async function eliminarProductoFallback(productoId) {
+      console.log('🔄 Ejecutando eliminación fallback para ID:', productoId);
+      
+      try {
+        // Mostrar indicador de carga
+        const botonEliminar = document.getElementById('confirmarEliminar');
+        const botonCancelar = document.getElementById('cancelarEliminar');
+        
+        if (botonEliminar) {
+          botonEliminar.disabled = true;
+          botonEliminar.textContent = 'Eliminando...';
+        }
+        if (botonCancelar) {
+          botonCancelar.disabled = true;
+        }
+
+        // Obtener token de autenticación
+        const token = document.cookie
+          .split('; ')
+          .find(row => row.startsWith('supabase_token='))
+          ?.split('=')[1];
+        
+        if (!token) {
+          throw new Error('No se encontró token de autenticación. Por favor, inicia sesión nuevamente.');
+        }
+
+        // Configurar headers para la petición
+        const myHeaders = new Headers();
+        myHeaders.append("apikey", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml3YnBpcHRvbXFhdWd0YnhybGxuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA5ODAwNDQsImV4cCI6MjA2NjU1NjA0NH0.MkfOyv_39_GkSScVS28I0p8-2GGoAyTRH5LKSlKsQJA");
+        myHeaders.append("Authorization", `Bearer ${token}`);
+        myHeaders.append("Content-Type", "application/json");
+
+        // Configurar opciones de la petición
+        const requestOptions = {
+          method: "DELETE",
+          headers: myHeaders,
+          redirect: "follow"
+        };
+
+        // Realizar petición DELETE a Supabase
+        console.log('📡 Enviando petición DELETE a Supabase (fallback)...');
+        const response = await fetch(
+          `https://iwbpiptomqaugtbxrlln.supabase.co/rest/v1/productos?id=eq.${productoId}`,
+          requestOptions
+        );
+
+        // Verificar respuesta
+        if (!response.ok) {
+          const errorText = await response.text();
+          console.error('❌ Error en la respuesta de Supabase:', {
+            status: response.status,
+            statusText: response.statusText,
+            body: errorText
+          });
+
+          if (response.status === 401) {
+            throw new Error('Token de autenticación inválido o expirado. Por favor, inicia sesión nuevamente.');
+          } else if (response.status === 403) {
+            throw new Error('No tienes permisos para eliminar este producto.');
+          } else if (response.status === 404) {
+            throw new Error('El producto no fue encontrado o ya fue eliminado.');
+          } else {
+            throw new Error(`Error del servidor: ${response.status} - ${response.statusText}`);
+          }
+        }
+
+        const result = await response.text();
+        console.log('✅ Respuesta de Supabase (fallback):', result);
+
+        // Obtener nombre del producto para el mensaje
+        const contenedorProducto = document.querySelector(`[data-producto-id="${productoId}"].productos`);
+        const nombreProducto = contenedorProducto ? 
+          (contenedorProducto.getAttribute('data-producto-nombre') || 
+           contenedorProducto.querySelector('.nombre p')?.textContent?.trim() || 
+           `Producto ID: ${productoId}`) : 
+          `Producto ID: ${productoId}`;
+
+        // Mostrar notificación de éxito
+        const notificacion = document.createElement('div');
+        notificacion.style.cssText = `
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          background-color: #d4edda;
+          color: #155724;
+          border: 1px solid #c3e6cb;
+          padding: 15px 20px;
+          border-radius: 8px;
+          font-size: 14px;
+          font-weight: 500;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+          z-index: 10000;
+          max-width: 400px;
+        `;
+        notificacion.textContent = `✅ Producto "${nombreProducto}" eliminado exitosamente`;
+        document.body.appendChild(notificacion);
+
+        // Auto-remover notificación
+        setTimeout(() => {
+          if (notificacion && notificacion.parentNode) {
+            notificacion.remove();
+          }
+        }, 5000);
+
+        // Eliminar del DOM con animación
+        if (contenedorProducto) {
+          contenedorProducto.style.animation = 'fadeOut 0.5s ease-out';
+          setTimeout(() => {
+            contenedorProducto.remove();
+            console.log('✅ Producto eliminado del DOM (fallback)');
+            
+            // Verificar si quedan productos
+            const productosRestantes = document.querySelectorAll('.productos[data-producto-id]');
+            if (productosRestantes.length === 0) {
+              const container = document.getElementById('productos-container');
+              if (container) {
+                container.innerHTML = '<p>No se encontraron productos</p>';
+              }
+            }
+          }, 500);
+        }
+
+        // Cerrar modal
+        document.getElementById('modalEliminarProducto').style.display = 'none';
+        productoIdAEliminar = null;
+
+        console.log(`✅ Producto ${productoId} eliminado exitosamente (fallback)`);
+        return true;
+
+      } catch (error) {
+        console.error('❌ Error en eliminación fallback:', error);
+        
+        // Restaurar botones
+        const botonEliminar = document.getElementById('confirmarEliminar');
+        const botonCancelar = document.getElementById('cancelarEliminar');
+        
+        if (botonEliminar) {
+          botonEliminar.disabled = false;
+          botonEliminar.textContent = 'Eliminar';
+        }
+        if (botonCancelar) {
+          botonCancelar.disabled = false;
+        }
+
+        // Mostrar notificación de error
+        const notificacion = document.createElement('div');
+        notificacion.style.cssText = `
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          background-color: #f8d7da;
+          color: #721c24;
+          border: 1px solid #f5c6cb;
+          padding: 15px 20px;
+          border-radius: 8px;
+          font-size: 14px;
+          font-weight: 500;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+          z-index: 10000;
+          max-width: 400px;
+        `;
+        notificacion.textContent = `❌ Error al eliminar producto: ${error.message}`;
+        document.body.appendChild(notificacion);
+
+        // Auto-remover notificación
+        setTimeout(() => {
+          if (notificacion && notificacion.parentNode) {
+            notificacion.remove();
+          }
+        }, 8000);
+
+        return false;
+      }
     }
 
-    @keyframes fadeOut {
-      from { opacity: 1; transform: translateY(0); }
-      to { opacity: 0; transform: translateY(-10px); }
-    }
-
-    /* Estilos para preview de imagen */
-    #imagen-preview {
-      transition: all 0.3s ease;
-    }
-
-    #imagen-preview:hover {
-      transform: scale(1.05);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-
-    /* Estilos para campos con datos cargados */
-    .campo-cargado {
-      animation: resaltarCampo 2s ease-in-out;
-    }
-
-    @keyframes resaltarCampo {
-      0% { background-color: #f8fff9; border-color: #28a745; }
-      100% { background-color: transparent; border-color: initial; }
-    }
-
-    /* ...existing CSS... */
-  </style>
+    </script>
+  </body>
 </html>
