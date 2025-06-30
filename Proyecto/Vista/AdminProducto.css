@@ -19,6 +19,29 @@ body {
     display: flex;
 }
 
+.cerrarButton {
+    margin: 0;
+    padding: 10px 20px;
+    background: #000000;
+    color: #ffffffff;
+    border-radius: 50px;
+    border-style: none;
+    padding: 10px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    font-family: 'Satoshi', sans-serif;
+    font-size: 20px;
+    width: fit-content;
+    height: 50px;
+}
+.cerrarButton:hover {
+    background-color: #ff0000;
+    color: #000000;
+    transition: 0.8s;
+}
+
 .datosPersonales{
     background-color: #16B806;
     display: grid;
@@ -165,6 +188,7 @@ display: grid;
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
     column-gap: 100px;
+    row-gap: 40px;
 }
 
 .productos{
