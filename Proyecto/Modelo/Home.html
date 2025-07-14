@@ -6,6 +6,42 @@
     <title>Home</title>
     <link rel="stylesheet" href="../Vista/Homepage.css">
 </head>
+<script type="module">
+import { getProductos } from '../Controlador/getProductoControlles.js';
+
+function getRandomIds(cantidad, min = 10, max = 15) {
+    const ids = new Set();
+    while (ids.size < cantidad) {
+        ids.add(Math.floor(Math.random() * (max - min + 1)) + min);
+    }
+    return Array.from(ids);
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+    try {
+        const productosConImagenes = await getProductos();
+        const idsAleatorios = getRandomIds(4);
+        const productosFiltrados = productosConImagenes
+            .filter(({ producto }) => idsAleatorios.includes(producto.id));
+
+        const cards = document.querySelectorAll('.product-card');
+        productosFiltrados.forEach(({ producto, imagenes }, i) => {
+            if (cards[i]) {
+                const titulo = cards[i].querySelector('.product-title');
+                const precio = cards[i].querySelector('.product-price');
+                if (titulo) titulo.textContent = producto.nombre;
+                if (precio) precio.textContent = `S/${producto.precio}`;
+                if (imagenes.length > 0) {
+                    const imgTag = cards[i].querySelector('.product-image img');
+                    if (imgTag) imgTag.src = imagenes[0].url_completa;
+                }
+            }
+        });
+    } catch (error) {
+        console.error('Error cargando productos:', error);
+    }
+});
+</script>
 <body>
     <header class="promo-header">
         <div class="promo-text">
@@ -116,7 +152,7 @@
                 <img src="../img/Razer-ViperUltimate.jpg" alt="Razer Viper Ultimate">
             </div>
             <div class="product-info">
-                <h3 class="product-title">Razer Viper Ultimate</h3>
+                <h3 class="product-title"></h3>
                 <div class="product-rating">
                     <div class="stars">
                         <span class="star">★</span>
@@ -127,7 +163,7 @@
                     </div>
                     <span class="rating-text">4.5/5</span>
                 </div>
-                <p class="product-price">S/165</p>
+                <p class="product-price"></p>
             </div>
         </div>
 
@@ -136,7 +172,7 @@
                 <img src="../img/Razer-Naga Pro 20K DPI.jpg" alt="Razer Naga Pro">
             </div>
             <div class="product-info">
-                <h3 class="product-title">Razer Naga Pro</h3>
+                <h3 class="product-title"></h3>
                 <div class="product-rating">
                     <div class="stars">
                         <span class="star">★</span>
@@ -147,7 +183,7 @@
                     </div>
                     <span class="rating-text">4.5/5</span>
                 </div>
-                <p class="product-price">S/165</p>
+                <p class="product-price"></p>
             </div>
         </div>
 
