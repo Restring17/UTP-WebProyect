@@ -65,21 +65,17 @@
     <div class="content">
         <div class="partes">
             <span>
-                <a href="../Modelo/Home.html">Home</a> 
-                /
-                <a href="../Modelo/Catalogo.html">Tienda</a> 
-                / Complemento 
+                <a href="../Modelo/Home.html" class="regresar">Home /</a>
+                <a href="../Modelo/Catalogo.html" class="regresar">Tienda /</a> 
+                Producto 
             </span>            
         </div>
-        <div class="prodcto">
-            <div class="imagenes">
-                <span>
+        <div class="producto">
+                <div class="imagenes">
                     <label class="labelProductos">
-                        <button type= "button" class="mostrarImagen" aria-label="Corsair MP700 ELITE w/ Heatsink PCIe Gen5 NVMe M.2 SSD - 1TB">
-                            <img src="../img/MP700ELITE.avif"  class="imagenProducto">
-                        </button>
+                        <img src="../img/MP700ELITE.avif"  id="imagenProducto">
                     </label>   
-                    <label class="labelProductos">
+                    <!--<label class="labelProductos">
                         <button type= "button" class="mostrarImagen" aria-label="Corsair MP700 ELITE w/ Heatsink PCIe Gen5 NVMe M.2 SSD - 1TB">
                             <img src="../img/MP700ELITE.avif"  class="imagenProducto">
                         </button>
@@ -88,14 +84,121 @@
                         <button type= "button" class="mostrarImagen" aria-label="Corsair MP700 ELITE w/ Heatsink PCIe Gen5 NVMe M.2 SSD - 1TB">
                             <img src="../img/MP700ELITE.avif"  class="imagenProducto">
                         </button>
-                    </label>
-                </span>
-                <figure>
-                    <img src="" alt="">
-                </figure>
+                    </label>-->
+                </div>
+                <div class="info-product">
+                    <div class="titleProduct">
+                        <h2 id="productName">MP700 ELITE with Heatsink 1TB PCIe 5.0 Gen 5 x NVMe M.2 SSD</h2>
+                    </div>
+                    <div class="BLockprecio">
+                        <p class="precio">S/. 540</p>
+                    </div>
+                    <div class="informacionProduct">
+                        <p id="informacion">
+                            Las unidades SSD MP700 ELITE combinan las tecnologías PCIe 5.0 con la última tecnología flash 3D TLC NAND <br>
+                            para ofrecer una lectura y escritura más rápidas.
+                        </p>
+                    </div>
+                    <div class="Carrito">
+                        <div class="cantPreduct">
+                                <button class="quitar">-</button>
+                                <p id="cantidad">1</p>
+                                <button class="aumentar">+</button>
+                        </div>
+                        <div class="agregarCarrito">
+                            <button class="agregar"> Añadir al carrito</button>
+                        </div>
+                    </div>
+                </div>         
+        </div>
+    </div>
+    <div class="recomendaciones">
+        <div class="titleRecomendaciones">
+            <h1>TE RECOMENDAMOS</h1>
+        </div>
+        <div class="ProductRecomendados">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../img/Razer-ViperUltimate.jpg" alt="Razer Viper Ultimate">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Razer Viper Ultimate</h3>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <span class="rating-text">4.5/5</span>
+                    </div>
+                    <p class="product-price">S/165</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../img/Razer-Naga Pro 20K DPI.jpg" alt="Razer Naga Pro">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Razer Naga Pro</h3>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <span class="rating-text">4.5/5</span>
+                    </div>
+                    <p class="product-price">S/165</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../img/RAZER-Pro Click RZ01-02990.jpg" alt="Razer Pro Click">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Razer Pro Click</h3>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <span class="rating-text">4.5/5</span>
+                    </div>
+                    <p class="product-price">S/165</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../img/RAZER-Basilisk V3 Negro.jpg" alt="Razer Basilisk V3">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Razer Basilisk V3</h3>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <span class="rating-text">4.5/5</span>
+                    </div>
+                    <p class="product-price">S/165</p>
+                </div>
             </div>
         </div>
     </div>
+
     
 
 
