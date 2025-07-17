@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito</title>
+    <link rel="stylesheet" href="../Vista/Carrito.css">
+</head>
+<body>
+    <header class="promo-header">
+        <div class="promo-text">
+            Regístrese y obtenga un 20% de descuento en su primer pedido. Regístrese ahora
+        </div>
+        <button class="close-button" aria-label="Cerrar promoción">
+            <img src="../img/X.png" alt="Cerrar" width="10" height="10">
+        </button>
+    </header>
+
+    <script>
+        document.querySelector('.close-button').addEventListener('click', function() {
+            document.querySelector('.promo-header').classList.add('hidden');
+        });
+    </script>
+
+    <!---Navegador-->
+
+    <nav class="main-nav">
+        <div class="nav-contenedor">
+            <a href="Home.html" class="logo" style="font-family: 'Integral',sans-serif; font-size:32px;">Perify.co</a>
+            
+            <div class="nav-links">
+                <div class="nav-item">
+                    <span>Tienda</span>
+                    <img src="../img/desplegable.png" alt="Desplegable" width="10" height="8">
+                    <div class="dropdown-menu">
+                        <a href="Catalogo.html" class="dropdown-item">Catálogo</a>
+                        <a href="#" class="dropdown-item">Ofertas</a>
+                        <a href="#" class="dropdown-item">Novedades</a>
+                    </div>
+                </div>
+                <a href="Marcas.html" class="nav-item">Marcas</a>
+                <a href="Contacto.html" class="nav-item">Contacto</a>
+                <a href="Noticias.html" class="nav-item">Noticias</a>
+            </div>
+
+            <div class="barra-busqueda">
+                <img src="../img/busqueda.png" alt="Buscar" width="20" height="20">
+                <input type="text" placeholder="Buscar...">
+            </div>
+
+            <div class="nav-icons">
+                <button class="icon-button" aria-label="Carrito de compras">
+                    <img src="../img/carrito.png" alt="Carrito" width="20" height="20">
+                </button>
+                <button class="icon-button" aria-label="Usuario">
+                    <img src="../img/usuario.png" alt="Usuario" width="20" height="20">
+                </button>
+            </div>
+        </div>
+    </nav>
+<!---Fin Navegador-->
+
+<!---Body -->
+    <div class="contenido">
+        <div class="titulo">
+            <h1>TU CARRITO</h1>
+        </div>
+        <div class="compra">
+            <div class="productos">
+                <div class="productoxcomprar">
+                    <div class="productoImagen">
+                        <img src="../img/RAZER-COBRA CHROMA RGB.jpg" alt="" class="imgProducto">
+                    </div>
+                    <div class="infoProducto">
+                        <div class="tituloProducto">
+                            <p class="nombreProducto">RAZER-Cobra Chroma RGB</p>
+                            <button class="btnEliminar" aria-label="Eliminar producto">
+                                <svg width="30px" height="30px" viewBox="0 0 24.00 24.00" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ff0000" stroke-width="0.00024000000000000003"><g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.663 1.5h-1.326c-1.069 0-1.49.09-1.921.27-.432.181-.792.453-1.084.82-.292.365-.493.746-.784 1.774L7.368 5H5a1 1 0 0 0 0 2h.563l.703 11.25c.082 1.32.123 1.98.407 2.481a2.5 2.5 0 0 0 1.083 1.017C8.273 22 8.935 22 10.258 22h3.484c1.323 0 1.985 0 2.502-.252a2.5 2.5 0 0 0 1.083-1.017c.284-.5.325-1.16.407-2.482L18.437 7H19a1 1 0 1 0 0-2h-2.367l-.18-.636c-.292-1.028-.493-1.409-.785-1.775a2.694 2.694 0 0 0-1.084-.819c-.431-.18-.852-.27-1.92-.27zm1.89 3.5-.025-.09c-.203-.717-.29-.905-.424-1.074a.696.696 0 0 0-.292-.221c-.2-.084-.404-.115-1.149-.115h-1.326c-.745 0-.95.031-1.149.115a.696.696 0 0 0-.292.221c-.135.169-.221.357-.424 1.074L9.446 5h5.108zM9.61 8.506a.75.75 0 0 0-.724.776l.297 8.495a.75.75 0 0 0 1.499-.053l-.297-8.494a.75.75 0 0 0-.775-.724zm4.008.724a.75.75 0 0 1 1.499.052l-.297 8.495a.75.75 0 0 1-1.499-.053l.297-8.494z" fill="#ff0000"></path>
+                                    </g>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="especificaciones">
+                            <div class="precioProducto">
+                                <p class="precio">S/. 299</p>
+                            </div>
+                            <div class="cantidadProducto">
+                                <button class="quitar">-</button>
+                                <p id="cantidad">1</p>
+                                <button class="aumentar">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="productoxcomprar">
+                    <div class="productoImagen">
+                        <img src="../img/RAZER-DEATHADDER ESSENT..jpg" alt="" class="imgProducto">
+                    </div>
+                    <div class="infoProducto">
+                        <div class="tituloProducto">
+                            <p class="nombreProducto">RAZER-DEATHADDER ESSENT</p>
+                            <button class="btnEliminar" aria-label="Eliminar producto">
+                                <svg width="30px" height="30px" viewBox="0 0 24.00 24.00" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ff0000" stroke-width="0.00024000000000000003"><g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.663 1.5h-1.326c-1.069 0-1.49.09-1.921.27-.432.181-.792.453-1.084.82-.292.365-.493.746-.784 1.774L7.368 5H5a1 1 0 0 0 0 2h.563l.703 11.25c.082 1.32.123 1.98.407 2.481a2.5 2.5 0 0 0 1.083 1.017C8.273 22 8.935 22 10.258 22h3.484c1.323 0 1.985 0 2.502-.252a2.5 2.5 0 0 0 1.083-1.017c.284-.5.325-1.16.407-2.482L18.437 7H19a1 1 0 1 0 0-2h-2.367l-.18-.636c-.292-1.028-.493-1.409-.785-1.775a2.694 2.694 0 0 0-1.084-.819c-.431-.18-.852-.27-1.92-.27zm1.89 3.5-.025-.09c-.203-.717-.29-.905-.424-1.074a.696.696 0 0 0-.292-.221c-.2-.084-.404-.115-1.149-.115h-1.326c-.745 0-.95.031-1.149.115a.696.696 0 0 0-.292.221c-.135.169-.221.357-.424 1.074L9.446 5h5.108zM9.61 8.506a.75.75 0 0 0-.724.776l.297 8.495a.75.75 0 0 0 1.499-.053l-.297-8.494a.75.75 0 0 0-.775-.724zm4.008.724a.75.75 0 0 1 1.499.052l-.297 8.495a.75.75 0 0 1-1.499-.053l.297-8.494z" fill="#ff0000"></path>
+                                    </g>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="especificaciones">
+                            <div class="precioProducto">
+                                <p class="precio">S/. 189</p>
+                            </div>
+                            <div class="cantidadProducto">
+                                <button class="quitar">-</button>
+                                <p id="cantidad">1</p>
+                                <button class="aumentar">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ResumenPago">
+                <div class="titulobloque">
+                    <h5 class="resumen">Resumen de Pago</h5>
+                </div>
+                <div class="condiciones">
+                    <p class="categoria">Subtotal </p>
+                    <p class="pago">S/5507</p>
+                </div>
+                <div class="condiciones">
+                    <p class="categoria">Descuento</p>
+                    <p class="pagoDescuento">S/1107</p>
+                </div>
+                <div class="condiciones">
+                    <p class="categoria">Tarifa de entrega </p>
+                    <p class="pago">S/15</p>
+                </div>
+                <div class="condiciones">
+                    <p class="total">Total</p>
+                    <p class="pagoTotal">S/4420</p>
+                </div>
+                <div class="promo">
+                    <input type="text" placeholder="Añadir su código promocional" class="inputPromo">
+                    <button class="aplicarPromo" type="button">Aplicar</button>
+                </div>
+                <div class="botonPagar">
+                    <button class="irPagar"> Ir a Pagar 
+                        <svg class="flecha" width="18px" height="18px" viewBox="0 0 24px 24px" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier"> <path d="M6 12H18M18 12L13 7M18 12L13 17" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!---Footer -->
+    <footer class="footer">
+        <div class="newsletter-section">
+            <div class="newsletter-content">
+                <h2>Mantengase actualizado sobre nuestras ultimas ofertas</h2>
+                <div class="newsletter-form">
+                    <div class="email-input">
+                        <div class="email-icon">
+                            <img src="../img/email.png" alt="Email" width="20" height="15">
+                        </div>
+                        <input type="email" placeholder="Ingresa tu correo electrónico">
+                    </div>
+                    <button class="subscribe-btn">Suscríbete para ver novedades</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 id="Logo-footer">Perify.CO</h3>
+                <p id="parrafo-footer">Tenemos periféricos que se adaptan a tu estilo y de los que te sentirás orgulloso. Desde setups minimalistas hasta equipos para gamers exigentes.</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><img src="../img/twitter.png" alt="Twitter"></a>
+                    <a href="#" class="social-icon"><img src="../img/facebook.png" alt="Facebook"></a>
+                    <a href="#" class="social-icon"><img src="../img/instagram.png" alt="Instagram"></a>
+                    <a href="#" class="social-icon"><img src="../img/github.png" alt="GitHub"></a>
+                </div>
+            </div>
+
+            <div class="info-footer">
+                <h3>COMPAÑIA</h3>
+                <ul>
+                    <li><a href="#">Acerca</a></li>
+                    <li><a href="#">Características</a></li>
+                    <li><a href="#">Trabajo</a></li>
+                    <li><a href="#">Carrera</a></li>
+                </ul>
+            </div>
+
+            <div class="info-footer">
+                <h3>AYUDA</h3>
+                <ul>
+                    <li><a href="#">Soporte al Cliente</a></li>
+                    <li><a href="#">Detalles de Entrega</a></li>
+                    <li><a href="#">Términos y condiciones</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                </ul>
+            </div>
+
+            <div class="info-footer">
+                <h3>FAQ</h3>
+                <ul>
+                    <li><a href="#">Cuenta</a></li>
+                    <li><a href="#">Administrar entregas</a></li>
+                    <li><a href="#">Órdenes</a></li>
+                    <li><a href="#">Pagos</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="copyright">Perify.co © 2000-2025, Todos los Derechos Reservados</p>
+            <div class="payment-methods">
+                <img src="../img/visa.png" alt="Visa">
+                <img src="../img/mastercard.png" alt="Mastercard">
+                <img src="../img/paypal.png" alt="PayPal">
+                <img src="../img/apple-pay.png" alt="Apple Pay">
+                <img src="../img/google-pay.png" alt="Google Pay">
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
