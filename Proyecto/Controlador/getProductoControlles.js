@@ -259,5 +259,7 @@ async function mostrarProductos(containerId = 'productos-container') {
   await renderizarProductosEnDOM(containerId);
 }
 
+export { getProductos };
+
 
 
