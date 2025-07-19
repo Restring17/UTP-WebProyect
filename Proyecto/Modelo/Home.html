@@ -6,9 +6,9 @@
     <title>Home</title>
     <link rel="stylesheet" href="../Vista/Homepage.css">
 </head>
-<script type="module">
-import { getProductos } from '../Controlador/getProductoControlles.js';
-
+<script src="../Controlador/Shared/config.js"></script>
+<script src="../Controlador/getProductoControlles.js" onerror="console.error('❌ Error cargando getProductoControlles.js')" onload="console.log('✅ getProductoControlles.js cargado')"></script>
+<script>
 function getRandomIds(cantidad, min = 10, max = 15) {
     const ids = new Set();
     while (ids.size < cantidad) {
@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     <section class="novedades-grid">
         <div class="product-card">
             <div class="product-image">
-                <img src="../img/Razer-ViperUltimate.jpg" alt="Razer Viper Ultimate">
+                <img src="" alt="">
             </div>
             <div class="product-info">
                 <h3 class="product-title"></h3>
@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         <div class="product-card">
             <div class="product-image">
-                <img src="../img/Razer-Naga Pro 20K DPI.jpg" alt="Razer Naga Pro">
+                <img src="" alt="">
             </div>
             <div class="product-info">
                 <h3 class="product-title"></h3>
@@ -189,10 +189,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         <div class="product-card">
             <div class="product-image">
-                <img src="../img/RAZER-Pro Click RZ01-02990.jpg" alt="Razer Pro Click">
+                <img src="" alt="">
             </div>
             <div class="product-info">
-                <h3 class="product-title">Razer Pro Click</h3>
+                <h3 class="product-title"></h3>
                 <div class="product-rating">
                     <div class="stars">
                         <span class="star">★</span>
@@ -203,16 +203,16 @@ document.addEventListener('DOMContentLoaded', async () => {
                     </div>
                     <span class="rating-text">4.5/5</span>
                 </div>
-                <p class="product-price">S/165</p>
+                <p class="product-price"></p>
             </div>
         </div>
 
         <div class="product-card">
             <div class="product-image">
-                <img src="../img/RAZER-Basilisk V3 Negro.jpg" alt="Razer Basilisk V3">
+                <img src="" alt="">
             </div>
             <div class="product-info">
-                <h3 class="product-title">Razer Basilisk V3</h3>
+                <h3 class="product-title"></h3>
                 <div class="product-rating">
                     <div class="stars">
                         <span class="star">★</span>
@@ -223,7 +223,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     </div>
                     <span class="rating-text">4.5/5</span>
                 </div>
-                <p class="product-price">S/165</p>
+                <p class="product-price"></p>
             </div>
         </div>
     </section>

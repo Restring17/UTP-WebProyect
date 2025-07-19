@@ -14,9 +14,6 @@ if (SUPABASE_BEARER_TOKEN) {
 async function listarProductos() {
   const myHeaders = new Headers();
   myHeaders.append("apikey", SUPABASE_API_KEY);
-  if (SUPABASE_BEARER_TOKEN) {
-    myHeaders.append("Authorization", `Bearer ${SUPABASE_BEARER_TOKEN}`);
-  }
 
   const requestOptions = {
     method: "GET",
@@ -258,8 +255,6 @@ async function getProductos() {
 async function mostrarProductos(containerId = 'productos-container') {
   await renderizarProductosEnDOM(containerId);
 }
-
-export { getProductos };
 
 
 
