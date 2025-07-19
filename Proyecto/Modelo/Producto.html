@@ -70,47 +70,7 @@
                 Producto 
             </span>            
         </div>
-        <div class="producto">
-                <div class="imagenes">
-                    <label class="labelProductos">
-                        <img src="../img/MP700ELITE.avif"  id="imagenProducto">
-                    </label>   
-                    <!--<label class="labelProductos">
-                        <button type= "button" class="mostrarImagen" aria-label="Corsair MP700 ELITE w/ Heatsink PCIe Gen5 NVMe M.2 SSD - 1TB">
-                            <img src="../img/MP700ELITE.avif"  class="imagenProducto">
-                        </button>
-                    </label>
-                    <label class="labelProductos">
-                        <button type= "button" class="mostrarImagen" aria-label="Corsair MP700 ELITE w/ Heatsink PCIe Gen5 NVMe M.2 SSD - 1TB">
-                            <img src="../img/MP700ELITE.avif"  class="imagenProducto">
-                        </button>
-                    </label>-->
-                </div>
-                <div class="info-product">
-                    <div class="titleProduct">
-                        <h2 id="productName">MP700 ELITE with Heatsink 1TB PCIe 5.0 Gen 5 x NVMe M.2 SSD</h2>
-                    </div>
-                    <div class="BLockprecio">
-                        <p class="precio">S/. 540</p>
-                    </div>
-                    <div class="informacionProduct">
-                        <p id="informacion">
-                            Las unidades SSD MP700 ELITE combinan las tecnologías PCIe 5.0 con la última tecnología flash 3D TLC NAND <br>
-                            para ofrecer una lectura y escritura más rápidas.
-                        </p>
-                    </div>
-                    <div class="Carrito">
-                        <div class="cantPreduct">
-                                <button class="quitar">-</button>
-                                <p id="cantidad">1</p>
-                                <button class="aumentar">+</button>
-                        </div>
-                        <div class="agregarCarrito">
-                            <button class="agregar"> Añadir al carrito</button>
-                        </div>
-                    </div>
-                </div>         
-        </div>
+        <div class="producto" id="producto-container"></div>
     </div>
     <div class="recomendaciones">
         <div class="titleRecomendaciones">
@@ -274,5 +234,23 @@
         </div>
     </footer>
 
+    <script src="../Controlador/Shared/config.js"></script>
+
+    <script type="module">
+        import { mostrarProducto } from '../Controlador/getProductoUnicoController.js';
+
+        // Obtener el ID del producto desde la URL (ejemplo: Producto.html?id=123)
+        function getProductoIdFromUrl() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('id');
+        }
+
+        const productoId = getProductoIdFromUrl();
+        if (productoId) {
+            mostrarProducto(productoId, 'producto-container');
+        } else {
+            document.getElementById('producto-container').innerHTML = '<p>No se especificó producto</p>';
+        }
+    </script>
 </body>
 </html>
