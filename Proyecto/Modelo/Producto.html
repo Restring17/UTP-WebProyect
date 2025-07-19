@@ -70,7 +70,14 @@
                 Producto 
             </span>            
         </div>
-        <div class="producto" id="producto-container"></div>
+        <div class="producto" id="producto-container">
+            <div class="cantPreduct">
+                <button id="quitar">-</button>
+                <p id="cantidad">1</p>
+                <button id="aumentar">+</button>
+            </div>
+            <button class="agregar" id="btnAgregar"> Añadir al carrito</button>
+        </div>
     </div>
     <div class="recomendaciones">
         <div class="titleRecomendaciones">
@@ -235,22 +242,33 @@
     </footer>
 
     <script src="../Controlador/Shared/config.js"></script>
+    
+    <script src="../Controlador/lista_productos_carrito.js"></script>
+
+    
 
     <script type="module">
-        import { mostrarProducto } from '../Controlador/getProductoUnicoController.js';
+    import { mostrarProducto } from '../Controlador/getProductoUnicoController.js';
 
-        // Obtener el ID del producto desde la URL (ejemplo: Producto.html?id=123)
-        function getProductoIdFromUrl() {
-            const params = new URLSearchParams(window.location.search);
-            return params.get('id');
-        }
+    function getProductoIdFromUrl() {
+        const params = new URLSearchParams(window.location.search);
+        return params.get('id');
+    }
 
-        const productoId = getProductoIdFromUrl();
-        if (productoId) {
-            mostrarProducto(productoId, 'producto-container');
-        } else {
-            document.getElementById('producto-container').innerHTML = '<p>No se especificó producto</p>';
-        }
+    const productoId = getProductoIdFromUrl();
+    if (productoId) {
+        await mostrarProducto(productoId, 'producto-container');
+        
+        // Ahora sí funcionará porque el botón tiene el ID correcto
+        document.getElementById('btnAgregar').onclick = function() {
+            console.log('Botón presionado');
+            const cantidad = parseInt(document.getElementById('cantidad').textContent) || 1;
+            agregarProductoAlCarrito(productoId, cantidad);
+            alert('Producto añadido al carrito');
+        };
+    } else {
+        document.getElementById('producto-container').innerHTML = '<p>No se especificó producto</p>';
+    }
     </script>
 </body>
 </html>

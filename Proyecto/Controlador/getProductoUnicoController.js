@@ -178,7 +178,7 @@ async function mostrarProducto(productoId, containerId = 'producto-container') {
             <button class="aumentar">+</button>
           </div>
           <div class="agregarCarrito">
-            <button class="agregar"> Añadir al carrito</button>
+            <button class="agregar" id="btnAgregar"> Añadir al carrito</button>
           </div>
         </div>
       </div>
