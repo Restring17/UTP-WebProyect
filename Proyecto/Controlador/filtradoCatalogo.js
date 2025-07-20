@@ -63,4 +63,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 
     // Puedes agregar más filtros aquí...
+    
+    document.getElementById('btn-reset-filtros').addEventListener('click', function() {
+    renderizarProductos(productosConImagenesGlobal);
+});
 });
