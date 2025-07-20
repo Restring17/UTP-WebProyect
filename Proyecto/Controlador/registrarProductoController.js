@@ -136,10 +136,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const productoData = {
         nombre: formData.get('nombre'),
         marca: formData.get('marca'),
+        tipo: formData.get('tipo'),  
         descripcion: formData.get('descripcion'),
         precio: parseFloat(formData.get('precio')),
         stock: parseInt(formData.get('stock'), 10),
-        tipo: formData.get('tipo'),
         disponible: true
       };
       
