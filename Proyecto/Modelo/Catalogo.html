@@ -6,6 +6,36 @@
     <title>Catalogo</title>
     <link rel="stylesheet" href="../Vista/Catalogopage.css">
 </head>
+<script src="../Controlador/Shared/config.js"></script>
+<script src="../Controlador/getProductoControlles.js" onerror="console.error('❌ Error cargando getProductoControlles.js')" onload="console.log('✅ getProductoControlles.js cargado')"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+    const productosConImagenes = await getProductos();
+    const grid = document.getElementById('products_grid');
+    grid.innerHTML = ""; // Limpia el grid
+
+    productosConImagenes.forEach(({ producto, imagenes }) => {
+        const imgSrc = (imagenes && imagenes.length > 0) ? imagenes[0].url_completa : "../img/no-image.png";
+        const card = document.createElement('div');
+        card.className = "product-card";
+        card.innerHTML = `
+            <a href="">
+                <div>
+                    <div class="product_visual">
+                        <img class="product_image" src="${imgSrc}" alt="${producto.nombre}">
+                    </div>
+                    <div class="product_info">
+                        <h3 class="product_tittle">${producto.nombre}</h3>
+                        <div class="product_classification"></div>
+                        <h3 class="product_price">S/${producto.precio}</h3>
+                    </div>
+                </div>
+            </a>
+        `;
+        grid.appendChild(card);
+    });
+});
+</script>
 <body>
     <header class="promo-header">
         <div class="promo-text">
@@ -115,153 +145,10 @@
 
         <div id="products">
             <div class="Tittle_products">
-                <h1>Mouses</h1>
+                <h1>Catalogo</h1>
             </div>
-            <div class="products_grid">
-                <div class="product-card">
-                    <a href="">
-                        <div>
-                            <div class="product_visual">
-                                <img class="product_image" src="../img/Razer-ViperUltimate.jpg" alt="Razer-ViperUltimate">
-                            </div>
-                            <div class="product_info">
-                                <h3 class="product_tittle">Razer-Viper Ultimate</h3>
-                                <div class="product_classification">
-
-                                </div>
-                                <h3 class="product_price">S/1843</h3>
-                            </div>
-                        </div>                        
-                    </a>                    
-                </div>
-                <div class="product-card">
-                    <a href="">
-                        <div>
-                            <div class="product_visual">
-                                <img class="product_image" src="../img/Razer-Naga Pro 20K DPI.jpg" alt="Razer-Naga Pro 20K">
-                            </div>
-                            <div class="product_info">
-                                <h3 class="product_tittle">Razer-Naga Pro 20K DPI </h3>
-                                <div class="product_classification">
-
-                                </div>
-                                <h3 class="product_price">S/1843</h3>
-                            </div>
-                        </div>                        
-                    </a>                    
-                </div>
-                <div class="product-card">
-                    <a href="">
-                        <div>
-                            <div class="product_visual">
-                                <img class="product_image" src="../img/RAZER-Pro Click RZ01-02990.jpg" alt="RAZER-Pro Click RZ01-02990">
-                            </div>
-                            <div class="product_info">
-                                <h3 class="product_tittle">RAZER-Pro Click | RZ01-02990</h3>
-                                <div class="product_classification">
-
-                                </div>
-                                <h3 class="product_price">S/1843</h3>
-                            </div>
-                        </div>                        
-                    </a>                    
-                </div>
-                <div class="product-card">
-                    <a href="">
-                        <div>
-                            <div class="product_visual">
-                                <img class="product_image" src="../img/RAZER-Basilisk V3 Negro.jpg" alt="RAZER-Basilisk V3 Negro">
-                            </div>
-                            <div class="product_info">
-                                <h3 class="product_tittle">RAZER-Basilisk V3 Negro</h3>
-                                <div class="product_classification">
-
-                                </div>
-                                <h3 class="product_price">S/1843</h3>
-                            </div>
-                        </div>                        
-                    </a>                    
-                </div>
-                <div class="product-card">
-                    <a href="">
-                        <div>
-                            <div class="product_visual">
-                                <img class="product_image" src="../img/RAZER-DEATHADDER V2 HALO.jpg" alt="RAZER-DEATHADDER V2 HALO">
-                            </div>
-                            <div class="product_info">
-                                <h3 class="product_tittle">RAZER-DEATHADDER V2 HALO</h3>
-                                <div class="product_classification">
-
-                                </div>
-                                <h3 class="product_price">S/1843</h3>
-                            </div>
-                        </div>                        
-                    </a>                    
-                </div>
-                <div class="product-card">
-                    <a href="">
-                        <div>
-                            <div class="product_visual">
-                                <img class="product_image" src="../img/RAZER-DEATHADDER ESSENT..jpg" alt="RAZER-DEATHADDER ESSENT.">
-                            </div>
-                            <div class="product_info">
-                                <h3 class="product_tittle">RAZER-DEATHADDER ESSENT</h3>
-                                <div class="product_classification">
-
-                                </div>
-                                <h3 class="product_price">S/1843</h3>
-                            </div>
-                        </div>                        
-                    </a>                    
-                </div>
-                <div class="product-card">
-                    <a href="">
-                        <div>
-                            <div class="product_visual">
-                                <img class="product_image" src="../img/RAZER-VIPER V2 PRO 30K.jpg" alt="RAZER-VIPER V2 PRO 30K">
-                            </div>
-                            <div class="product_info">
-                                <h3 class="product_tittle">RAZER-VIPER V2 PRO 30K</h3>
-                                <div class="product_classification">
-
-                                </div>
-                                <h3 class="product_price">S/1843</h3>
-                            </div>
-                        </div>                        
-                    </a>                    
-                </div>
-                <div class="product-card">
-                    <a href="">
-                        <div>
-                            <div class="product_visual">
-                                <img class="product_image" src="../img/RAZER-COBRA CHROMA RGB.jpg" alt="RAZER-COBRA CHROMA RGB">
-                            </div>
-                            <div class="product_info">
-                                <h3 class="product_tittle">RAZER-COBRA CHROMA RGB </h3>
-                                <div class="product_classification">
-
-                                </div>
-                                <h3 class="product_price">S/1843</h3>
-                            </div>
-                        </div>                        
-                    </a>                    
-                </div>
-                <div class="product-card">
-                    <a href="">
-                        <div>
-                            <div class="product_visual">
-                                <img class="product_image" src="../img/RAZER-OROCHI V2 18K.jpg" alt="RAZER-OROCHI V2 18K">
-                            </div>
-                            <div class="product_info">
-                                <h3 class="product_tittle">RAZER-OROCHI V2 18K</h3>
-                                <div class="product_classification">
-
-                                </div>
-                                <h3 class="product_price">S/1843</h3>
-                            </div>
-                        </div>                        
-                    </a>                    
-                </div>
+            <div class="products_grid" id="products_grid">
+                <!-- Aquí se insertarán las tarjetas dinámicamente -->
             </div>
         </div>
     </div>
