@@ -1,0 +1,291 @@
+body {
+    background-color: #0D0D0D;
+    margin: 0;
+    color: white; 
+}
+
+@font-face {
+    font-family: 'Satoshi';
+    src: url('../fonts/Satoshi-Medium.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Integral';
+    src: url('../fonts/Fontspring-DEMO-integralcf-bold.otf') format('truetype');
+}
+
+/*BODY*/
+.cuerpo{
+    display: flex;
+}
+
+.espacioCerrar{
+    align-items: center;
+    align-content: center;
+    display: block;
+}
+
+.cerrarButton {
+    margin: 0;
+    padding: 10px 20px;
+    background: #000000;
+    color: #ffffffff;
+    border-radius: 50px;
+    border-style: none;
+    padding: 10px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    font-family: 'Satoshi', sans-serif;
+    font-size: 20px;
+    width: fit-content;
+    height: 50px;
+}
+.cerrarButton:hover {
+    background-color: #ff0000;
+    color: #000000;
+    transition: 0.8s;
+}
+
+.datosPersonales{
+    background-color: #16B806;
+    display: grid;
+    width: 500px;
+    height: 550px;
+    text-align: center;
+}
+
+#imgUsuario{
+    border-radius: 100%;
+    border-color: #0D0D0D;
+    border-style: solid;
+    border-width: thick;
+    width: 256px;
+    height: 256px;
+    margin: 50px 0px 0px 0px;
+}
+
+.infoUser{
+    text-align: center;
+    width: auto;
+}
+
+.contenido{
+    margin-top: 50px;
+}
+
+#nombre{
+    font-family: 'Integral', sans-serif;
+    font-size: 34px;   
+    margin-bottom: 20px; 
+}
+
+#tresPuntos{
+    font-family: 'Satoshi', sans-serif;
+    font-size: 34px;   
+    margin-bottom: 20px; 
+}
+
+#correo{
+    font-family: 'Satoshi',sans-serif;
+    font-size: 34px;   
+}
+
+.opciones{
+    background-color: #15b8068c;
+    padding: 20px;
+    align-items: center;
+    align-content: center;
+    height: 40em;
+}
+
+.opcuerpo{
+    display: grid;
+    row-gap: 20px;
+    
+}
+
+.opcButton{
+    background-color: #ffffffff;
+    font-family: 'Satoshi',sans-serif;
+    font-size: 34px;
+    color: #000000;
+    text-align: center;
+    border-radius: 50px;
+    border-style: none;
+    width: auto;
+    margin: 10px 10px 10px 10px;
+}
+
+.opcButton:hover{
+    background-color: #000000;
+    color: white;
+    transition: 0.5s;
+}
+
+.infoCont{
+    margin-left: 50px;
+}
+.titulo{
+    font-family: 'Integral',sans-serif;
+    font-size: 30px;
+    margin-top: -50px;
+}
+.subTitulo{
+    font-family: 'Satoshi',sans-serif;
+    font-size: 20px;
+    margin-top: -20px;
+    display: flex;
+}
+.barra-busqueda {
+    width: 400px;
+    height: 48px;
+    background-color: #1A1A1A;
+    border-radius: 62px;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    gap: 12px;
+    margin: 0px 80px 0px 300px;
+}
+
+.barra-busqueda input {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-family: 'Satoshi', sans-serif;
+    width: 100%;
+    outline: none;
+}
+
+.barra-busqueda input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.añadir{
+    background-color: #16B806;
+    align-content: center;
+    align-items: center;
+    border-radius: 20px;
+    text-align: center;
+    width: 200px;
+    height: 48px;
+    font-family: 'Satoshi',sans-serif;
+}
+
+.añadirButton{
+    text-decoration: none;
+    color: #000000;
+}
+
+.cont{
+display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+    gap: 40px 40px; /* Espacio entre filas y columnas */
+    margin: 50px auto;
+    max-width: 900px;
+    width: 100%;
+    justify-items: stretch; /* Las tarjetas ocupan todo el ancho de la columna */
+}
+
+#productos-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    column-gap: 100px;
+    row-gap: 40px;
+}
+
+.productos{
+    display: grid;
+    background: #181818;
+    border-radius: 18px;
+    padding: 24px 24px 18px 24px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.12);
+    align-items: center;
+    max-width: none;
+    margin: 0 auto;
+}
+
+.infoProduct{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.infoProductMax{
+    margin: 0 0 0 0;
+    align-items: flex-start;
+    font-family: 'Satoshi',sans-serif;
+}
+
+.img-product{
+    width: 220px;
+    height: 140px;
+    object-fit: contain;
+    border-radius: 10px;
+    background: #222;
+    margin-bottom: 18px;
+}
+
+.content-img{
+    max-width: fit-content;
+    max-height: fit-content;
+
+}
+
+.nombre p, .precio p {
+    margin: 0 0 8px 0;
+    font-size: 1.1rem;
+}
+
+/*Info de Usuarios*/
+.ConjuntoUsuarios{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 30px;
+    column-gap: 100px;
+}
+
+.usuario{
+    display: block;
+    border-style: solid;
+    border-color: rgb(82, 82, 82);
+    border-radius: 20px;
+    padding: 20px 30px;
+    width: 500px;
+    height: auto;
+}
+
+.usuario:hover{
+    color: #16B806;
+    border-color: #16B806;
+    transition: 0.5s;
+}
+
+.ContUsuario{
+    display: flex;
+}
+
+.nombreUsuario{
+    font-family: 'Satoshi',sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.infoUsuario{
+    font-family: 'Satoshi',sans-serif;
+    font-size: 20px;
+    color: #ffffffff;
+    opacity: 60%;
+}
+
+.correoUsuario,.fechaUsuario{
+    font-family: 'Satoshi',sans-serif;
+    font-size: 20px;
+    margin-left: auto;
+}
+

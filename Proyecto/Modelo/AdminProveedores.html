@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrar Producto - Perify.co</title>
-    <link rel="stylesheet" href="../Vista/Homepage.css"> <!-- Reutilizamos el CSS base -->
-    <link rel="stylesheet" href="../Vista/Reguister_prouctos.css"> <!-- CSS específico para el formulario -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Administrador Proveedores</title>
+    <link rel="stylesheet" href="../Vista/AdminProveedores.css" />
 </head>
 <body>
-<!-- Panel administrativo -->
-
-<div class="cuerpo">
-        <div class="user">
-            <div class="datosPersonales">
-                <div class="imagenUser">
-                    <img src="../img/person-svgrepo-com.svg" id="imgUsuario" alt="imgdelUsuario">
-                </div>
-                <div class="infoUser">
-                    <p id="nombre">Administrador</p>
-                    <p id="correo">Ejemplo@hotmail.com</p>
-                </div>
-            </div>
-            <div class="opciones">
+    <!--Cuerpo de la pagina-->
+    <div class="cuerpo">
+    <div class="user">
+        <div class="datosPersonales">
+        <div class="imagenUser">
+            <img
+            src="../img/person-svgrepo-com.svg"
+            id="imgUsuario"
+            alt="imgdelUsuario"
+            />
+        </div>
+        <div class="infoUser">
+            <p id="nombre">Administrador</p>
+            <p id="correo">Ejemplo@hotmail.com</p>
+        </div>
+        </div>
+        <div class="opciones">
                 <div class="opcuerpo">
                     <button class="opcButton" onclick="abrirPagina('AccesoPage.html')" type="button">Administracion    
                     <svg width="24px" height="24px" viewBox="-4.5 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -71,7 +73,7 @@
                                         </path></g></g> </g>
                         </svg>
                     </button>
-                    <button class="opcButton" onclick="abrirPagina('AdminUsuario.html')">Usuarios  
+                    <button class="opcButton" onclick="abrirPagina('AdminUsuario.html')">Ususarios   
                         <svg width="24px" height="24px" viewBox="-4.5 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                             <title>arrow_right [#336]</title>
                             <desc>Created with Sketch.</desc>
@@ -82,88 +84,100 @@
                                         <path d="M249.365851,6538.70769 L249.365851,6538.70769 C249.770764,6539.09744 250.426289,6539.09744 250.830166,6538.70769 L259.393407,6530.44413 C260.202198,6529.66364 260.202198,6528.39747 259.393407,6527.61699 L250.768031,6519.29246 C250.367261,6518.90671 249.720021,6518.90172 249.314072,6519.28247 L249.314072,6519.28247 C248.899839,6519.67121 248.894661,6520.31179 249.302681,6520.70653 L257.196934,6528.32352 C257.601847,6528.71426 257.601847,6529.34685 257.196934,6529.73759 L249.365851,6537.29462 C248.960938,6537.68437 248.960938,6538.31795 249.365851,6538.70769" id="arrow_right-[#336]">
                                         </path></g></g> </g>
                         </svg>
-                    </button>                  
+                    </button> 
                     <button class="cerrarButton" onclick="abrirPagina('Home.html')" type="button">
                         SALIR
-                    </button>                   
+                    </button> 
+                </div>
+            </div>
+    </div>
+    <div class="contenido">
+        <div class="infoCont">
+        <div class="titulo">
+            <h2>PROVEEDORES:</h2>
+        </div>
+        <div class="subTitulo">
+            <p>Buscar Proveedores:</p>
+            <div class="barra-busqueda">
+            <img
+                src="../img/busqueda.png"
+                alt="Buscar"
+                width="20"
+                height="20"
+            />
+            <input type="text" placeholder="Buscar..." />
+            </div>
+        </div>
+        </div>
+        <div class="cont">
+            <div class="ConjuntoProveedores">
+                <div class="proveedor">
+                    <div class="imagenProveedor">
+                        <img class="imgprovedor" src="../img/ImportacionesRubi.png" alt="ImportacionesRubi">
+                    </div>
+                    <div class="infoProvedor">
+                        <div class="parteInfo">
+                            <p class="tipoDato">Nombre: </p>
+                            <p class="contenidoProveedor">Importaciones Rubi S.A.</p>
+                        </div>
+                        <div class="parteInfo">
+                            <p class="tipoDato">RUC: </p>
+                            <p class="contenidoProveedor">20298463165</p>
+                        </div>
+                        <div class="parteInfo">
+                            <p class="tipoDato">Domicilio Fiscal: </p>
+                            <p class="contenidoProveedor">Jr. Leticia N° 630, Lima, Perú</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="proveedor">
+                    <div class="imagenProveedor">
+                        <img class="imgprovedor" src="../img/DMIComputer.png" alt="DMIComputer">
+                    </div>
+                    <div class="infoProvedor">
+                        <div class="parteInfo">
+                            <p class="tipoDato">Nombre: </p>
+                            <p class="contenidoProveedor">DMI Computer</p>
+                        </div>
+                        <div class="parteInfo">
+                            <p class="tipoDato">RUC: </p>
+                            <p class="contenidoProveedor">20332643488</p>
+                        </div>
+                        <div class="parteInfo">
+                            <p class="tipoDato">Domicilio Fiscal: </p>
+                            <p class="contenidoProveedor">Avenida Sistema Solar, nº 34, 28830, San Fernando de Henares, Madrid, España</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="proveedor">
+                    <div class="imagenProveedor">
+                        <img class="imgprovedor" src="../img/GloboMatik.jpg" alt="GloboMatik">
+                    </div>
+                    <div class="infoProvedor">
+                        <div class="parteInfo">
+                            <p class="tipoDato">Nombre: </p>
+                            <p class="contenidoProveedor">GloboMatik</p>
+                        </div>
+                        <div class="parteInfo">
+                            <p class="tipoDato">RUC: </p>
+                            <p class="contenidoProveedor">20124922942</p>
+                        </div>
+                        <div class="parteInfo">
+                            <p class="tipoDato">Domicilio Fiscal: </p>
+                            <p class="contenidoProveedor">Calle María Tudor s/n, Almería, 04009, España. </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        
-        <!-- Contenido Principal del Formulario -->
-        <div class="form-container">
-            <h1>Registro de Nuevo Producto</h1>
-            <p>Completa los siguientes campos para añadir un nuevo artículo al catálogo.</p>
-            
-            <form id="formRegistrarProducto" class="product-form">
-                <div class="form-group">
-                    <label for="productName">Nombre del Producto</label>
-                    <input type="text" id="productName" name="nombre" placeholder="Ej: Mouse Gamer Inalámbrico" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="productBrand">Marca</label>
-                    <input type="text" id="productBrand" name="marca" placeholder="Ej: Logitech" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="productDescription">Descripción</label>
-                    <textarea id="productDescription" name="descripcion" rows="5" placeholder="Describe las características principales del producto." required></textarea>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="productPrice">Precio (S/)</label>
-                        <input type="number" id="productPrice" name="precio" step="0.01" placeholder="Ej: 199.90" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="productStock">Stock</label>
-                        <input type="number" id="productStock" name="stock" placeholder="Ej: 50" required>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="productImages">Imágenes del Producto</label>
-                    <p class="upload-description">Puedes seleccionar múltiples imágenes (formatos .jpg, .png, .webp).</p>
-                    <input type="file" id="productImages" name="imagenes" accept="image/png, image/jpeg, image/webp" multiple>
-                    <div id="imagePreview" class="image-preview"></div>
-                </div>
-
-                <button type="submit" class="submit-btn">Registrar Producto</button>
-            </form>
-        </div>
     </div>
-
-    
-
-    <!-- Script para previsualizar imágenes -->
-    <script>
-        document.getElementById('productImages').addEventListener('change', function(event) {
-            const previewContainer = document.getElementById('imagePreview');
-            previewContainer.innerHTML = ''; // Limpiar previsualizaciones anteriores
-            const files = event.target.files;
-            if (files) {
-                Array.from(files).forEach(file => {
-                    if (!file.type.startsWith('image/')){ return; }
-                    const reader = new FileReader();
-                    reader.onload = function(e) {
-                        const img = document.createElement('img');
-                        img.src = e.target.result;
-                        previewContainer.appendChild(img);
-                    };
-                    reader.readAsDataURL(file);
-                });
-            }
-        });
-    </script>
-    
-    <!-- Controlador para registrar productos -->
-    <script src="../Controlador/registrarProductoController.js"></script>
-    
-    <script>
-        function abrirPagina(url) {
-            window.location.href = url;
-        }
-    </script>
+    </div>    
 </body>
+
+<script>
+    function abrirPagina(url) {
+        window.location.href = url;
+    }
+</script>
+
 </html>

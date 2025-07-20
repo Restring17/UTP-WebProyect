@@ -9,18 +9,20 @@
 <script src="../Controlador/Shared/config.js"></script>
 <script src="../Controlador/getProductoControlles.js" onerror="console.error('❌ Error cargando getProductoControlles.js')" onload="console.log('✅ getProductoControlles.js cargado')"></script>
 <script>
-function getRandomIds(cantidad, min = 10, max = 15) {
-    const ids = new Set();
-    while (ids.size < cantidad) {
-        ids.add(Math.floor(Math.random() * (max - min + 1)) + min);
-    }
-    return Array.from(ids);
-}
-
 document.addEventListener('DOMContentLoaded', async () => {
     try {
         const productosConImagenes = await getProductos();
+        // El rango será entre 1 y la cantidad de productos
+        function getRandomIds(cantidad, min = 1, max = productosConImagenes.length) {
+            const ids = new Set();
+            while (ids.size < cantidad && ids.size < max) {
+                ids.add(Math.floor(Math.random() * (max - min + 1)) + min);
+            }
+            return Array.from(ids);
+        }
+
         const idsAleatorios = getRandomIds(4);
+        // Ajusta el filtro para que funcione con los IDs reales de los productos
         const productosFiltrados = productosConImagenes
             .filter(({ producto }) => idsAleatorios.includes(producto.id));
 

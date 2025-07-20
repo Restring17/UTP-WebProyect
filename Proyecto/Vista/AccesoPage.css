@@ -180,7 +180,7 @@ body {
     display:grid;
     grid-template-columns: repeat(3, 1fr);
     row-gap: 50px;
-    column-gap: 200px;
+    column-gap: 180px;
     margin: 50px 50px 50px 50px; 
 }
 
