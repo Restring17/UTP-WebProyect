@@ -8,6 +8,7 @@
 </head>
 <script src="../Controlador/Shared/config.js"></script>
 <script src="../Controlador/getProductoControlles.js" onerror="console.error('❌ Error cargando getProductoControlles.js')" onload="console.log('✅ getProductoControlles.js cargado')"></script>
+<script src="../Controlador/filtradoCatalogo.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', async () => {
     const productosConImagenes = await getProductos();
@@ -107,11 +108,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             </div> 
 
             <div class="filter-section">
-                <button class="button_type">Monitores></button>
-                <button class="button_type">Mouses></button>
-                <button class="button_type">Teclados></button>
-                <button class="button_type">Auricolares></button>
-                <button class="button_type">Componentes></button>
+                <button class="button_type">Monitor</button>
+                <button class="button_type">Mouse</button>
+                <button class="button_type">Teclado</button>
+                <button class="button_type">Auricular</button>
+                <button class="button_type">Componente</button>
             </div>
 
             <div class="Tittle_filter">
@@ -120,7 +121,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             <div class="filter-section">
                 <button class="button_marca">Logitech</button>
                 <button class="button_marca">Corsair</button>
-                <button class="button_marca">Hyper X</button>
+                <button class="button_marca">HyperX</button>
                 <button class="button_marca">RedDragon</button>
                 <button class="button_marca">RAZER</button>
                 <button class="button_marca">Intel</button>
