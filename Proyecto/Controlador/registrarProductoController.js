@@ -139,6 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
         descripcion: formData.get('descripcion'),
         precio: parseFloat(formData.get('precio')),
         stock: parseInt(formData.get('stock'), 10),
+        tipo: formData.get('tipo'),
         disponible: true
       };
       
