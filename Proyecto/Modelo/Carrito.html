@@ -234,5 +234,18 @@
         </div>
     </footer>
 
+    <script>
+        // Función para listar y mostrar el carrito en consola
+        function listarCarrito() {
+            return JSON.parse(localStorage.getItem('carrito')) || [];
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const productosCarrito = listarCarrito();
+            console.log('Productos en el carrito:', productosCarrito);
+        });
+    </script>
+    <script src="../Controlador/Shared/config.js"></script>
+    <script src="../Controlador/Carrito_de_compra.js"></script>
 </body>
 </html>
