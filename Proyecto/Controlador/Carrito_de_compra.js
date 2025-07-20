@@ -1,5 +1,3 @@
-
-
 // --- Funciones de carrito ---
 function listarCarrito() {
   return JSON.parse(localStorage.getItem('carrito')) || [];
@@ -7,7 +5,7 @@ function listarCarrito() {
 
 function eliminarProductoDelCarrito(idProducto) {
   let carrito = listarCarrito();
-  carrito = carrito.filter(item => item.id !== idProducto);
+  carrito = carrito.filter(item => Number(item.id) !== Number(idProducto));
   localStorage.setItem('carrito', JSON.stringify(carrito));
 }
 
@@ -101,15 +99,23 @@ async function renderizarCarritoSupabase() {
   const productosCarrito = listarCarrito();
   if (!productosCarrito.length) {
     contenedor.innerHTML = '<p style="color:white;text-align:center;">Tu carrito está vacío.</p>';
+    // Actualizar resumen a 0
+    document.querySelector('.pago').textContent = 'S/0';
+    document.querySelector('.pagoDescuento').textContent = 'S/0';
+    document.querySelectorAll('.pago')[1].textContent = 'S/15';
+    document.querySelector('.pagoTotal').textContent = 'S/15';
     return;
   }
 
+  let subtotal = 0;
   for (const item of productosCarrito) {
     const resultado = await obtenerProductoConImagenes(item.id);
     if (!resultado) continue;
     const { producto, imagenes } = resultado;
     const imagenPrincipal = imagenes.find(img => img.es_principal) || imagenes[0];
     const urlImagen = imagenPrincipal ? imagenPrincipal.url_completa : '../img/default.png';
+
+    subtotal += (producto.precio * item.cantidad);
 
     const productoHTML =
       '<div class="productoxcomprar">' +
@@ -140,9 +146,23 @@ async function renderizarCarritoSupabase() {
       '</div>';
     contenedor.innerHTML += productoHTML;
   }
+
+  // Actualizar resumen de pago
+  const descuento = 0;
+  const tarifaEntrega = 15;
+  const total = subtotal + descuento + tarifaEntrega;
+
+  document.querySelector('.pago').textContent = 'S/' + subtotal;
+  document.querySelector('.pagoDescuento').textContent = 'S/' + descuento;
+  document.querySelectorAll('.pago')[1].textContent = 'S/' + tarifaEntrega;
+  document.querySelector('.pagoTotal').textContent = 'S/' + total;
 }
 
 document.addEventListener('DOMContentLoaded', function() {
   renderizarCarritoSupabase();
 });
+
+
+
+
 
