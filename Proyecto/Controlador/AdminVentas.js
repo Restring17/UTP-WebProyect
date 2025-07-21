@@ -36,7 +36,8 @@ async function listarVentas() {
         tablaVentasBody.innerHTML = ''; // Clear existing rows
 
         for (const venta of ventas) {
-            const clienteResponse = await fetch(`${SUPABASE_URL}/rest/v1/clientes?select=nombre&id=eq.1`, requestOptions);
+            console.log('Venta actual:', venta);
+            const clienteResponse = await fetch(`${SUPABASE_URL}/rest/v1/clientes?select=nombre&id=eq.${venta.cliente_id}`, requestOptions);
             if (!clienteResponse.ok) {
                 console.error(`Error fetching client ${venta.id_cliente}: ${clienteResponse.statusText}`);
                 continue; // Skip this sale if client data can't be fetched
@@ -46,7 +47,7 @@ async function listarVentas() {
 
             const row = `
                 <tr>
-                    <td>${venta.id_documento}</td>
+                    <td>${venta.id}</td>
                     <td>${nombreCliente}</td>
                     <td>S/.${venta.total}</td>
                     <td>${new Date(venta.created_at).toLocaleDateString()}</td>
