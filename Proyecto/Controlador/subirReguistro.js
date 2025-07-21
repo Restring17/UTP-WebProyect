@@ -74,6 +74,7 @@ async function crearClienteSupabase(user, access_token) {
   myHeaders.append("apikey", SUPABASE_API_KEY);
   myHeaders.append("Authorization", `Bearer ${access_token}`);
   myHeaders.append("Content-Type", "application/json");
+  myHeaders.append("Prefer", "return=representation");
 
   const raw = JSON.stringify({
     user_id: user.id,
