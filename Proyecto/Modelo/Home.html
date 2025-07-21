@@ -37,6 +37,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                     const imgTag = cards[i].querySelector('.product-image img');
                     if (imgTag) imgTag.src = imagenes[0].url_completa;
                 }
+                // Evento para redirigir al producto
+                cards[i].addEventListener('click', function() {
+                    window.location.href = `/Modelo/Producto.html?id=${producto.id}`;
+                });
             }
         });
     } catch (error) {
