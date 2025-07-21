@@ -163,6 +163,88 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+async function subirEncabezadoCarritoSupabase({ cliente_id, direccion_id, subtotal, descuento, total, access_token }) {
+
+  const myHeaders = new Headers();
+  myHeaders.append("apikey", SUPABASE_API_KEY);
+  myHeaders.append("Authorization", `Bearer ${access_token}`);
+  myHeaders.append("Content-Type", "application/json");
+
+  const raw = JSON.stringify({
+    cliente_id: cliente_id,
+    direccion_id: 1,
+    subtotal: subtotal,
+    codigo_descuento: "",
+    descuento: descuento,
+    total: total,
+    anulada: false,
+    venta_autorisada: false
+  });
+
+  const requestOptions = {
+    method: "POST",
+    headers: myHeaders,
+    body: raw,
+    redirect: "follow"
+  };
+
+  try {
+    const response = await fetch(`${SUPABASE_URL}/rest/v1/documentos`, requestOptions);
+    const result = await response.json();
+    console.log('Documento creado:', result);
+    // Retorna el id del documento creado
+    return result[0]?.id || null;
+  } catch (error) {
+    console.error('Error al crear documento:', error);
+    return null;
+  }
+}
+
+/**
+ * Sube los detalles del carrito a Supabase (tabla detalle_documentos)
+ * @param {number} documento_id - ID del documento creado (encabezado)
+ * @param {Array} carrito - Array de productos en el carrito
+ * @param {string} access_token - Token de acceso Supabase
+ * @returns {Promise<any>} - Resultado de la operación
+ */
+async function subirDetalleCarritoSupabase(documento_id, carrito, access_token) {
+  const myHeaders = new Headers();
+  myHeaders.append("apikey", SUPABASE_API_KEY);
+  myHeaders.append("Authorization", `Bearer ${access_token}`);
+  myHeaders.append("Content-Type", "application/json");
+
+  // Construir el array de detalles
+  const detalles = [];
+  for (const item of carrito) {
+    // Obtener el precio actual del producto desde Supabase
+    const producto = await obtenerProductoConImagenes(item.id);
+    if (!producto || !producto.producto) continue;
+    detalles.push({
+      documento_id: documento_id,
+      producto_id: item.id,
+      cantidad: item.cantidad,
+      precio_unitario: producto.producto.precio
+    });
+  }
+
+  const raw = JSON.stringify(detalles);
+  const requestOptions = {
+    method: "POST",
+    headers: myHeaders,
+    body: raw,
+    redirect: "follow"
+  };
+
+  try {
+    const response = await fetch(`${SUPABASE_URL}/rest/v1/detalle_documentos`, requestOptions);
+    const result = await response.json();
+    console.log('Detalles subidos:', result);
+    return result;
+  } catch (error) {
+    console.error('Error al subir detalles del carrito:', error);
+    return null;
+  }
+}
 
 
 

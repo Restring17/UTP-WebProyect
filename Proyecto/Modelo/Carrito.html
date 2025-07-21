@@ -253,7 +253,49 @@
         });
     </script>
     <script src="../Controlador/Shared/config.js"></script>
-    <script src="../Controlador/Carrito_de_compra.js"></script>
     <script src="../Controlador/obtenerSupabaseToken.js"></script>
+    <script src="../Controlador/Carrito_de_compra.js"></script>
+    <script>
+        document.querySelector('.irPagar').addEventListener('click', async function() {
+            // Validar token
+            let tokenValido = false;
+            let access_token = null;
+            let cliente_id = null;
+            let direccion_id = null;
+            if (typeof validarSupabaseToken === 'function') {
+                tokenValido = await validarSupabaseToken();
+            }
+            if (!tokenValido) {
+                alert('Debes iniciar sesión y tener datos de cliente/dirección para pagar.');
+                return;
+            }
+            // Obtener resumen de pago
+            const subtotal = Number(document.querySelector('.pago').textContent.replace('S/', ''));
+            const descuento = Number(document.querySelector('.pagoDescuento').textContent.replace('S/', ''));
+            const total = Number(document.querySelector('.pagoTotal').textContent.replace('S/', ''));
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            try {
+                // Subir encabezado
+                const documento_id = await subirEncabezadoCarritoSupabase({
+                    cliente_id,
+                    direccion_id,
+                    subtotal,
+                    descuento,
+                    total,
+                    access_token
+                });
+                if (!documento_id) throw new Error('No se pudo crear el documento.');
+                // Subir detalles
+                const detalles = await subirDetalleCarritoSupabase(documento_id, carrito, access_token);
+                if (!detalles) throw new Error('No se pudo subir el detalle del carrito.');
+                alert('¡Compra realizada con éxito!');
+                localStorage.removeItem('carrito');
+                location.reload();
+            } catch (error) {
+                alert('Error al procesar el pago: ' + error.message);
+            }
+        });
+    </script>
+    
 </body>
 </html>
