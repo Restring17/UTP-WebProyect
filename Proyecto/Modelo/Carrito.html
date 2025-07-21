@@ -240,12 +240,21 @@
             return JSON.parse(localStorage.getItem('carrito')) || [];
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', async function() {
             const productosCarrito = listarCarrito();
             console.log('Productos en el carrito:', productosCarrito);
+            // Validar el token Supabase
+            if (typeof validarSupabaseToken === 'function') {
+                const tokenValido = await validarSupabaseToken();
+                console.log('¿Token Supabase válido?:', tokenValido);
+            } else {
+                alert
+            }
         });
     </script>
     <script src="../Controlador/Shared/config.js"></script>
     <script src="../Controlador/Carrito_de_compra.js"></script>
+    <script src="../Controlador/obtenerSupabaseToken.js"></script>
+    
 </body>
 </html>
