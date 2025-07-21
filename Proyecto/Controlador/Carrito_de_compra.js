@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-async function subirEncabezadoCarritoSupabase({ cliente_id, direccion_id, subtotal, descuento, total, access_token }) {
+async function subirEncabezadoCarritoSupabase({ cliente_id, subtotal, descuento, total, access_token }) {
 
   const myHeaders = new Headers();
   myHeaders.append("apikey", SUPABASE_API_KEY);
