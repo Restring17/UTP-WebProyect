@@ -125,7 +125,7 @@ window.handleStep1Next = async function() {
     return;
   }
   // Avanzar al siguiente paso
-  nextStep(2);
+  nextStep(3);
 }
 
 
