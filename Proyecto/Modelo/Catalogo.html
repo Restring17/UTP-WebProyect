@@ -70,8 +70,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                     <img src="../img/desplegable.png" alt="Desplegable" width="10" height="8">
                     <div class="dropdown-menu">
                         <a href="Catalogo.html" class="dropdown-item">Catálogo</a>
-                        <a href="#" class="dropdown-item">Ofertas</a>
-                        <a href="#" class="dropdown-item">Novedades</a>
+                        <a href="Catalogo.html" class="dropdown-item">Ofertas</a>
+                        <a href="Catalogo.html" class="dropdown-item">Novedades</a>
                     </div>
                 </div>
                 <a href="Marcas.html" class="nav-item">Marcas</a>
@@ -261,6 +261,16 @@ document.addEventListener('DOMContentLoaded', async () => {
             </div>
         </div>
     </footer>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.icon-button[aria-label="Carrito de compras"]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            window.location.href = 'Carrito.html';
+        });
+    });
+});
+</script>
 
 </body>
 </html>
