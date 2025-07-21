@@ -26,8 +26,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Función para registrar usuario y obtener access_token
 async function registrarUsuario(email, password) {
-  const SUPABASE_URL = window.SUPABASE_URL;
-  const SUPABASE_API_KEY = window.SUPABASE_API_KEY ;
 
   const myHeaders = new Headers();
   myHeaders.append("apikey", SUPABASE_API_KEY);
@@ -71,9 +69,6 @@ async function crearClienteSupabase(user, access_token) {
   const fecha_nacimiento = document.getElementById('cumpleanos').value;
   const tipo_documento = document.getElementById('tipoDocumento').value;
   const numero_documento = document.getElementById('numeroDocumento').value;
-
-  const SUPABASE_URL = window.SUPABASE_URL;
-  const SUPABASE_API_KEY = window.SUPABASE_API_KEY;
 
   const myHeaders = new Headers();
   myHeaders.append("apikey", SUPABASE_API_KEY);
