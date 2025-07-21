@@ -203,6 +203,38 @@ body {
             color: #ccc;
         }
 
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: #2a2a2a;
+            border: 1px solid #333;
+            border-radius: 6px;
+            color: white;
+            font-size: 16px;
+            box-sizing: border-box;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+        }
+        .form-group select:focus {
+            outline: none;
+            border-color: #16B806;
+        }
+        .form-group select option {
+            background-color: #2a2a2a;
+            color: white;
+        }
+        /* Icono de flecha para el select (opcional, solo visual) */
+        .form-group {
+            position: relative;
+        }
+        .form-group select {
+            background-image: url('data:image/svg+xml;utf8,<svg fill="white" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 18px 18px;
+        }
+
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .registro-container {
