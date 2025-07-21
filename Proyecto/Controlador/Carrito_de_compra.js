@@ -1,4 +1,8 @@
+const SUPABASE_BEARER_TOKEN = document.cookie.split('; ').find(row => row.startsWith('supabase_token='))?.split('=')[1];
+
 // --- Funciones de carrito ---
+
+
 function listarCarrito() {
   return JSON.parse(localStorage.getItem('carrito')) || [];
 }
@@ -163,16 +167,16 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-async function subirEncabezadoCarritoSupabase({ cliente_id, subtotal, descuento, total, access_token }) {
-
+async function subirEncabezadoCarritoSupabase({ cliente_id, subtotal, descuento, total }) {
   const myHeaders = new Headers();
   myHeaders.append("apikey", SUPABASE_API_KEY);
-  myHeaders.append("Authorization", `Bearer ${access_token}`);
+  myHeaders.append("Authorization", `Bearer ${SUPABASE_BEARER_TOKEN}`);
   myHeaders.append("Content-Type", "application/json");
+  myHeaders.append("Prefer", "return=representation"); // <-- Esto fuerza la respuesta con el objeto creado
 
   const raw = JSON.stringify({
-    cliente_id: cliente_id,
-    direccion_id: 1,
+    cliente_id: 1,
+    direccion_id: 1, // Ajusta si tienes la dirección dinámica
     subtotal: subtotal,
     codigo_descuento: "",
     descuento: descuento,
@@ -190,9 +194,23 @@ async function subirEncabezadoCarritoSupabase({ cliente_id, subtotal, descuento,
 
   try {
     const response = await fetch(`${SUPABASE_URL}/rest/v1/documentos`, requestOptions);
-    const result = await response.json();
+    const text = await response.text();
+    if (!response.ok) {
+      console.error('Error al crear documento:', text);
+      return null;
+    }
+    if (!text) {
+      console.warn('La respuesta está vacía, pero el documento puede haberse creado.');
+      return null;
+    }
+    let result;
+    try {
+      result = JSON.parse(text);
+    } catch (e) {
+      console.error('No se pudo parsear la respuesta JSON:', text);
+      return null;
+    }
     console.log('Documento creado:', result);
-    // Retorna el id del documento creado
     return result[0]?.id || null;
   } catch (error) {
     console.error('Error al crear documento:', error);
@@ -207,11 +225,12 @@ async function subirEncabezadoCarritoSupabase({ cliente_id, subtotal, descuento,
  * @param {string} access_token - Token de acceso Supabase
  * @returns {Promise<any>} - Resultado de la operación
  */
-async function subirDetalleCarritoSupabase(documento_id, carrito, access_token) {
+async function subirDetalleCarritoSupabase(documento_id, carrito) {
   const myHeaders = new Headers();
   myHeaders.append("apikey", SUPABASE_API_KEY);
-  myHeaders.append("Authorization", `Bearer ${access_token}`);
+  myHeaders.append("Authorization", `Bearer ${SUPABASE_BEARER_TOKEN}`);
   myHeaders.append("Content-Type", "application/json");
+  myHeaders.append("Prefer", "return=representation"); // <-- Esto fuerza la respuesta con el objeto creado
 
   // Construir el array de detalles
   const detalles = [];
@@ -237,7 +256,22 @@ async function subirDetalleCarritoSupabase(documento_id, carrito, access_token) 
 
   try {
     const response = await fetch(`${SUPABASE_URL}/rest/v1/detalle_documentos`, requestOptions);
-    const result = await response.json();
+    const text = await response.text();
+    if (!response.ok) {
+      console.error('Error al subir detalles del carrito:', text);
+      return null;
+    }
+    if (!text) {
+      console.warn('La respuesta está vacía, pero los detalles pueden haberse creado.');
+      return null;
+    }
+    let result;
+    try {
+      result = JSON.parse(text);
+    } catch (e) {
+      console.error('No se pudo parsear la respuesta JSON:', text);
+      return null;
+    }
     console.log('Detalles subidos:', result);
     return result;
   } catch (error) {
