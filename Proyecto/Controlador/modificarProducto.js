@@ -5,11 +5,6 @@ const SUPABASE_BEARER_TOKEN = document.cookie.split('; ').find(row => row.starts
 console.log('🔧 ModificarProducto.js cargado');
 console.log('Token disponible:', SUPABASE_BEARER_TOKEN ? 'Sí' : 'No');
 
-/**
- * Obtiene los datos de un producto específico por ID
- * @param {number} productoId - ID del producto a obtener
- * @returns {Promise<object|null>} - Objeto con los datos del producto o null si hay error
- */
 async function obtenerProductoPorId(productoId) {
   const myHeaders = new Headers();
   myHeaders.append("apikey", SUPABASE_API_KEY);
@@ -60,12 +55,6 @@ async function obtenerProductoPorId(productoId) {
   }
 }
 
-/**
- * Modifica un producto existente en la base de datos
- * @param {number} productoId - ID del producto a modificar
- * @param {object} datosActualizados - Objeto con los nuevos datos del producto
- * @returns {Promise<boolean>} - true si se modificó exitosamente, false si hubo error
- */
 async function modificarProducto(productoId, datosActualizados) {
   // Verificar autenticación
   if (!SUPABASE_BEARER_TOKEN) {
@@ -145,10 +134,6 @@ async function modificarProducto(productoId, datosActualizados) {
   }
 }
 
-/**
- * Carga los datos de un producto en el formulario de edición
- * @param {number} productoId - ID del producto a cargar
- */
 async function cargarProductoEnFormulario(productoId) {
   try {
     console.log(`📋 Cargando producto ${productoId} en formulario`);
@@ -198,10 +183,7 @@ async function cargarProductoEnFormulario(productoId) {
   }
 }
 
-/**
- * Obtiene el formulario del modal con múltiples estrategias
- * @returns {HTMLElement|null} - El formulario encontrado o null
- */
+
 function obtenerFormularioModal() {
   // Estrategia 1: Por ID específico
   let form = document.getElementById('formRegistrarProducto');
@@ -241,12 +223,6 @@ function obtenerFormularioModal() {
   return null;
 }
 
-/**
- * Llena los campos del formulario con los datos del producto
- * @param {HTMLElement} form - El formulario a llenar
- * @param {Object} producto - Los datos del producto
- * @returns {Object} - Estadísticas de campos llenados
- */
 function llenarCamposFormulario(form, producto) {
   const estadisticas = { total: 0, exitosos: 0, fallidos: [] };
   
@@ -321,10 +297,6 @@ function llenarCamposFormulario(form, producto) {
   return estadisticas;
 }
 
-/**
- * Muestra u oculta el indicador de carga en el modal
- * @param {boolean} mostrar - true para mostrar, false para ocultar
- */
 function mostrarIndicadorCarga(mostrar) {
   const modal = document.getElementById('modalEditarProducto');
   if (!modal) return;
@@ -361,10 +333,7 @@ function mostrarIndicadorCarga(mostrar) {
   }
 }
 
-/**
- * Actualiza el título del modal para mostrar que se está editando
- * @param {string} nombreProducto - Nombre del producto que se está editando
- */
+
 function actualizarTituloModal(nombreProducto) {
   const modal = document.getElementById('modalEditarProducto');
   if (!modal) return;
@@ -376,11 +345,7 @@ function actualizarTituloModal(nombreProducto) {
   }
 }
 
-/**
- * Muestra un resumen de los datos cargados en la consola
- * @param {Object} producto - Los datos del producto
- * @param {Object} estadisticas - Estadísticas de carga
- */
+
 function mostrarResumenDatosCargados(producto, estadisticas) {
   console.log('📋 RESUMEN DE DATOS CARGADOS:');
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
@@ -397,11 +362,7 @@ function mostrarResumenDatosCargados(producto, estadisticas) {
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
 }
 
-/**
- * Muestra un error detallado cuando falla la carga
- * @param {string} mensaje - Mensaje de error
- * @param {number} productoId - ID del producto que falló
- */
+
 function mostrarErrorCarga(mensaje, productoId) {
   const errorDetallado = `
 🚨 ERROR AL CARGAR PRODUCTO ${productoId}
