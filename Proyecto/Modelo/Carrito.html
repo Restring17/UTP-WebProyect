@@ -52,7 +52,7 @@
                 <button class="icon-button" aria-label="Carrito de compras">
                     <img src="../img/carrito.png" alt="Carrito" width="20" height="20">
                 </button>
-                <button class="icon-button" aria-label="Usuario">
+                <button class="icon-button" aria-label="Usuario" id="openLoginModal">
                     <img src="../img/usuario.png" alt="Usuario" width="20" height="20">
                 </button>
             </div>
@@ -296,6 +296,44 @@
             }
         });
     </script>
-    
+
+
+    <div id="loginModal" class="modal">
+      <div class="login-container">
+        <button
+          class="close-login"
+          id="closeLoginModal"
+          aria-label="Cerrar login"
+        >
+          ×
+        </button>
+        <div class="login-logo">PERIFY.CO</div>
+        <h2 class="login-title">INGRESO DE<br>CUENTA</h2>
+        <form class="login-form" id="loginForm">
+          <div class="input-group">
+            <img src="../img/email.png" alt="Correo" class="input-icon">
+            <input type="email" id="loginEmail" placeholder="Ingresa tu correo electronico" required="">
+          </div>
+          <div class="input-group">
+            <img src="../img/password.png" alt="Contraseña" class="input-icon">
+            <input type="password" id="loginPassword" placeholder="Ingrese su contraseña" required="">
+          </div>
+          <a href="#" class="forgot-link">¿Olvidaste tu contraseña?</a>
+          <button type="submit" class="login-btn">INGRESAR</button>
+        </form>
+        <div class="divider"><span>o</span></div>
+        <button class="google-btn">Sign in with Google</button>
+        <a href="Reguistro.html" class="create-account">Crear Cuenta</a>
+      </div>
+    </div>
+
+    <script src="../Controlador/Login.js"></script>
+
+    <script>
+        function abrirPagina(url) {
+            window.location.href = url;
+        }
+    </script>
+
 </body>
 </html>
