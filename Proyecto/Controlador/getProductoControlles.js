@@ -72,9 +72,6 @@ async function listarProductos() {
 async function obtenerImagenesProducto(productoId) {
   const myHeaders = new Headers();
   myHeaders.append("apikey", SUPABASE_API_KEY);
-  if (SUPABASE_BEARER_TOKEN) {
-    myHeaders.append("Authorization", `Bearer ${SUPABASE_BEARER_TOKEN}`);
-  }
 
   const requestOptions = {
     method: "GET",
