@@ -13,14 +13,14 @@
 document.addEventListener('DOMContentLoaded', async () => {
     const productosConImagenes = await getProductos();
     const grid = document.getElementById('products_grid');
-    grid.innerHTML = ""; // Limpia el grid
+    grid.innerHTML = "";
 
     productosConImagenes.forEach(({ producto, imagenes }) => {
         const imgSrc = (imagenes && imagenes.length > 0) ? imagenes[0].url_completa : "../img/no-image.png";
         const card = document.createElement('div');
         card.className = "product-card";
         card.innerHTML = `
-            <a href="">
+            <a href="#" class="product-link">
                 <div>
                     <div class="product_visual">
                         <img class="product_image" src="${imgSrc}" alt="${producto.nombre}">
@@ -33,6 +33,11 @@ document.addEventListener('DOMContentLoaded', async () => {
                 </div>
             </a>
         `;
+        // Evento para redirigir al producto
+        card.querySelector('.product-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = `/Modelo/Producto.html?id=${producto.id}`;
+        });
         grid.appendChild(card);
     });
 });
