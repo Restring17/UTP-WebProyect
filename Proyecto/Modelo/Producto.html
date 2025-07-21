@@ -270,5 +270,15 @@
         document.getElementById('producto-container').innerHTML = '<p>No se especificó producto</p>';
     }
     </script>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.icon-button[aria-label="Carrito de compras"]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            window.location.href = 'Carrito.html';
+        });
+    });
+});
+</script>
 </body>
 </html>

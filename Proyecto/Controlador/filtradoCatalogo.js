@@ -13,7 +13,7 @@ function renderizarProductos(productos) {
         const card = document.createElement('div');
         card.className = "product-card";
         card.innerHTML = `
-            <a href="">
+            <a href="#" class="product-link">
                 <div>
                     <div class="product_visual">
                         <img class="product_image" src="${imgSrc}" alt="${producto.nombre}">
@@ -26,6 +26,11 @@ function renderizarProductos(productos) {
                 </div>
             </a>
         `;
+        // Evento para redirigir al producto
+        card.querySelector('.product-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = `/Modelo/Producto.html?id=${producto.id}`;
+        });
         grid.appendChild(card);
     });
 }
@@ -63,7 +68,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 
     // Puedes agregar más filtros aquí...
-    
+
     document.getElementById('btn-reset-filtros').addEventListener('click', function() {
     renderizarProductos(productosConImagenesGlobal);
 });

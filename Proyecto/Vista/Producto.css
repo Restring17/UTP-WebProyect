@@ -195,7 +195,7 @@ body {
 /*Paginas anteriores*/
 .partes{
     font-family: 'Satoshi',sans-serif;
-    margin-left: 100px;
+    margin-left: 200px;
     margin-top: 30px;
 }
 
@@ -208,12 +208,13 @@ body {
 .producto{
     display: flex;
     margin-left: 100px;
+    margin-top: 50px;
 }
 
-#imagenProducto{
-    height: 530px;
-    width: 444px;
-    border-radius: 30px;
+.imagenProducto{
+    height: 500px;
+    width: 500px;
+    border-radius: 20px;
 }
 
 .info-product{
